@@ -4,12 +4,29 @@ import { RouterProvider } from 'react-router/dom'
 import MainLayout from '@/components/layout/main-layout'
 
 import ErrorPage from './routes/error-page'
+import { PageOne, PageTwo } from './routes/pages'
+
+const pageChildren = [
+  {
+    index: true,
+    Component: PageOne,
+  },
+  {
+    path: 'page-one',
+    Component: PageOne,
+  },
+  {
+    path: 'page-two',
+    Component: PageTwo,
+  },
+]
 
 const createAppRouter = () => {
   const router = createBrowserRouter([
     {
       path: '/',
       Component: MainLayout,
+      children: pageChildren,
     },
     {
       path: '*',
