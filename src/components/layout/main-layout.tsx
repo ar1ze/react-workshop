@@ -1,22 +1,30 @@
 import { Outlet } from 'react-router'
 
 import Header from './header'
+import Sidebar from './sidebar'
 
 const Content = () => {
   return (
-    <main>
-      <div>
-        <Outlet />
-      </div>
+    <main className="border-2 border-blue-300 p-4">
+      <Outlet />
     </main>
+  )
+}
+
+const Section = () => {
+  return (
+    <section className="grid h-full grid-cols-[16rem_1fr]">
+      <Sidebar />
+      <Content />
+    </section>
   )
 }
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="grid h-screen grid-rows-[auto_1fr] content-center">
       <Header />
-      <Content />
+      <Section />
     </div>
   )
 }
