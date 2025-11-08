@@ -25,8 +25,8 @@ export const navigationSections: NavigationSection[] = [
     label: 'Page Section One',
     to: '/page-section-one',
     links: [
-      { to: 'page-section-one/subpage-one', label: 'Sub Page One' },
-      { to: 'page-section-one/subpage-two', label: 'Sub Page Two' },
+      { to: '/page-section-one/subpage-one', label: 'Sub Page One' },
+      { to: '/page-section-one/subpage-two', label: 'Sub Page Two' },
     ],
   },
   {
@@ -34,8 +34,8 @@ export const navigationSections: NavigationSection[] = [
     label: 'Page Section Two',
     to: '/page-section-two',
     links: [
-      { to: 'page-section-two/subpage-one', label: 'Sub Page One' },
-      { to: 'page-section-two/subpage-two', label: 'Sub Page Two' },
+      { to: '/page-section-two/subpage-one', label: 'Sub Page One' },
+      { to: '/page-section-two/subpage-two', label: 'Sub Page Two' },
     ],
   },
 ]
