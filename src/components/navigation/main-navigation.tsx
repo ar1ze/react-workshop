@@ -1,9 +1,13 @@
-import { navigationLinks } from '@/config/navigation'
+import { navigationSections } from '@/config/navigation'
 
-import NavigationList from './navigation-list'
+import NavigationSectionList from './navigation-section'
 
 const MainNavigation = () => {
-  return <NavigationList links={navigationLinks} />
+  return (
+    <>
+      <NavigationSectionList sections={navigationSections} />
+    </>
+  )
 }
 
 export default MainNavigation

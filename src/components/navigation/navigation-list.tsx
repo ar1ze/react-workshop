@@ -1,37 +1,32 @@
-import { NavLink, useLocation } from 'react-router'
+import { twMerge } from 'tailwind-merge'
 
-import { type NavigationLink, type NavigationLinks } from '@/config/navigation'
+import { type NavigationLinks } from '@/config/navigation'
 
-const NavigationItem = ({ to, label }: NavigationLink) => {
-  const location = useLocation()
-  const isActiveClass =
-    location.pathname === to ? 'bg-link-bg-hover text-link-active' : ''
-
-  const className = `
-    hover:bg-link-bg-hover 
-    block rounded-sm px-2 py-1.5 font-bold 
-    transition-colors duration-500 ease-out
-    hover:text-indigo-400 
-    ${isActiveClass}`
-
-  return (
-    <li>
-      <NavLink className={className} to={to}>
-        {label}
-      </NavLink>
-    </li>
-  )
-}
+import NavigationItem from './navigation-item'
 
 interface NavigationListProps {
   links: NavigationLinks
+  classNames?: string
+  navItemClassNames?: string
 }
 
-const NavigationList = ({ links }: NavigationListProps) => {
+const NavigationList = ({
+  links,
+  classNames,
+  navItemClassNames,
+}: NavigationListProps) => {
+  const defaultClassName = 'flex list-none flex-col text-sm'
+
   return (
-    <ul className="flex flex-col text-sm">
+    <ul className={twMerge(defaultClassName, classNames)}>
       {links.map((link) => (
-        <NavigationItem key={link.to} to={link.to} label={link.label} />
+        <li key={link.to}>
+          <NavigationItem
+            to={link.to}
+            label={link.label}
+            className={navItemClassNames}
+          />
+        </li>
       ))}
     </ul>
   )
