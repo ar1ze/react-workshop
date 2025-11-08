@@ -2,14 +2,9 @@ import { NavLink, useLocation } from 'react-router'
 
 import { type NavigationLink } from '@/config/navigation'
 
-const isActive = (to: string, locationPath: string) =>
-  locationPath === to || (locationPath === '/' && to === '/page-one')
-
 const NavigationItem = ({ to, label }: NavigationLink) => {
   const location = useLocation()
-  const isActiveClass = isActive(to, location.pathname)
-    ? 'text-link-active'
-    : ''
+  const isActiveClass = location.pathname === to ? 'text-link-active' : ''
 
   const className = `
     hover:bg-link-bg-hover 
