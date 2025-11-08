@@ -5,11 +5,12 @@ import MainLayout from '@/components/layout/main-layout'
 
 import ErrorPage from './routes/error-page'
 import { PageOne, PageTwo } from './routes/pages'
+import RootPage from './routes/root-page'
 
 const pageChildren = [
   {
     index: true,
-    Component: PageOne,
+    Component: RootPage,
   },
   {
     path: 'page-one',
