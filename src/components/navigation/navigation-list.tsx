@@ -4,7 +4,8 @@ import { type NavigationLink } from '@/config/navigation'
 
 const NavigationItem = ({ to, label }: NavigationLink) => {
   const location = useLocation()
-  const isActiveClass = location.pathname === to ? 'text-link-active' : ''
+  const isActiveClass =
+    location.pathname === to ? 'bg-link-bg-hover text-link-active' : ''
 
   const className = `
     hover:bg-link-bg-hover 
