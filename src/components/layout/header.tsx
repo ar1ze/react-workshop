@@ -1,7 +1,12 @@
 import { Moon, Sun } from 'lucide-react'
+import { NavLink } from 'react-router'
 
 const Logo = () => {
-  return <div className="text-lg font-bold">React Workshop</div>
+  return (
+    <NavLink to="/" className="text-lg font-bold">
+      React Workshop
+    </NavLink>
+  )
 }
 
 const Nav = () => {
