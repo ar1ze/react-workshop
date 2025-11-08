@@ -11,6 +11,7 @@ export const navigationLinks: NavigationLink[] = [
 export interface NavigationSection {
   id: string
   label: string
+  to?: string
   links: NavigationLink[]
 }
 
@@ -18,17 +19,19 @@ export const navigationSections: NavigationSection[] = [
   {
     id: 'page-section-one',
     label: 'Page Section One',
+    to: '/page-section-one',
     links: [
-      { to: 'page-section-one/subpage-one', label: 'Sub Page One ' },
-      { to: 'page-section-one/subpage-two', label: 'Sub Page Two ' },
+      { to: 'page-section-one/subpage-one', label: 'Sub Page One' },
+      { to: 'page-section-one/subpage-two', label: 'Sub Page Two' },
     ],
   },
   {
     id: 'page-section-two',
     label: 'Page Section Two',
+    to: '/page-section-two',
     links: [
-      { to: 'page-section-two/subpage-one', label: 'Sub Page One ' },
-      { to: 'page-section-two/subpage-two', label: 'Sub Page Two ' },
+      { to: 'page-section-two/subpage-one', label: 'Sub Page One' },
+      { to: 'page-section-two/subpage-two', label: 'Sub Page Two' },
     ],
   },
 ]
