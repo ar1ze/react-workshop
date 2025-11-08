@@ -1,11 +1,10 @@
+import PageLayout from '@/components/layout/page-layout'
+
 const PageOne = () => {
   return (
-    <div className="grid grid-rows-[auto_1fr] gap-y-2">
-      <h1 className="text-xl font-medium">Page One</h1>
-      <div className="text-sm">
-        <p>This is the content for Page One.</p>
-      </div>
-    </div>
+    <PageLayout title="Page One">
+      <p>This is the content for Page One.</p>
+    </PageLayout>
   )
 }
 
