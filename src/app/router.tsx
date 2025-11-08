@@ -3,8 +3,7 @@ import { RouterProvider } from 'react-router/dom'
 
 import MainLayout from '@/components/layout/main-layout'
 
-import ErrorPage from './routes/base/error-page'
-import RootPage from './routes/base/root-page'
+import { ErrorPage, RootPage } from './routes/base'
 import {
   PageSectionOneRootPage,
   PageSectionOneSubPageOne,
