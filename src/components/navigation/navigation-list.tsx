@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from 'react-router'
 
-import { type NavigationLink } from '@/config/navigation'
+import { type NavigationLink, type NavigationLinks } from '@/config/navigation'
 
 const NavigationItem = ({ to, label }: NavigationLink) => {
   const location = useLocation()
@@ -24,7 +24,7 @@ const NavigationItem = ({ to, label }: NavigationLink) => {
 }
 
 interface NavigationListProps {
-  links: Array<NavigationLink>
+  links: NavigationLinks
 }
 
 const NavigationList = ({ links }: NavigationListProps) => {

@@ -3,7 +3,9 @@ export interface NavigationLink {
   label: string
 }
 
-export const navigationLinks: NavigationLink[] = [
+export type NavigationLinks = NavigationLink[]
+
+export const navigationLinks: NavigationLinks = [
   { to: '/page-one', label: 'Page One' },
   { to: '/page-two', label: 'Page Two' },
 ]
@@ -11,9 +13,11 @@ export const navigationLinks: NavigationLink[] = [
 export interface NavigationSection {
   id: string
   label: string
-  to?: string
+  to: string
   links: NavigationLink[]
 }
+
+export type NavigationSections = NavigationSection[]
 
 export const navigationSections: NavigationSection[] = [
   {
