@@ -3,9 +3,9 @@ import { RouterProvider } from 'react-router/dom'
 
 import MainLayout from '@/components/layout/main-layout'
 
-import ErrorPage from './routes/error-page'
+import ErrorPage from './routes/base/error-page'
+import RootPage from './routes/base/root-page'
 import { PageOne, PageTwo } from './routes/pages'
-import RootPage from './routes/root-page'
 
 const pageChildren = [
   {
