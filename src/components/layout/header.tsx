@@ -18,7 +18,7 @@ const Nav = () => {
   )
 }
 
-const Header = () => {
+export const Header = () => {
   return (
     <header className="flex justify-between border-2 border-purple-300 p-4">
       <Logo />
@@ -26,5 +26,3 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header

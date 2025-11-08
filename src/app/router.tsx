@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 
-import MainLayout from '@/components/layout/main-layout'
+import { MainLayout } from '@/components/layout/main-layout'
 
 import { ErrorPage, RootPage } from './routes/base'
 import {

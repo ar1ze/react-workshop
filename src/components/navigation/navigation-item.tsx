@@ -7,7 +7,11 @@ interface NavigationItemProps extends NavigationLink {
   className?: string
 }
 
-const NavigationItem = ({ to, label, className }: NavigationItemProps) => {
+export const NavigationItem = ({
+  to,
+  label,
+  className,
+}: NavigationItemProps) => {
   const location = useLocation()
   const isActiveClass =
     location.pathname === to ? 'bg-link-bg-hover text-link-active' : ''
@@ -29,5 +33,3 @@ const NavigationItem = ({ to, label, className }: NavigationItemProps) => {
     </NavLink>
   )
 }
-
-export default NavigationItem

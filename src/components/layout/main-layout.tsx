@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router'
 
-import MainNavigation from '../navigation/main-navigation'
-import Header from './header'
-import Sidebar from './sidebar'
+import { MainNavigation } from '../navigation/main-navigation'
+import { Header } from './header'
+import { Sidebar } from './sidebar'
 
 const Content = () => {
   return (
@@ -23,7 +23,7 @@ const Section = () => {
   )
 }
 
-const MainLayout = () => {
+export const MainLayout = () => {
   return (
     <div className="grid h-screen grid-rows-[auto_1fr] content-center">
       <Header />
@@ -31,5 +31,3 @@ const MainLayout = () => {
     </div>
   )
 }
-
-export default MainLayout

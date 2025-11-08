@@ -1,7 +1,5 @@
 import { AppRouter } from './router'
 
-function App() {
+export const App = () => {
   return <AppRouter />
 }
-
-export default App

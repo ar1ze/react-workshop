@@ -3,8 +3,8 @@ import {
   type NavigationSections,
 } from '@/config/navigation'
 
-import NavigationItem from './navigation-item'
-import NavigationList from './navigation-list'
+import { NavigationItem } from './navigation-item'
+import { NavigationList } from './navigation-list'
 
 interface NavigationSectionItemProps {
   to: string
@@ -30,7 +30,7 @@ interface NavigationSectionProps {
   sections: NavigationSections
 }
 
-const NavigationSectionList = ({ sections }: NavigationSectionProps) => {
+export const NavigationSectionList = ({ sections }: NavigationSectionProps) => {
   return (
     <>
       {sections.map((section) => {
@@ -46,5 +46,3 @@ const NavigationSectionList = ({ sections }: NavigationSectionProps) => {
     </>
   )
 }
-
-export default NavigationSectionList

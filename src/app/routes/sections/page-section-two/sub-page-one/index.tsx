@@ -1,11 +1,9 @@
-import PageLayout from '@/components/layout/page-layout'
+import { PageLayout } from '@/components/layout/page-layout'
 
-const PageSectionTwoSubPageOne = () => {
+export const PageSectionTwoSubPageOne = () => {
   return (
     <PageLayout title="Page Section Two Sub Page One">
       <p>This is the content for Page Section Two Sub Page One.</p>
     </PageLayout>
   )
 }
-
-export default PageSectionTwoSubPageOne

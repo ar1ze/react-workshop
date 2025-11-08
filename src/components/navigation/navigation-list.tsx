@@ -2,7 +2,7 @@ import { twMerge } from 'tailwind-merge'
 
 import { type NavigationLinks } from '@/config/navigation'
 
-import NavigationItem from './navigation-item'
+import { NavigationItem } from './navigation-item'
 
 interface NavigationListProps {
   links: NavigationLinks
@@ -10,7 +10,7 @@ interface NavigationListProps {
   navItemClassNames?: string
 }
 
-const NavigationList = ({
+export const NavigationList = ({
   links,
   classNames,
   navItemClassNames,
@@ -31,5 +31,3 @@ const NavigationList = ({
     </ul>
   )
 }
-
-export default NavigationList
