@@ -1,11 +1,11 @@
-import NavList from '../navigation/nav-list'
+import { type ReactNode } from 'react'
 
-const Sidebar = () => {
-  return (
-    <aside className="border-2 border-indigo-300 p-4">
-      <NavList />
-    </aside>
-  )
+interface SidebarProps {
+  children: ReactNode
+}
+
+const Sidebar = ({ children }: SidebarProps) => {
+  return <aside className="border-2 border-indigo-300 p-4">{children}</aside>
 }
 
 export default Sidebar
