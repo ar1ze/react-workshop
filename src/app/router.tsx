@@ -5,20 +5,59 @@ import MainLayout from '@/components/layout/main-layout'
 
 import ErrorPage from './routes/base/error-page'
 import RootPage from './routes/base/root-page'
-import { PageOne, PageTwo } from './routes/pages'
+import {
+  PageSectionOneRootPage,
+  PageSectionOneSubPageOne,
+  PageSectionOneSubPageTwo,
+} from './routes/sections/page-section-one'
+import {
+  PageSectionTwoRootPage,
+  PageSectionTwoSubPageOne,
+  PageSectionTwoSubPageTwo,
+} from './routes/sections/page-section-two'
 
-const pageChildren = [
+const pageSectionOneChildren = [
+  {
+    index: true,
+    Component: PageSectionOneRootPage,
+  },
+  {
+    path: 'subpage-one',
+    Component: PageSectionOneSubPageOne,
+  },
+  {
+    path: 'subpage-two',
+    Component: PageSectionOneSubPageTwo,
+  },
+]
+
+const pageSectionTwoChildren = [
+  {
+    index: true,
+    Component: PageSectionTwoRootPage,
+  },
+  {
+    path: 'subpage-one',
+    Component: PageSectionTwoSubPageOne,
+  },
+  {
+    path: 'subpage-two',
+    Component: PageSectionTwoSubPageTwo,
+  },
+]
+
+const pageSectionChildren = [
   {
     index: true,
     Component: RootPage,
   },
   {
-    path: 'page-one',
-    Component: PageOne,
+    path: 'page-section-one',
+    children: pageSectionOneChildren,
   },
   {
-    path: 'page-two',
-    Component: PageTwo,
+    path: 'page-section-two',
+    children: pageSectionTwoChildren,
   },
 ]
 
@@ -27,7 +66,7 @@ const createAppRouter = () => {
     {
       path: '/',
       Component: MainLayout,
-      children: pageChildren,
+      children: pageSectionChildren,
     },
     {
       path: '*',
