@@ -33,7 +33,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_BASE_URL: /vite-react-ts-template/
+          VITE_BASE_URL: /react-workshop/
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
