@@ -60,18 +60,25 @@ const pageSectionChildren = [
   },
 ]
 
+const routerBaseName = import.meta.env.VITE_BASE_URL || '/'
+
 const createAppRouter = () => {
-  const router = createBrowserRouter([
+  const router = createBrowserRouter(
+    [
+      {
+        path: '/',
+        Component: MainLayout,
+        children: pageSectionChildren,
+      },
+      {
+        path: '*',
+        Component: ErrorPage,
+      },
+    ],
     {
-      path: '/',
-      Component: MainLayout,
-      children: pageSectionChildren,
-    },
-    {
-      path: '*',
-      Component: ErrorPage,
-    },
-  ])
+      basename: routerBaseName,
+    }
+  )
   return router
 }
 
