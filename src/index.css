@@ -1,39 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-@plugin 'tailwindcss-animate';
-
 @import 'tailwindcss';
 
-@custom-variant dark (&:is(.dark *));
-
-@layer base {
-  html {
-    -webkit-font-smoothing: antialiased;
-  }
-  body {
-    @apply bg-background text-foreground min-h-screen font-sans;
-  }
-}
-
-@theme {
-  --font-sans: 'inter', ui-sans-serif, system-ui, sans-serif;
-
-  --color-background: var(--color-gray-950);
-  --color-surface: var(--color-neutral-900);
-  --color-foreground: var(--color-neutral-50);
-  --color-muted: var(--color-neutral-500);
-
-  --color-border: var(--color-neutral-800);
-
-  --color-primary: var(--color-indigo-500);
-  --color-primary-hover: var(--color-indigo-600);
-  --color-primary-foreground: var(--color-white);
-
-  --color-link: var(--color-indigo-400);
-  --color-link-hover: var(--color-indigo-300);
-  --color-link-active: var(--color-indigo-400);
-  --color-link-bg-hover: var(--color-gray-800);
-}
+@plugin 'tailwindcss-animate';
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -143,6 +112,9 @@
 }
 
 @layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
   * {
     @apply border-border outline-ring/50;
   }
