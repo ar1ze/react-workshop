@@ -2,6 +2,11 @@ import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 
 import { MainLayout } from '@/components/layout/main-layout'
+import {
+  PAGE_SECTION_ONE_SUB_PAGES,
+  PAGE_SECTION_TWO_SUB_PAGES,
+  PAGE_SECTIONS,
+} from '@/config/navigation'
 
 import { ErrorPage, RootPage } from './routes/base'
 import {
@@ -21,11 +26,11 @@ const pageSectionOneChildren = [
     Component: PageSectionOneRootPage,
   },
   {
-    path: 'subpage-one',
+    path: PAGE_SECTION_ONE_SUB_PAGES.ONE.URL,
     Component: PageSectionOneSubPageOne,
   },
   {
-    path: 'subpage-two',
+    path: PAGE_SECTION_ONE_SUB_PAGES.TWO.URL,
     Component: PageSectionOneSubPageTwo,
   },
 ]
@@ -36,11 +41,11 @@ const pageSectionTwoChildren = [
     Component: PageSectionTwoRootPage,
   },
   {
-    path: 'subpage-one',
+    path: PAGE_SECTION_TWO_SUB_PAGES.ONE.URL,
     Component: PageSectionTwoSubPageOne,
   },
   {
-    path: 'subpage-two',
+    path: PAGE_SECTION_TWO_SUB_PAGES.TWO.URL,
     Component: PageSectionTwoSubPageTwo,
   },
 ]
@@ -51,11 +56,11 @@ const pageSectionChildren = [
     Component: RootPage,
   },
   {
-    path: 'page-section-one',
+    path: PAGE_SECTIONS.ONE.URL,
     children: pageSectionOneChildren,
   },
   {
-    path: 'page-section-two',
+    path: PAGE_SECTIONS.TWO.URL,
     children: pageSectionTwoChildren,
   },
 ]
