@@ -3,8 +3,8 @@ import {
   type NavigationSections,
 } from '@/config/navigation'
 
-import { NavigationItem } from './navigation-item'
 import { NavigationList } from './navigation-list'
+import { NavigationItem } from './navigation-list-item'
 
 interface NavigationSectionItemProps {
   to: string

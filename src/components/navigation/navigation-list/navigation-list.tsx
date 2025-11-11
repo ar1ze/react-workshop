@@ -2,7 +2,7 @@ import { twMerge } from 'tailwind-merge'
 
 import { type NavigationLinks } from '@/config/navigation'
 
-import { NavigationItem } from './navigation-item'
+import { NavigationItem } from './navigation-list-item'
 
 interface NavigationListProps {
   links: NavigationLinks
