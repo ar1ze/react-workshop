@@ -1,12 +1,15 @@
 import { NavLink } from 'react-router'
 
 import { ThemeButton } from '../theme/theme-button'
+import { Button } from '../ui/button'
 
 const Logo = () => {
   return (
-    <NavLink to="/" className="text-lg font-bold">
-      React Workshop
-    </NavLink>
+    <Button variant="ghost">
+      <NavLink to="/" className="text-lg font-bold">
+        React Workshop
+      </NavLink>
+    </Button>
   )
 }
 
