@@ -1,5 +1,6 @@
-import { Moon, Sun } from 'lucide-react'
 import { NavLink } from 'react-router'
+
+import { ThemeButton } from '../theme/theme-button'
 
 const Logo = () => {
   return (
@@ -12,8 +13,7 @@ const Logo = () => {
 const Nav = () => {
   return (
     <div className="flex gap-2">
-      <Sun />
-      <Moon />
+      <ThemeButton />
     </div>
   )
 }

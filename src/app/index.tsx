@@ -1,5 +1,11 @@
+import { ThemeProvider } from '@/components/theme/theme-provider'
+
 import { AppRouter } from './router'
 
 export const App = () => {
-  return <AppRouter />
+  return (
+    <ThemeProvider>
+      <AppRouter />
+    </ThemeProvider>
+  )
 }
