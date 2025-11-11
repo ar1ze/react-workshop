@@ -23,7 +23,7 @@ const Section = () => {
   )
 }
 
-export const MainLayout = () => {
+export const AppLayout = () => {
   return (
     <div className="grid h-screen grid-rows-[auto_1fr] content-center">
       <Header />

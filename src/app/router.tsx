@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 
-import { MainLayout } from '@/components/layout/main-layout'
+import { AppLayout } from '@/components/layout/app-layout'
 import {
   PAGE_SECTION_ONE_SUB_PAGES,
   PAGE_SECTION_TWO_SUB_PAGES,
@@ -72,7 +72,7 @@ const createAppRouter = () => {
     [
       {
         path: '/',
-        Component: MainLayout,
+        Component: AppLayout,
         children: pageSectionChildren,
       },
       {
