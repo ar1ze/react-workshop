@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from 'react-router'
 import { twMerge } from 'tailwind-merge'
 
-import { type NavigationLink } from '@/config/navigation'
+import { type NavigationLink } from '@/config/nav-types'
 
 interface NavigationItemProps extends NavigationLink {
   className?: string

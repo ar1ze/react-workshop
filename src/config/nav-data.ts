@@ -1,20 +1,6 @@
 import { joinPaths } from '@/utils/path'
 
-export interface NavigationLink {
-  to: string
-  label: string
-}
-
-export type NavigationLinks = NavigationLink[]
-
-export interface NavigationSection {
-  id: string
-  label: string
-  to: string
-  links: NavigationLink[]
-}
-
-export type NavigationSections = NavigationSection[]
+import { type NavigationSection } from './nav-types'
 
 export const PAGE_SECTIONS = {
   ONE: { URL: 'page-section-one', LABEL: 'Page Section One' },

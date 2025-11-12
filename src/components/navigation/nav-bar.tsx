@@ -1,4 +1,4 @@
-import { navigationSections } from '@/config/navigation'
+import { navigationSections } from '@/config/nav-data'
 
 import { NavigationSectionList } from './nav-section-list'
 

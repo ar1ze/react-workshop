@@ -1,7 +1,7 @@
 import {
   type NavigationLinks,
   type NavigationSections,
-} from '@/config/navigation'
+} from '@/config/nav-types'
 
 import { NavigationList } from './nav-list'
 import { NavigationItem } from './nav-list-item'
