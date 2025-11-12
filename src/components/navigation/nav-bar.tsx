@@ -1,11 +1,11 @@
-import { navigationSections } from '@/config/nav-data'
+import { navigationLinks } from '@/app/routes/pages/structure'
 
-import { NavigationSectionList } from './nav-section-list'
+import { NavigationList } from './nav-list'
 
 export const NavigationBar = () => {
   return (
     <>
-      <NavigationSectionList sections={navigationSections} />
+      <NavigationList links={navigationLinks} />
     </>
   )
 }

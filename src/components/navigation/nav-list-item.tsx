@@ -2,7 +2,9 @@ import { NavLink, useLocation } from 'react-router'
 import { twMerge } from 'tailwind-merge'
 
 import { type NavigationLink } from '@/config/nav-types'
+import { arePathsEqual } from '@/utils/path'
 
+import { Button } from '../ui/button'
 interface NavigationItemProps extends NavigationLink {
   className?: string
 }
@@ -13,23 +15,22 @@ export const NavigationItem = ({
   className,
 }: NavigationItemProps) => {
   const location = useLocation()
-  const isActiveClass =
-    location.pathname === to ? 'bg-link-bg-hover text-link-active' : ''
+  const isActive = arePathsEqual(location.pathname, to)
 
-  const defaultClassName = `
-    hover:bg-link-bg-hover
-    block
-    rounded-sm
-    text-xs
-    font-bold
-    px-2 py-1.5
-    transition-colors duration-500 ease-out
-    hover:text-indigo-400
-    ${isActiveClass}
-  `
+  const navLinkClass = twMerge(
+    'text-sm',
+    isActive
+      ? 'text-link-active bg-link-active-bg hover:bg-link-active-bg hover:text-link-active'
+      : ''
+  )
+
+  const buttonClass = 'flex w-full justify-start rounded-none rounded-r-md py-5'
+
   return (
-    <NavLink className={twMerge(defaultClassName, className)} to={to}>
-      {label}
-    </NavLink>
+    <Button asChild={true} variant="ghost" className={buttonClass}>
+      <NavLink className={twMerge(navLinkClass, className)} to={to}>
+        {label}
+      </NavLink>
+    </Button>
   )
 }
