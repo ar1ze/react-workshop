@@ -5,8 +5,8 @@ import { Button } from '../ui/button'
 
 const Logo = () => {
   return (
-    <Button variant="ghost">
-      <NavLink to="/" className="text-lg font-bold">
+    <Button variant="ghost" asChild>
+      <NavLink to="/" className="text-xl font-bold">
         React Workshop
       </NavLink>
     </Button>
@@ -16,7 +16,14 @@ const Logo = () => {
 const Nav = () => {
   return (
     <div className="flex gap-2">
-      <ThemeButton />
+      <ThemeButton
+        buttonProps={{
+          className: '[&_svg]:size-6',
+        }}
+        iconProps={{
+          size: 48,
+        }}
+      />
     </div>
   )
 }
