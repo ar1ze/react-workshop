@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router'
 
-import { NavigationBar } from '../navigation/nav-bar'
+import { NavigationBar } from '../navigation'
 import { Header } from './header'
 import { Sidebar } from './sidebar'
 
