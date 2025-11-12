@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router'
 
-import { MainNavigation } from '../navigation/main-navigation'
+import { NavigationBar } from '../navigation/nav-bar'
 import { Header } from './header'
 import { Sidebar } from './sidebar'
 
@@ -16,7 +16,7 @@ const Section = () => {
   return (
     <section className="grid h-full grid-cols-[16rem_1fr]">
       <Sidebar>
-        <MainNavigation />
+        <NavigationBar />
       </Sidebar>
       <Content />
     </section>
