@@ -6,25 +6,25 @@ import { NavigationItem } from './nav-list-item'
 
 interface NavigationListProps {
   links: NavigationLinks
-  classNames?: string
-  navItemClassNames?: string
+  listClassName?: string
+  listItemClassName?: string
 }
 
 export const NavigationList = ({
   links,
-  classNames,
-  navItemClassNames,
+  listClassName,
+  listItemClassName,
 }: NavigationListProps) => {
   const defaultClassName = 'flex list-none flex-col text-sm'
 
   return (
-    <ul className={twMerge(defaultClassName, classNames)}>
+    <ul className={twMerge(defaultClassName, listClassName)}>
       {links.map((link) => (
         <li key={link.to}>
           <NavigationItem
             to={link.to}
             label={link.label}
-            className={navItemClassNames}
+            className={listItemClassName}
           />
         </li>
       ))}
