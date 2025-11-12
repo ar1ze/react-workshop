@@ -6,7 +6,7 @@ import { Sidebar } from './sidebar'
 
 const Content = () => {
   return (
-    <main className="border-2 border-blue-300 p-4">
+    <main className="border-t p-4">
       <Outlet />
     </main>
   )

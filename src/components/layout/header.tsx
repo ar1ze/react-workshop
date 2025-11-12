@@ -30,7 +30,7 @@ const Nav = () => {
 
 export const Header = () => {
   return (
-    <header className="flex justify-between border-2 border-purple-300 p-4">
+    <header className="flex justify-between p-4">
       <Logo />
       <Nav />
     </header>
