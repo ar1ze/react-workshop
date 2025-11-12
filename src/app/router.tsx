@@ -6,7 +6,7 @@ import {
   PAGE_SECTION_ONE_SUB_PAGES,
   PAGE_SECTION_TWO_SUB_PAGES,
   PAGE_SECTIONS,
-} from '@/config/nav-data'
+} from '@/config/nav-section-list-data'
 
 import { ErrorPage, RootPage } from './routes/base'
 import {
