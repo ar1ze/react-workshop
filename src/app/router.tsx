@@ -2,67 +2,16 @@ import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 
 import { AppLayout } from '@/components/layout/app-layout'
-import {
-  PAGE_SECTION_ONE_SUB_PAGES,
-  PAGE_SECTION_TWO_SUB_PAGES,
-  PAGE_SECTIONS,
-} from '@/config/nav-section-list-data'
 
 import { ErrorPage, RootPage } from './routes/base'
-import {
-  PageSectionOneRootPage,
-  PageSectionOneSubPageOne,
-  PageSectionOneSubPageTwo,
-} from './routes/sections/page-section-one'
-import {
-  PageSectionTwoRootPage,
-  PageSectionTwoSubPageOne,
-  PageSectionTwoSubPageTwo,
-} from './routes/sections/page-section-two'
+import { pagesChildren } from './routes/pages/routes'
 
-const pageSectionOneChildren = [
-  {
-    index: true,
-    Component: PageSectionOneRootPage,
-  },
-  {
-    path: PAGE_SECTION_ONE_SUB_PAGES.ONE.URL,
-    Component: PageSectionOneSubPageOne,
-  },
-  {
-    path: PAGE_SECTION_ONE_SUB_PAGES.TWO.URL,
-    Component: PageSectionOneSubPageTwo,
-  },
-]
-
-const pageSectionTwoChildren = [
-  {
-    index: true,
-    Component: PageSectionTwoRootPage,
-  },
-  {
-    path: PAGE_SECTION_TWO_SUB_PAGES.ONE.URL,
-    Component: PageSectionTwoSubPageOne,
-  },
-  {
-    path: PAGE_SECTION_TWO_SUB_PAGES.TWO.URL,
-    Component: PageSectionTwoSubPageTwo,
-  },
-]
-
-const pageSectionChildren = [
+const thisChildren = [
   {
     index: true,
     Component: RootPage,
   },
-  {
-    path: PAGE_SECTIONS.ONE.URL,
-    children: pageSectionOneChildren,
-  },
-  {
-    path: PAGE_SECTIONS.TWO.URL,
-    children: pageSectionTwoChildren,
-  },
+  ...pagesChildren,
 ]
 
 const routerBaseName = import.meta.env.VITE_BASE_URL || '/'
@@ -73,7 +22,7 @@ const createAppRouter = () => {
       {
         path: '/',
         Component: AppLayout,
-        children: pageSectionChildren,
+        children: thisChildren,
       },
       {
         path: '*',
