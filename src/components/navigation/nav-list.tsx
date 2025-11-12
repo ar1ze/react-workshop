@@ -7,13 +7,13 @@ import { NavigationItem } from './nav-list-item'
 interface NavigationListProps {
   links: NavigationLinks
   listClassName?: string
-  listItemClassName?: string
+  itemClassName?: string
 }
 
 export const NavigationList = ({
   links,
   listClassName,
-  listItemClassName,
+  itemClassName,
 }: NavigationListProps) => {
   const defaultClassName = 'flex list-none flex-col text-sm'
 
@@ -24,7 +24,7 @@ export const NavigationList = ({
           <NavigationItem
             to={link.to}
             label={link.label}
-            className={listItemClassName}
+            className={itemClassName}
           />
         </li>
       ))}

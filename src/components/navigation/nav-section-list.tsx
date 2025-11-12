@@ -21,7 +21,7 @@ const NavigationSectionItem = ({
   return (
     <div>
       <NavigationItem to={to} label={label} className={className} />
-      <NavigationList links={links} listItemClassName="font-normal" />
+      <NavigationList links={links} itemClassName="font-normal" />
     </div>
   )
 }
