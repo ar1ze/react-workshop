@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
 
-import { ContentLayout } from '@/components/layout'
+import { ContentLayout } from '@/components/layouts'
 import { Button } from '@/components/ui/button'
 
 export const ErrorPage = () => {
