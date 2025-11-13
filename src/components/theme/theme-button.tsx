@@ -1,6 +1,7 @@
 import { type LucideProps, Moon, Sun } from 'lucide-react'
 
-import { Button, type ButtonProps } from '../ui/button'
+import { IconButton } from '../common/icon-button'
+import { type ButtonProps } from '../ui/button'
 import { useTheme } from './theme-context'
 
 interface ThemeButtonProps {
@@ -18,9 +19,5 @@ export const ThemeButton = ({ buttonProps, iconProps }: ThemeButtonProps) => {
   const icon =
     theme === 'dark' ? <Sun {...iconProps} /> : <Moon {...iconProps} />
 
-  return (
-    <Button onClick={toggleTheme} variant="ghost" size="icon" {...buttonProps}>
-      {icon}
-    </Button>
-  )
+  return <IconButton icon={icon} onClick={toggleTheme} {...buttonProps} />
 }
