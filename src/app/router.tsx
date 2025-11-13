@@ -3,19 +3,21 @@ import { RouterProvider } from 'react-router/dom'
 
 import { AppLayout } from '@/app/layouts'
 
-import { ErrorPage } from './routes/error'
-import { HomePage } from './routes/home'
-import { pagesChildren } from './routes/patterns/pages'
+import { blogPageRouteObject } from './routes/app/blog'
+import { ErrorPage } from './routes/app/error'
+import { HomePage } from './routes/app/home'
+import { learnPageRouteObject } from './routes/app/learn'
 
-const thisChildren = [
+const routerBaseName = import.meta.env.VITE_BASE_URL || '/'
+
+const appChildren = [
   {
     index: true,
     Component: HomePage,
   },
-  ...pagesChildren,
+  learnPageRouteObject,
+  blogPageRouteObject,
 ]
-
-const routerBaseName = import.meta.env.VITE_BASE_URL || '/'
 
 const createAppRouter = () => {
   const router = createBrowserRouter(
@@ -23,7 +25,7 @@ const createAppRouter = () => {
       {
         path: '/',
         Component: AppLayout,
-        children: thisChildren,
+        children: appChildren,
       },
       {
         path: '*',
