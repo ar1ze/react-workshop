@@ -1,6 +1,6 @@
 import { twMerge } from 'tailwind-merge'
 
-import { type BaseProps } from '@/types'
+import { type BaseProps } from '@/types/props'
 
 export interface ContentLayoutProps extends BaseProps {
   title?: string
