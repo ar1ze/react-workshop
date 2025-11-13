@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router'
 
 import { NavigationBar } from '../navigation'
-import { Header } from './header'
+import { AppHeader } from './app-header'
 import { Sidebar } from './sidebar'
 
 const Content = () => {
@@ -26,7 +26,7 @@ const Section = () => {
 export const AppLayout = () => {
   return (
     <div className="grid h-screen grid-rows-[auto_1fr] content-center">
-      <Header />
+      <AppHeader />
       <Section />
     </div>
   )

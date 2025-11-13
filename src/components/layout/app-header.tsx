@@ -3,7 +3,7 @@ import { NavLink } from 'react-router'
 import { ThemeButton } from '../theme/theme-button'
 import { Button } from '../ui/button'
 
-const Logo = () => {
+const AppHeaderLogo = () => {
   return (
     <Button variant="ghost" asChild>
       <NavLink to="/" className="text-xl font-bold">
@@ -13,7 +13,7 @@ const Logo = () => {
   )
 }
 
-const Nav = () => {
+const AppHeaderNav = () => {
   return (
     <div className="flex gap-2">
       <ThemeButton
@@ -28,11 +28,11 @@ const Nav = () => {
   )
 }
 
-export const Header = () => {
+export const AppHeader = () => {
   return (
     <header className="flex justify-between p-4">
-      <Logo />
-      <Nav />
+      <AppHeaderLogo />
+      <AppHeaderNav />
     </header>
   )
 }
