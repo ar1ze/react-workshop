@@ -2,7 +2,7 @@ import { type RouteObject } from 'react-router'
 
 import { BlogPage } from './root'
 
-const BLOG_PAGE_PREFIX = 'blog'
+export const BLOG_PAGE_PREFIX = 'blog'
 
 export const blogPageRouteObject: RouteObject = {
   index: true,

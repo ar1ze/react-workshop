@@ -1,3 +1,4 @@
 import { learnPageRouteObject } from './routes'
+import { LEARN_PAGE_PREFIX } from './routes'
 
-export { learnPageRouteObject }
+export { LEARN_PAGE_PREFIX, learnPageRouteObject }

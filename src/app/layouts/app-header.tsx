@@ -6,9 +6,12 @@ import { GithubIcon } from '@/components/icons'
 import { ThemeButton } from '@/components/theme'
 import { type ButtonProps } from '@/components/ui/button'
 
+import { BLOG_PAGE_PREFIX } from '../routes/app/blog'
+import { LEARN_PAGE_PREFIX } from '../routes/app/learn'
+
 const BrandLink = () => {
   return (
-    <NavLink to="/" className="text-xl font-bold">
+    <NavLink to="/" className="text-muted-background text-xl font-bold">
       React Workshop
     </NavLink>
   )
@@ -16,8 +19,8 @@ const BrandLink = () => {
 
 const HeaderNavLinks = () => {
   const navLinks = [
-    { to: 'learn', label: 'Learn' },
-    { to: 'blog', label: 'Blog' },
+    { to: LEARN_PAGE_PREFIX, label: 'Learn' },
+    { to: BLOG_PAGE_PREFIX, label: 'Blog' },
   ]
 
   return (
@@ -28,7 +31,7 @@ const HeaderNavLinks = () => {
           to={to}
           className={({ isActive }) =>
             `hover:text-primary text-base font-medium transition-colors ${
-              isActive ? 'text-primary' : 'text-muted-foreground'
+              isActive ? '' : 'text-muted-foreground'
             }`
           }
         >

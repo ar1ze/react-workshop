@@ -1,15 +1,20 @@
 import { type RouteObject } from 'react-router'
 
+import { joinPaths } from '@/utils/path'
+
 import { PageOne, PageTwo } from '../../patterns/pages/pages'
 import { LearnPageLayout } from './layout'
 import { LearnRootPage } from './root-page'
 
-const LEARN_PAGE_PREFIX = 'learn'
+export const LEARN_PAGE_PREFIX = 'learn'
+
+const PATH_PAGE_ONE = joinPaths(LEARN_PAGE_PREFIX, 'page-one')
+const PATH_PAGE_TWO = joinPaths(LEARN_PAGE_PREFIX, 'page-two')
 
 const LearnPageChildren: RouteObject[] = [
   { index: true, Component: LearnRootPage },
-  { path: 'learn/page-one', Component: PageOne },
-  { path: 'learn/page-two', Component: PageTwo },
+  { path: PATH_PAGE_ONE, Component: PageOne },
+  { path: PATH_PAGE_TWO, Component: PageTwo },
 ]
 
 export const learnPageRouteObject: RouteObject = {
