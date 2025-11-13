@@ -1,10 +1,10 @@
 import { type LucideProps } from 'lucide-react'
-import * as React from 'react'
+import { type ReactElement } from 'react'
 
 import { Button, type ButtonProps } from '../ui/button'
 
 interface IconButtonProps extends ButtonProps {
-  icon: React.ReactElement<LucideProps>
+  icon: ReactElement<LucideProps>
   href?: string
 }
 

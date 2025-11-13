@@ -1,6 +1,7 @@
+import { type ReactNode } from 'react'
 interface SidebarLayoutProps {
-  sidebar: React.ReactNode
-  children: React.ReactNode
+  sidebar: ReactNode
+  children: ReactNode
 }
 
 export const SidebarLayout = ({ sidebar, children }: SidebarLayoutProps) => {
