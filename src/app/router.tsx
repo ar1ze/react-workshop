@@ -3,13 +3,14 @@ import { RouterProvider } from 'react-router/dom'
 
 import { AppLayout } from '@/app/layouts'
 
-import { ErrorPage, RootPage } from './routes/base'
+import { ErrorPage } from './routes/base'
+import { HomePage as HomePage } from './routes/home'
 import { pagesChildren } from './routes/patterns/pages'
 
 const thisChildren = [
   {
     index: true,
-    Component: RootPage,
+    Component: HomePage,
   },
   ...pagesChildren,
 ]
