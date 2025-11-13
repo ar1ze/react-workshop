@@ -21,7 +21,7 @@ const SUB_PAGES_MAP = {
   [PAGE_SECTIONS.TWO.URL]: PAGE_SECTION_TWO_SUB_PAGES,
 } as const
 
-export const navigationSections: NavigationSection[] = Object.values(
+export const navigationPageSectionLinks: NavigationSection[] = Object.values(
   PAGE_SECTIONS
 ).map((section) => {
   const subPages = SUB_PAGES_MAP[section.URL]

@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router/dom'
 import { AppLayout } from '@/app/layouts'
 
 import { ErrorPage, RootPage } from './routes/base'
-import { pagesChildren } from './routes/pages'
+import { pagesChildren } from './routes/patterns/pages'
 
 const thisChildren = [
   {

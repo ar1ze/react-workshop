@@ -1,11 +1,11 @@
-import { navigationLinks } from '@/app/routes/pages/structure'
+import { navigationPageLinks } from '@/app/routes/patterns/pages'
 
 import { NavigationList } from './nav-list'
 
 export const NavigationBar = () => {
   return (
     <>
-      <NavigationList links={navigationLinks} />
+      <NavigationList links={navigationPageLinks} />
     </>
   )
 }
