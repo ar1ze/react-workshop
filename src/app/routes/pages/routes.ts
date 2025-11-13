@@ -1,5 +1,4 @@
-import { PageOne } from './page-one'
-import { PageTwo } from './page-two'
+import { PageOne, PageTwo } from './pages'
 
 export const pagesChildren = [
   { path: 'page-one', Component: PageOne },

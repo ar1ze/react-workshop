@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 
-import { AppLayout } from '@/app/layouts/app-layout'
+import { AppLayout } from '@/app/layouts'
 
 import { ErrorPage, RootPage } from './routes/base'
-import { pagesChildren } from './routes/pages/routes'
+import { pagesChildren } from './routes/pages'
 
 const thisChildren = [
   {

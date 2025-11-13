@@ -1,9 +1,4 @@
 import {
-  PAGE_SECTION_ONE_SUB_PAGES,
-  PAGE_SECTION_TWO_SUB_PAGES,
-} from '@/app/routes/sections/structure'
-
-import {
   PageSectionOneRootPage,
   PageSectionOneSubPageOne,
   PageSectionOneSubPageTwo,
@@ -13,7 +8,11 @@ import {
   PageSectionTwoSubPageOne,
   PageSectionTwoSubPageTwo,
 } from './page-section-two'
-import { PAGE_SECTIONS } from './structure'
+import {
+  PAGE_SECTION_ONE_SUB_PAGES,
+  PAGE_SECTION_TWO_SUB_PAGES,
+  PAGE_SECTIONS,
+} from './structure'
 
 export const pageSectionOneChildren = [
   {

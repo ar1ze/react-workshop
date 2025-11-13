@@ -1,6 +1,5 @@
+import { type NavigationSection } from '@/config/nav-types'
 import { joinPaths } from '@/utils/path'
-
-import { type NavigationSection } from '../../../config/nav-types'
 
 export const PAGE_SECTIONS = {
   ONE: { URL: 'page-section-one', LABEL: 'Page Section One' },
