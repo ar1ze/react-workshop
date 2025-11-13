@@ -3,8 +3,8 @@ import { RouterProvider } from 'react-router/dom'
 
 import { AppLayout } from '@/app/layouts'
 
-import { ErrorPage } from './routes/base'
-import { HomePage as HomePage } from './routes/home'
+import { ErrorPage } from './routes/error'
+import { HomePage } from './routes/home'
 import { pagesChildren } from './routes/patterns/pages'
 
 const thisChildren = [
