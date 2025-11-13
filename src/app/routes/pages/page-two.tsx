@@ -1,9 +1,9 @@
-import { PageLayout } from '@/components/layout'
+import { ContentLayout } from '@/components/layout'
 
 export const PageTwo = () => {
   return (
-    <PageLayout title="Page Two">
+    <ContentLayout title="Page Two">
       <p>This is the content for Page Two.</p>
-    </PageLayout>
+    </ContentLayout>
   )
 }

@@ -5,7 +5,7 @@ interface PageLayoutProps {
   children: ReactNode
 }
 
-export const PageLayout = ({ title, children }: PageLayoutProps) => {
+export const ContentLayout = ({ title, children }: PageLayoutProps) => {
   return (
     <div className="grid grid-rows-[auto_1fr] gap-y-2">
       <h1 className="text-xl font-medium">{title}</h1>
