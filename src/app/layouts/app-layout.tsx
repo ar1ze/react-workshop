@@ -1,12 +1,11 @@
 import { Outlet } from 'react-router'
 
+import { HeaderLayout } from '@/components/layout'
+
 import { AppHeader } from './app-header'
 
 export const AppLayout = () => {
-  return (
-    <div className="grid h-screen grid-rows-[auto_1fr] content-center">
-      <AppHeader />
-      <Outlet />
-    </div>
-  )
+  const header = <AppHeader />
+  const content = <Outlet />
+  return <HeaderLayout header={header} content={content} />
 }
