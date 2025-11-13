@@ -1,4 +1,4 @@
-import { AppLayout } from './app-layout'
 import { ContentLayout } from './content-layout'
+import { SidebarLayout } from './sidebar-layout'
 
-export { AppLayout, ContentLayout }
+export { ContentLayout, SidebarLayout }

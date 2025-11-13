@@ -1,15 +1,12 @@
 import { NavLink } from 'react-router'
 
-import { ThemeButton } from '../theme/theme-button'
-import { Button } from '../ui/button'
+import { ThemeButton } from '@/components/theme'
 
 const AppHeaderLogo = () => {
   return (
-    <Button variant="ghost" asChild>
-      <NavLink to="/" className="text-xl font-bold">
-        React Workshop
-      </NavLink>
-    </Button>
+    <NavLink to="/" className="text-xl font-bold">
+      React Workshop
+    </NavLink>
   )
 }
 

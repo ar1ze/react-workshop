@@ -1,9 +1,7 @@
-import { ContentLayout } from '@/components/layout'
-
 export const RootPage = () => {
   return (
-    <ContentLayout title="Root Page">
+    <main className="px-4">
       <p>Welcome to the React Workshop</p>
-    </ContentLayout>
+    </main>
   )
 }
