@@ -1,30 +1,39 @@
-import { twMerge } from 'tailwind-merge'
-
 import { type NavigationLinks } from '@/types/navigation'
 
+import { type ButtonProps } from '../ui/button'
 import { NavigationItem } from './nav-list-item'
 
 interface NavigationListProps {
   links: NavigationLinks
   listClassName?: string
-  itemClassName?: string
+  linkClassName?: string
+  linkActiveClassName?: string
+  buttonProps?: ButtonProps
+  buttonClassName?: string
+  buttonActiveClassName?: string
 }
 
 export const NavigationList = ({
   links,
   listClassName,
-  itemClassName,
+  linkClassName,
+  linkActiveClassName,
+  buttonProps,
+  buttonClassName,
+  buttonActiveClassName,
 }: NavigationListProps) => {
-  const defaultClassName = 'flex list-none flex-col text-sm'
-
   return (
-    <ul className={twMerge(defaultClassName, listClassName)}>
+    <ul className={listClassName}>
       {links.map((link) => (
         <li key={link.to}>
           <NavigationItem
             to={link.to}
             label={link.label}
-            className={itemClassName}
+            linkClassName={linkClassName}
+            linkActiveClassName={linkActiveClassName}
+            buttonProps={buttonProps}
+            buttonClassName={buttonClassName}
+            buttonActiveClassName={buttonActiveClassName}
           />
         </li>
       ))}

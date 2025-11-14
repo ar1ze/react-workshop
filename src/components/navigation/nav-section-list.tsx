@@ -9,25 +9,23 @@ import { NavigationItem } from './nav-list-item'
 interface NavigationSectionItemProps {
   to: string
   label: string
-  links: NavigationLinks
+  children: NavigationLinks
+}
+interface NavigationSectionProps {
+  sections: NavigationSections
 }
 
 const NavigationSectionItem = ({
   label,
   to,
-  links,
+  children,
 }: NavigationSectionItemProps) => {
-  const className = 'text-sm'
   return (
     <div>
-      <NavigationItem to={to} label={label} className={className} />
-      <NavigationList links={links} itemClassName="font-normal" />
+      <NavigationItem to={to} label={label} />
+      <NavigationList links={children} />
     </div>
   )
-}
-
-interface NavigationSectionProps {
-  sections: NavigationSections
 }
 
 export const NavigationSectionList = ({ sections }: NavigationSectionProps) => {
@@ -39,7 +37,7 @@ export const NavigationSectionList = ({ sections }: NavigationSectionProps) => {
             key={section.id}
             label={section.label}
             to={section.to}
-            links={section.children}
+            children={section.children}
           />
         )
       })}

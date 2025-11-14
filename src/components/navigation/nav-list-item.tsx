@@ -5,26 +5,49 @@ import { type NavigationLink } from '@/types/navigation'
 import { arePathsEqual } from '@/utils/path'
 
 import { Button } from '../ui/button'
+import { type ButtonProps } from '../ui/button'
 
-interface NavigationItemProps extends NavigationLink {
-  className?: string
+export interface NavigationItemProps extends NavigationLink {
+  linkClassName?: string
+  linkActiveClassName?: string
+  buttonProps?: ButtonProps
+  buttonClassName?: string
+  buttonActiveClassName?: string
 }
 
 export const NavigationItem = ({
   to,
   label,
-  className,
+  linkClassName,
+  linkActiveClassName,
+  buttonProps,
+  buttonClassName,
+  buttonActiveClassName,
 }: NavigationItemProps) => {
   const location = useLocation()
   const isActive = arePathsEqual(location.pathname, to)
 
-  const navLinkClass = twMerge('text-sm', isActive ? 'bg-accent' : '')
+  const navLinkClassActive = twMerge('bg-accent', linkActiveClassName)
+  const navLinkClass = isActive ? navLinkClassActive : ''
 
-  const buttonClass = 'flex w-full justify-start rounded-none rounded-r-md py-5'
+  const buttonClassActive = isActive ? buttonActiveClassName : ''
+
+  const defaultButtonProps: ButtonProps = {
+    asChild: true,
+    variant: 'ghost',
+  }
+
+  const mergedButtonProps = {
+    ...defaultButtonProps,
+    ...buttonProps,
+  }
 
   return (
-    <Button asChild={true} variant="ghost" className={buttonClass}>
-      <NavLink className={twMerge(navLinkClass, className)} to={to}>
+    <Button
+      {...mergedButtonProps}
+      className={twMerge(buttonClassName, buttonClassActive)}
+    >
+      <NavLink className={twMerge(navLinkClass, linkClassName)} to={to}>
         {label}
       </NavLink>
     </Button>
