@@ -1,12 +1,15 @@
 import { Outlet } from 'react-router'
 
 import { SidebarLayout } from '@/components/layouts'
+import { NavigationList } from '@/components/navigation'
 import { Sidebar } from '@/components/ui/sidebar'
+
+import { LearnPageNavigationLinks } from './routes'
 
 const createSidebar = () => {
   return (
     <Sidebar className="border-r px-4">
-      <p>Sidebar</p>
+      <NavigationList links={LearnPageNavigationLinks} />
     </Sidebar>
   )
 }
