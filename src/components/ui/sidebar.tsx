@@ -2,8 +2,8 @@ import { forwardRef, type HTMLAttributes } from 'react'
 
 import { cn } from '@/lib/utils'
 
-const Sidebar = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('flex h-full w-full flex-col', className)} {...props} />
+const Sidebar = ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
+  <aside className={cn('flex h-full w-full flex-col', className)} {...props} />
 )
 
 const SidebarHeader = ({
