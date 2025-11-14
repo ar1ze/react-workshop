@@ -8,8 +8,14 @@ import { LearnPageNavigationLinks } from './routes'
 
 const createSidebar = () => {
   return (
-    <Sidebar className="border-r px-4">
-      <NavigationList links={LearnPageNavigationLinks} />
+    <Sidebar className="border-r px-4 pr-42">
+      <NavigationList
+        links={LearnPageNavigationLinks}
+        listClassName="flex flex-col gap-y-1"
+        buttonProps={{ size: 'sm' }}
+        buttonClassName="font-normal"
+        buttonActiveClassName="font-bold"
+      />
     </Sidebar>
   )
 }
