@@ -1,5 +1,6 @@
 import { type RouteObject } from 'react-router'
 
+import { type NavigationLinks } from '@/types/navigation'
 import { joinPaths } from '@/utils/path'
 
 import { PageOne, PageTwo } from '../../patterns/pages/pages'
@@ -15,6 +16,11 @@ const LearnPageChildren: RouteObject[] = [
   { index: true, Component: LearnRootPage },
   { path: PATH_PAGE_ONE, Component: PageOne },
   { path: PATH_PAGE_TWO, Component: PageTwo },
+]
+
+export const LearnPageNavigationLinks: NavigationLinks = [
+  { to: PATH_PAGE_ONE, label: 'Page One' },
+  { to: PATH_PAGE_TWO, label: 'Page Two' },
 ]
 
 export const learnPageRouteObject: RouteObject = {
