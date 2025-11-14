@@ -6,9 +6,9 @@ interface SidebarLayoutProps {
 
 export const SidebarLayout = ({ sidebar, children }: SidebarLayoutProps) => {
   return (
-    <div className="grid h-full grid-cols-[auto_1fr]">
+    <main className="grid h-full grid-cols-[auto_1fr]">
       {sidebar}
       {children}
-    </div>
+    </main>
   )
 }
