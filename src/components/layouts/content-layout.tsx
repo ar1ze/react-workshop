@@ -2,15 +2,12 @@ import { twMerge } from 'tailwind-merge'
 
 import { type BaseProps } from '@/types/props'
 
-export interface ContentLayoutProps extends BaseProps {
-  title?: string
-  titleClassName?: string
-}
-
 export interface LayoutTitleProps {
   title?: string
   titleClassName?: string
 }
+
+export interface ContentLayoutProps extends LayoutTitleProps, BaseProps {}
 
 const LayoutTitle = ({ title, titleClassName }: LayoutTitleProps) => {
   const defaultTitleClasses = 'text-xl font-medium'
@@ -27,7 +24,9 @@ export const ContentLayout = ({
   className,
   children,
 }: ContentLayoutProps) => {
-  const defaultMainClasses = 'grid grid-rows-[auto_1fr] gap-y-2 px-4'
+  const defaultMainClasses = title
+    ? 'grid grid-rows-[auto_1fr] gap-y-2 px-4'
+    : 'px-4'
 
   return (
     <main className={twMerge(defaultMainClasses, className)}>
