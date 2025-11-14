@@ -1,4 +1,4 @@
-import { type NavigationSection } from '@/config/nav-types'
+import { type NavigationSection } from '@/types/navigation'
 import { joinPaths } from '@/utils/path'
 
 export const PAGE_SECTIONS = {

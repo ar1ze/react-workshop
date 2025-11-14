@@ -5,11 +5,9 @@ export interface NavigationLink {
 
 export type NavigationLinks = NavigationLink[]
 
-export interface NavigationSection {
+export interface NavigationSection extends NavigationLink {
   id: string
-  label: string
-  to: string
-  links: NavigationLink[]
+  children: NavigationLink[]
 }
 
 export type NavigationSections = NavigationSection[]

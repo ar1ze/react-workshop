@@ -1,6 +1,6 @@
 import { twMerge } from 'tailwind-merge'
 
-import { type NavigationLinks } from '@/config/nav-types'
+import { type NavigationLinks } from '@/types/navigation'
 
 import { NavigationItem } from './nav-list-item'
 

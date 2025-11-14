@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from 'react-router'
 import { twMerge } from 'tailwind-merge'
 
-import { type NavigationLink } from '@/config/nav-types'
+import { type NavigationLink } from '@/types/navigation'
 import { arePathsEqual } from '@/utils/path'
 
 import { Button } from '../ui/button'

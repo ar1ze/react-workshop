@@ -1,4 +1,4 @@
-import { type NavigationLinks } from '@/config/nav-types'
+import { type NavigationLinks } from '@/types/navigation'
 
 export const navigationPageLinks: NavigationLinks = [
   { to: 'page-one', label: 'Page One' },

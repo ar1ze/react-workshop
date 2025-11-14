@@ -1,7 +1,7 @@
 import {
   type NavigationLinks,
   type NavigationSections,
-} from '@/config/nav-types'
+} from '@/types/navigation'
 
 import { NavigationList } from './nav-list'
 import { NavigationItem } from './nav-list-item'
@@ -39,7 +39,7 @@ export const NavigationSectionList = ({ sections }: NavigationSectionProps) => {
             key={section.id}
             label={section.label}
             to={section.to}
-            links={section.links}
+            links={section.children}
           />
         )
       })}
