@@ -20,7 +20,7 @@ const PageNavigationBar = () => {
 
 const createSidebar = () => {
   return (
-    <Sidebar className="border-r px-4 pr-42">
+    <Sidebar className="border-r px-4">
       <PageNavigationBar />
     </Sidebar>
   )
@@ -29,7 +29,7 @@ const createSidebar = () => {
 export const LearnPageLayout = () => {
   const sidebar = createSidebar()
   return (
-    <SidebarLayout sidebar={sidebar}>
+    <SidebarLayout sidebar={sidebar} className="grid-cols-[16rem_1fr]">
       <Outlet />
     </SidebarLayout>
   )

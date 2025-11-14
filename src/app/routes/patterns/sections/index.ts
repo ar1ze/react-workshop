@@ -1,3 +1,4 @@
 import { pageSectionChildren } from './routes'
+import { navigationPageSectionLinks } from './structure'
 
-export { pageSectionChildren }
+export { navigationPageSectionLinks, pageSectionChildren }

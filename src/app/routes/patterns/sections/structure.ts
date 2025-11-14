@@ -1,4 +1,4 @@
-import { type NavigationSection } from '@/types/navigation'
+import { type NavigationSections } from '@/types/navigation'
 import { joinPaths } from '@/utils/path'
 
 export const PAGE_SECTIONS = {
@@ -21,12 +21,12 @@ const SUB_PAGES_MAP = {
   [PAGE_SECTIONS.TWO.URL]: PAGE_SECTION_TWO_SUB_PAGES,
 } as const
 
-export const navigationPageSectionLinks: NavigationSection[] = Object.values(
+export const navigationPageSectionLinks: NavigationSections = Object.values(
   PAGE_SECTIONS
 ).map((section) => {
   const subPages = SUB_PAGES_MAP[section.URL]
 
-  const links = Object.values(subPages).map((subPage) => ({
+  const children = Object.values(subPages).map((subPage) => ({
     to: joinPaths(section.URL, subPage.URL),
     label: subPage.LABEL,
   }))
@@ -35,6 +35,6 @@ export const navigationPageSectionLinks: NavigationSection[] = Object.values(
     id: section.URL,
     label: section.LABEL,
     to: section.URL,
-    links,
+    children,
   }
 })
