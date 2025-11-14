@@ -18,3 +18,5 @@ export type NavigationNode = {
   to: string
   children?: NavigationNode[]
 }
+
+export type RouteComponentMap = Record<string, React.ComponentType>
