@@ -1,4 +1,3 @@
-// src/utils/path.test.ts
 import { describe, expect, it } from 'vitest'
 
 import { arePathsEqual, joinPaths, normalizePath } from './path'
