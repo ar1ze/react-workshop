@@ -1,9 +1,11 @@
-import { PageSectionTwoRootPage } from './root-page'
-import { PageSectionTwoSubPageOne } from './sub-page-one'
-import { PageSectionTwoSubPageTwo } from './sub-page-two'
+import {
+  PAGE_SECTION_TWO_PREFIX,
+  PageSectionTwoNavigationConfig,
+  PageSectionTwoNavigationRoutes,
+} from './routes'
 
 export {
-  PageSectionTwoRootPage,
-  PageSectionTwoSubPageOne,
-  PageSectionTwoSubPageTwo,
+  PAGE_SECTION_TWO_PREFIX,
+  PageSectionTwoNavigationConfig,
+  PageSectionTwoNavigationRoutes,
 }

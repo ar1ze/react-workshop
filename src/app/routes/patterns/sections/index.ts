@@ -1,4 +1,6 @@
-import { pageSectionChildren } from './routes'
-import { navigationPageSectionLinks } from './structure'
+import {
+  PageSectionsNavigationConfig,
+  PageSectionsNavigationRoutes,
+} from './routes'
 
-export { navigationPageSectionLinks, pageSectionChildren }
+export { PageSectionsNavigationConfig, PageSectionsNavigationRoutes }
