@@ -9,7 +9,8 @@ import { LearnNavigationConfig } from './routes'
 const PageNavigationBar = () => {
   return (
     <NavigationList
-      links={LearnNavigationConfig}
+      mode="pages"
+      nodes={LearnNavigationConfig}
       listClassName="flex flex-col gap-y-1"
       buttonProps={{ size: 'sm' }}
       buttonClassName="font-normal"

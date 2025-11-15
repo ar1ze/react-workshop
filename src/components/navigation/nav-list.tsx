@@ -1,10 +1,13 @@
-import { type NavigationLinks } from '@/types/navigation'
+import type { NavigationNode } from '@/types/navigation'
 
-import { type ButtonProps } from '../ui/button'
+import type { ButtonProps } from '../ui/button'
 import { NavigationItem } from './nav-list-item'
+import { SectionNodeItem } from './nav-section-item'
+import { flattenNavigationTree } from './nav-utils'
 
 interface NavigationListProps {
-  links: NavigationLinks
+  nodes: NavigationNode[]
+  mode: 'pages' | 'sections'
   listClassName?: string
   linkClassName?: string
   linkActiveClassName?: string
@@ -14,7 +17,8 @@ interface NavigationListProps {
 }
 
 export const NavigationList = ({
-  links,
+  nodes,
+  mode,
   listClassName,
   linkClassName,
   linkActiveClassName,
@@ -22,21 +26,45 @@ export const NavigationList = ({
   buttonClassName,
   buttonActiveClassName,
 }: NavigationListProps) => {
+  if (mode === 'pages') {
+    const flat = flattenNavigationTree(nodes)
+
+    return (
+      <ul className={listClassName}>
+        {flat.map((node) => (
+          <li key={node.to}>
+            <NavigationItem
+              to={node.to}
+              label={node.label}
+              linkClassName={linkClassName}
+              linkActiveClassName={linkActiveClassName}
+              buttonProps={buttonProps}
+              buttonClassName={buttonClassName}
+              buttonActiveClassName={buttonActiveClassName}
+            />
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  // Sections mode
   return (
     <ul className={listClassName}>
-      {links.map((link) => (
-        <li key={link.to}>
-          <NavigationItem
-            to={link.to}
-            label={link.label}
+      {nodes.map((node) => {
+        return (
+          <SectionNodeItem
+            key={node.id}
+            node={node}
+            depth={0}
             linkClassName={linkClassName}
             linkActiveClassName={linkActiveClassName}
             buttonProps={buttonProps}
             buttonClassName={buttonClassName}
             buttonActiveClassName={buttonActiveClassName}
           />
-        </li>
-      ))}
+        )
+      })}
     </ul>
   )
 }
