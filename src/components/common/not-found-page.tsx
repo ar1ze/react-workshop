@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { ContentLayout } from '@/components/layouts'
 import { Button } from '@/components/ui/button'
 
-export const ErrorPage = () => {
+export const NotFoundPage = () => {
   return (
     <ContentLayout className="flex min-h-screen flex-col items-center justify-center px-4 py-16 text-center">
       <h1 className="text-destructive mb-2 text-4xl font-bold">404</h1>

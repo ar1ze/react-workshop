@@ -3,8 +3,8 @@ import { RouterProvider } from 'react-router/dom'
 
 import { AppLayout } from '@/app/layouts'
 
+import { NotFoundPage } from '../components/common'
 import { blogPageRouteObject } from './routes/app/blog'
-import { ErrorPage } from './routes/app/error'
 import { HomePage } from './routes/app/home'
 import { learnPageRouteObject } from './routes/app/learn'
 
@@ -29,7 +29,7 @@ const createAppRouter = () => {
       },
       {
         path: '*',
-        Component: ErrorPage,
+        Component: NotFoundPage,
       },
     ],
     {
