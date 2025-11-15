@@ -1,24 +1,39 @@
 import type { ComponentType } from 'react'
 
+/**
+ * Basic properties for a navigation link.
+ */
 export interface NavigationLink {
+  /**
+   * URL path the link points to (e.g., "/dashboard").
+   */
   to: string
+  /**
+   * Display text for the link.
+   */
   label: string
 }
 
-export type NavigationLinks = NavigationLink[]
-
-export interface NavigationSection extends NavigationLink {
+/**
+ * A node in the navigation tree, used for generating routes and menus.
+ * Extends `NavigationLink` with properties for routing and nesting.
+ */
+export interface NavigationNode extends NavigationLink {
+  /**
+   * Unique identifier, also used for path segments and React keys.
+   */
   id: string
-  children: NavigationLink[]
-}
-
-export type NavigationSections = NavigationSection[]
-
-export type NavigationNode = {
-  id: string
-  label: string
-  to: string
+  /**
+   * React component to render for this route.
+   */
   component: ComponentType
+  /**
+   * If true, marks this as a default "index" route for a parent path.
+   * @see https://reactrouter.com/en/main/route/route#index
+   */
   index?: boolean
+  /**
+   * Optional array of child nodes for creating nested navigation.
+   */
   children?: NavigationNode[]
 }
