@@ -1,7 +1,7 @@
 import { index, page, section } from '@/utils/nav-builder'
 import { navigationToRoutes } from '@/utils/nav-to-routes'
 
-import { PageOne, PageTwo } from '../../patterns/pages/pages'
+import { PageOne, PageTwo } from '../../patterns/pages'
 import { LearnPageLayout } from './layout'
 import { LearnRootPage } from './root-page'
 

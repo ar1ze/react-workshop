@@ -1,4 +1,4 @@
-import { pagesChildren } from './routes'
-import { navigationPageLinks } from './structure'
+import { PageOne } from './page-one'
+import { PageTwo } from './page-two'
 
-export { navigationPageLinks, pagesChildren }
+export { PageOne, PageTwo }
