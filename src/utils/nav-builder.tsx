@@ -29,8 +29,7 @@ export const buildChildPath = (
 export const page = (
   id: string,
   label: string,
-  component: ComponentType,
-  children?: NavigationNode[]
+  component: ComponentType
 ): NavigationNode => {
   const basePath = joinPaths(id)
 
@@ -39,7 +38,6 @@ export const page = (
     label,
     to: basePath,
     component,
-    children: children?.map((child) => buildChildPath(child, basePath)),
   }
 }
 
