@@ -1,4 +1,7 @@
-import { PageOne } from './page-one'
-import { PageTwo } from './page-two'
+import {
+  PAGES_PAGE_PREFIX,
+  PagesNavigationConfig,
+  PagesNavigationRoutes,
+} from './routes'
 
-export { PageOne, PageTwo }
+export { PAGES_PAGE_PREFIX, PagesNavigationConfig, PagesNavigationRoutes }
