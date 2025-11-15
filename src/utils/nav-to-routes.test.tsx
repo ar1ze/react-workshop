@@ -1,90 +1,97 @@
 import { describe, expect, it } from 'vitest'
 
-import type { NavigationNode, RouteComponentMap } from '@/types/navigation'
+import type { NavigationNode } from '@/types/navigation'
 
 import { navigationToRoutes } from './nav-to-routes'
 
+// Mock components
 const ParentComponent = () => <div>Parent</div>
 const ChildComponent = () => <div>Child</div>
 const GrandChildComponent = () => <div>GrandChild</div>
 const SiblingComponent = () => <div>Sibling</div>
+const IndexComponent = () => <div>Index</div>
 
 describe('navigationToRoutes', () => {
-  it('should convert single node to route', () => {
-    const nodes: NavigationNode[] = [{ id: 'page', label: 'Page', to: '/page' }]
+  it('converts a single node into a route', () => {
+    const nodes: NavigationNode[] = [
+      { id: 'page', label: 'Page', to: '/page', component: ParentComponent },
+    ]
 
-    const componentMap: RouteComponentMap = {
-      '/page': ParentComponent,
-    }
-
-    const routes = navigationToRoutes(nodes, componentMap)
+    const routes = navigationToRoutes(nodes)
 
     expect(routes).toHaveLength(1)
-    expect(routes[0].path).toBe('/page')
+    expect(routes[0].path).toBe('page')
     expect(routes[0].element).toBeDefined()
   })
 
-  it('should convert multiple sibling nodes', () => {
+  it('converts sibling nodes', () => {
     const nodes: NavigationNode[] = [
-      { id: 'first', label: 'First', to: '/first' },
-      { id: 'second', label: 'Second', to: '/second' },
+      { id: 'first', label: 'First', to: '/first', component: ParentComponent },
+      {
+        id: 'second',
+        label: 'Second',
+        to: '/second',
+        component: SiblingComponent,
+      },
     ]
 
-    const componentMap: RouteComponentMap = {
-      '/first': ParentComponent,
-      '/second': SiblingComponent,
-    }
-
-    const routes = navigationToRoutes(nodes, componentMap)
+    const routes = navigationToRoutes(nodes)
 
     expect(routes).toHaveLength(2)
-    expect(routes[0].path).toBe('/first')
-    expect(routes[1].path).toBe('/second')
+    expect(routes[0].path).toBe('first')
+    expect(routes[1].path).toBe('second')
   })
 
-  it('should convert parent with children', () => {
+  it('converts parent with children', () => {
     const nodes: NavigationNode[] = [
       {
         id: 'parent',
         label: 'Parent',
         to: '/parent',
+        component: ParentComponent,
         children: [
-          { id: 'child1', label: 'Child 1', to: '/parent/child1' },
-          { id: 'child2', label: 'Child 2', to: '/parent/child2' },
+          {
+            id: 'child1',
+            label: 'Child 1',
+            to: '/parent/child1',
+            component: ChildComponent,
+          },
+          {
+            id: 'child2',
+            label: 'Child 2',
+            to: '/parent/child2',
+            component: SiblingComponent,
+          },
         ],
       },
     ]
 
-    const componentMap: RouteComponentMap = {
-      '/parent': ParentComponent,
-      '/parent/child1': ChildComponent,
-      '/parent/child2': SiblingComponent,
-    }
+    const routes = navigationToRoutes(nodes)
 
-    const routes = navigationToRoutes(nodes, componentMap)
-
-    expect(routes[0].path).toBe('/parent')
     expect(routes[0].children).toHaveLength(2)
-    expect(routes[0].children?.[0].path).toBe('/parent/child1')
-    expect(routes[0].children?.[1].path).toBe('/parent/child2')
+    expect(routes[0].children?.[0].path).toBe('child1')
+    expect(routes[0].children?.[1].path).toBe('child2')
   })
 
-  it('should handle nested hierarchy (3 levels)', () => {
+  it('handles nested hierarchy (3 levels)', () => {
     const nodes: NavigationNode[] = [
       {
         id: 'parent',
         label: 'Parent',
         to: '/parent',
+        component: ParentComponent,
         children: [
           {
             id: 'child',
             label: 'Child',
             to: '/parent/child',
+            component: ChildComponent,
             children: [
               {
                 id: 'grandchild',
                 label: 'GrandChild',
                 to: '/parent/child/grandchild',
+                component: GrandChildComponent,
               },
             ],
           },
@@ -92,73 +99,53 @@ describe('navigationToRoutes', () => {
       },
     ]
 
-    const componentMap: RouteComponentMap = {
-      '/parent': ParentComponent,
-      '/parent/child': ChildComponent,
-      '/parent/child/grandchild': GrandChildComponent,
-    }
+    const routes = navigationToRoutes(nodes)
 
-    const routes = navigationToRoutes(nodes, componentMap)
-
-    expect(routes[0].children?.[0].children?.[0].path).toBe(
-      '/parent/child/grandchild'
-    )
+    expect(routes[0].children?.[0].children?.[0].path).toBe('grandchild')
   })
 
-  it('should handle empty children array as no children', () => {
+  it('treats empty children as no children', () => {
     const nodes: NavigationNode[] = [
       {
         id: 'parent',
         label: 'Parent',
         to: '/parent',
+        component: ParentComponent,
         children: [],
       },
     ]
 
-    const componentMap: RouteComponentMap = {
-      '/parent': ParentComponent,
-    }
-
-    const routes = navigationToRoutes(nodes, componentMap)
+    const routes = navigationToRoutes(nodes)
 
     expect(routes[0].children).toBeUndefined()
   })
 
-  it('should throw error when component is missing', () => {
-    const nodes: NavigationNode[] = [{ id: 'page', label: 'Page', to: '/page' }]
-
-    const componentMap: RouteComponentMap = {}
-
-    expect(() => navigationToRoutes(nodes, componentMap)).toThrow(
-      'No component mapped for route: /page'
-    )
-  })
-
-  it('should throw error for missing nested component', () => {
+  it('handles index routes', () => {
     const nodes: NavigationNode[] = [
       {
         id: 'parent',
         label: 'Parent',
         to: '/parent',
-        children: [{ id: 'child', label: 'Child', to: '/parent/child' }],
+        component: ParentComponent,
+        children: [
+          {
+            id: '__index__',
+            label: '',
+            to: '',
+            index: true,
+            component: IndexComponent,
+          },
+        ],
       },
     ]
 
-    const componentMap: RouteComponentMap = {
-      '/parent': ParentComponent,
-    }
+    const routes = navigationToRoutes(nodes)
 
-    expect(() => navigationToRoutes(nodes, componentMap)).toThrow(
-      'No component mapped for route: /parent/child'
-    )
+    expect(routes[0].children?.[0].index).toBe(true)
+    expect(routes[0].children?.[0].path).toBeUndefined()
   })
 
-  it('should handle empty array', () => {
-    const nodes: NavigationNode[] = []
-    const componentMap: RouteComponentMap = {}
-
-    const routes = navigationToRoutes(nodes, componentMap)
-
-    expect(routes).toEqual([])
+  it('returns an empty array for no nodes', () => {
+    expect(navigationToRoutes([])).toEqual([])
   })
 })

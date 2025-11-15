@@ -1,41 +1,61 @@
 import { Suspense } from 'react'
-import { type RouteObject } from 'react-router'
+import type { RouteObject } from 'react-router'
 
 import { LoadingPage } from '@/components/common'
-import type { NavigationNode, RouteComponentMap } from '@/types/navigation'
+import type { NavigationNode } from '@/types/navigation'
 
-export function navigationToRoutes(
-  nodes: NavigationNode[],
-  componentMap: RouteComponentMap
-): RouteObject[] {
-  return nodes.map((node) => nodeToRoute(node, componentMap))
+export const navigationToRoutes = (nodes: NavigationNode[]): RouteObject[] => {
+  return nodes.map((node) => nodeToRoute(node))
 }
 
-function nodeToRoute(
-  node: NavigationNode,
-  componentMap: RouteComponentMap
-): RouteObject {
-  const Component = componentMap[node.to]
+export const nodeToRoute = (node: NavigationNode): RouteObject => {
+  const Component = node.component
 
-  if (!Component) {
-    throw new Error(`No component mapped for route: ${node.to}. `)
-  }
+  const indexChild = node.children?.find((c) => c.index)
+  const normalChildren = node.children?.filter((c) => !c.index)
 
   const route: RouteObject = {
-    path: node.to,
-    element: (
-      <Suspense fallback={<LoadingPage />}>
-        <Component />
-      </Suspense>
-    ),
+    path: node.index ? undefined : stripLeadingSlash(node.to),
+    index: node.index ? true : undefined,
+    element: wrap(Component),
   }
 
-  // Build nested routes if present
-  if (node.children?.length) {
-    route.children = node.children.map((child) =>
-      nodeToRoute(child, componentMap)
-    )
+  if (indexChild || normalChildren?.length) {
+    route.children = []
+
+    if (indexChild) {
+      route.children.push({
+        index: true,
+        element: wrap(indexChild.component),
+      })
+    }
+
+    if (normalChildren) {
+      route.children.push(
+        ...normalChildren.map((child) => ({
+          ...nodeToRoute(child),
+          path: stripPrefix(child.to, node.to),
+        }))
+      )
+    }
   }
 
   return route
+}
+
+const wrap = (Component: React.ComponentType) => {
+  return (
+    <Suspense fallback={<LoadingPage />}>
+      <Component />
+    </Suspense>
+  )
+}
+
+const stripLeadingSlash = (path: string) => {
+  return path.startsWith('/') ? path.slice(1) : path
+}
+
+const stripPrefix = (child: string, parent: string) => {
+  const base = parent.endsWith('/') ? parent : parent + '/'
+  return stripLeadingSlash(child.replace(base, ''))
 }
