@@ -27,7 +27,6 @@ const createSidebar = () => {
 }
 
 export const LearnPageLayout = () => {
-  console.log(LearnNavigationConfig)
   const sidebar = createSidebar()
   return (
     <SidebarLayout sidebar={sidebar} className="grid-cols-[16rem_1fr]">
