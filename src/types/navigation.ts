@@ -1,3 +1,5 @@
+import type { ComponentType } from 'react'
+
 export interface NavigationLink {
   to: string
   label: string
@@ -16,7 +18,7 @@ export type NavigationNode = {
   id: string
   label: string
   to: string
+  component: ComponentType
+  index?: boolean
   children?: NavigationNode[]
 }
-
-export type RouteComponentMap = Record<string, React.ComponentType>
