@@ -4,12 +4,12 @@ import { SidebarLayout } from '@/components/layouts'
 import { NavigationList } from '@/components/navigation'
 import { Sidebar } from '@/components/ui/sidebar'
 
-import { LearnPageNavigationLinks } from './routes-pages'
+import { LearnNavigationConfig } from './routes'
 
 const PageNavigationBar = () => {
   return (
     <NavigationList
-      links={LearnPageNavigationLinks}
+      links={LearnNavigationConfig}
       listClassName="flex flex-col gap-y-1"
       buttonProps={{ size: 'sm' }}
       buttonClassName="font-normal"
@@ -27,6 +27,7 @@ const createSidebar = () => {
 }
 
 export const LearnPageLayout = () => {
+  console.log(LearnNavigationConfig)
   const sidebar = createSidebar()
   return (
     <SidebarLayout sidebar={sidebar} className="grid-cols-[16rem_1fr]">
