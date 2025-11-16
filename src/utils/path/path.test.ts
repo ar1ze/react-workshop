@@ -1,8 +1,14 @@
 import { describe, expect, it } from 'vitest'
 
-import { arePathsEqual, joinPaths, normalizePath } from './path'
+import {
+  arePathsEqual,
+  joinPaths,
+  normalizePath,
+  stripLeadingSlash,
+  stripPrefix,
+} from './path'
 
-describe('join', () => {
+describe('joinPaths', () => {
   it('should join path segments with single leading slash', () => {
     expect(joinPaths('path', 'to', 'file')).toBe('/path/to/file')
     expect(joinPaths('base', 'subpath')).toBe('/base/subpath')
@@ -25,7 +31,7 @@ describe('join', () => {
   })
 })
 
-describe('normalize', () => {
+describe('normalizePath', () => {
   it('should remove leading slashes', () => {
     expect(normalizePath('/path')).toBe('path')
   })
@@ -66,5 +72,25 @@ describe('arePathsEqual', () => {
   it('should treat empty and root as equal', () => {
     expect(arePathsEqual('', '/')).toBe(true)
     expect(arePathsEqual('/', '')).toBe(true)
+  })
+})
+
+describe('stripLeadingSlash', () => {
+  it('should remove leading slash', () => {
+    expect(stripLeadingSlash('/profile')).toBe('profile')
+  })
+
+  it('should handle no leading slash', () => {
+    expect(stripLeadingSlash('profile')).toBe('profile')
+  })
+})
+
+describe('stripPrefix', () => {
+  it('should strip parent prefix from child path', () => {
+    expect(stripPrefix('/settings/profile', '/settings')).toBe('profile')
+  })
+
+  it('should handle parent without trailing slash', () => {
+    expect(stripPrefix('/docs/guides/basics', '/docs/guides')).toBe('basics')
   })
 })

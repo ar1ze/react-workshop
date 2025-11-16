@@ -58,3 +58,32 @@ export const normalizePath = (path: string): string => {
 export const arePathsEqual = (path1: string, path2: string): boolean => {
   return normalizePath(path1) === normalizePath(path2)
 }
+
+/**
+ * Removes the leading slash from a path string.
+ * react-router nested routes require relative paths (e.g., "profile" instead of "/profile").
+ *
+ * @param path - The path string.
+ * @returns The path string without a leading slash.
+ */
+export const stripLeadingSlash = (path: string) => {
+  return path.startsWith('/') ? path.slice(1) : path
+}
+
+/**
+ * Converts a child's absolute path to a relative path based on its parent.
+ *
+ * @example
+ * // Returns "profile"
+ * stripPrefix("/settings/profile", "/settings")
+ *
+ * @param child - The child's absolute path (e.g., "/settings/profile").
+ * @param parent - The parent's absolute path (e.g., "/settings").
+ * @returns The child's path relative to the parent (e.g., "profile").
+ */
+export const stripPrefix = (child: string, parent: string) => {
+  // Ensure parent path ends with '/' for correct replacement.
+  const base = parent.endsWith('/') ? parent : parent + '/'
+  // Remove the parent's base path from the child's path.
+  return stripLeadingSlash(child.replace(base, ''))
+}

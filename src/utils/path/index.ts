@@ -1,3 +1,15 @@
-import { arePathsEqual, joinPaths, normalizePath } from './path'
+import {
+  arePathsEqual,
+  joinPaths,
+  normalizePath,
+  stripLeadingSlash,
+  stripPrefix,
+} from './path'
 
-export { arePathsEqual, joinPaths, normalizePath }
+export {
+  arePathsEqual,
+  joinPaths,
+  normalizePath,
+  stripLeadingSlash,
+  stripPrefix,
+}
