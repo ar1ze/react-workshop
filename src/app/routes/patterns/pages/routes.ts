@@ -1,5 +1,4 @@
-import { page } from '@/utils/navigation/nav-builder'
-import { navigationToRoutes } from '@/utils/navigation/nav-to-routes'
+import { navigationToRoutes, page } from '@/utils/navigation'
 
 import { PageOne, PageTwo } from './pages'
 

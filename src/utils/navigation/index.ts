@@ -1,6 +1,6 @@
-import { buildChildPath, index, page, section } from './nav-builder'
-import { navigationToRoutes, nodeToRoute } from './nav-to-routes'
-import { flattenNavigationTree } from './nav-utils'
+import { buildChildPath, index, page, section } from './builder'
+import { navigationToRoutes, nodeToRoute } from './to-routes'
+import { flattenNavigationTree } from './utils'
 
 export {
   buildChildPath,

@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 
 import type { NavigationNode } from '@/types/navigation'
 
-import { flattenNavigationTree } from './nav-utils'
+import { flattenNavigationTree } from './utils'
 
 // Mock components
 const MockComponent: ComponentType = () => null

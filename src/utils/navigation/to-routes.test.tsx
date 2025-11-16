@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 import type { NavigationNode } from '@/types/navigation'
 
-import { navigationToRoutes } from './nav-to-routes'
+import { navigationToRoutes } from './to-routes'
 
 // Mock components
 const ParentComponent = () => <div>Parent</div>

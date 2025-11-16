@@ -6,7 +6,7 @@ vi.mock('@/utils/path', () => ({
 
 import { joinPaths } from '@/utils/path'
 
-import { index, page, section } from './nav-builder'
+import { index, page, section } from './builder'
 
 const mockedJoinPaths = vi.mocked(joinPaths)
 
