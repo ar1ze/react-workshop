@@ -1,15 +1,13 @@
-import { index, navigationToRoutes, section } from '@/utils/navigation'
+import { navigationToRoutes, section } from '@/utils/navigation'
 
-import { PagesNavigationConfig } from '../../patterns/pages'
 import { LearnPageLayout } from './layout'
-import { LearnRootPage } from './root-page'
+import { OverviewSectionNavigationConfig } from './sections/00-overview'
 
 export const LEARN_PAGE_PREFIX = 'learn'
 
 export const LearnNavigationConfig = [
-  section('learn', 'Learn', LearnPageLayout, [
-    index(LearnRootPage),
-    ...PagesNavigationConfig,
+  section('learn', 'Overview', LearnPageLayout, [
+    ...OverviewSectionNavigationConfig,
   ]),
 ]
 
