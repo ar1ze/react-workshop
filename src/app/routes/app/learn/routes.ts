@@ -1,13 +1,17 @@
 import { navigationToRoutes, section } from '@/utils/navigation'
 
 import { LearnSidebarLayout } from './layouts/sidebar-layout'
-import { OverviewSectionNavigationConfig } from './sections/00-overview'
+import {
+  DescribingTheUISectionNavigationConfig,
+  OverviewSectionNavigationConfig,
+} from './sections'
 
 export const LEARN_PAGE_PREFIX = 'learn'
 
 export const LearnNavigationConfig = [
   section('learn', 'Overview', LearnSidebarLayout, [
     ...OverviewSectionNavigationConfig,
+    ...DescribingTheUISectionNavigationConfig,
   ]),
 ]
 
