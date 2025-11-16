@@ -1,4 +1,7 @@
-import { OverviewSectionPage } from './00-section'
+import { OverviewSection } from './00-section'
 import { OverviewSectionNavigationConfig } from './routes'
 
-export { OverviewSectionNavigationConfig, OverviewSectionPage }
+export {
+  OverviewSectionNavigationConfig,
+  OverviewSection as OverviewSectionPage,
+}

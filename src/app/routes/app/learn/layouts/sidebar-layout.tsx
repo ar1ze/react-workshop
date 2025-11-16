@@ -5,7 +5,7 @@ import { NavigationList } from '@/components/navigation'
 import { Sidebar } from '@/components/ui/sidebar'
 import { flattenNavigationTree } from '@/utils/navigation'
 
-import { LearnNavigationConfig } from './routes'
+import { LearnNavigationConfig } from '../routes'
 
 const PageNavigationBar = () => {
   const nodes = flattenNavigationTree(LearnNavigationConfig)
@@ -31,7 +31,7 @@ const createSidebar = () => {
   )
 }
 
-export const LearnPageLayout = () => {
+export const LearnSidebarLayout = () => {
   const sidebar = createSidebar()
   return (
     <SidebarLayout sidebar={sidebar} className="grid-cols-[16rem_1fr]">

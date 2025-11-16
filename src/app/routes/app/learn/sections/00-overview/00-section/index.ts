@@ -1,3 +1,3 @@
-import { OverviewSectionPage } from './overview'
+import { OverviewSection } from './section'
 
-export { OverviewSectionPage }
+export { OverviewSection }

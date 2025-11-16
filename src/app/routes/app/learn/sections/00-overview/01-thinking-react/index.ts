@@ -1,3 +1,3 @@
-import { ThinkingReactPage } from './thinking-react-page'
+import { ThinkingReactPage } from './page'
 
 export { ThinkingReactPage }

@@ -1,9 +1,9 @@
 import { index, page } from '@/utils/navigation'
 
-import { OverviewSectionPage } from '.'
+import { OverviewSection } from './00-section'
 import { ThinkingReactPage } from './01-thinking-react'
 
 export const OverviewSectionNavigationConfig = [
-  index(OverviewSectionPage),
+  index(OverviewSection),
   page('thinking-in-react', 'Thinking in React', ThinkingReactPage),
 ]
