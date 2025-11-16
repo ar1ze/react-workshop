@@ -3,7 +3,7 @@ import { twMerge } from 'tailwind-merge'
 
 import { type BaseProps } from '@/types/props'
 
-interface SidebarLayoutProps extends BaseProps {
+export interface SidebarLayoutProps extends BaseProps {
   sidebar: ReactNode
   children: ReactNode
 }

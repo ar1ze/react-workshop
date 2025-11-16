@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-interface HeaderLayoutProps {
+export interface HeaderLayoutProps {
   header: ReactNode
   content: ReactNode
 }
