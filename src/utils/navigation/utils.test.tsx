@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest'
 import type { NavigationNode } from '@/types/navigation'
 
 import { flattenNavigationTree } from './utils'
+import { groupNodesBySection } from './utils'
 
 // Mock components
 const MockComponent: ComponentType = () => null
@@ -116,5 +117,123 @@ describe('flattenNavigationTree', () => {
 
     const result = flattenNavigationTree([root])
     expect(getIds(result)).toEqual(['root', 'page-one', 'child', 'grand-child'])
+  })
+})
+
+describe('groupNodesBySection', () => {
+  it('groups nodes by section with max depth 1', () => {
+    const nodes: NavigationNode[] = [
+      {
+        id: 'learn',
+        label: 'Overview',
+        to: '/learn',
+        component: MockComponent,
+      },
+      {
+        id: 'thinking',
+        label: 'Thinking',
+        to: '/learn/thinking-in-react',
+        component: MockComponent,
+      },
+      {
+        id: 'describing',
+        label: 'Describing',
+        to: '/learn/describing-the-ui',
+        component: MockComponent,
+      },
+      {
+        id: 'first',
+        label: 'First',
+        to: '/learn/describing-the-ui/your-first-component',
+        component: MockComponent,
+      },
+      {
+        id: 'import',
+        label: 'Import',
+        to: '/learn/describing-the-ui/importing-and-exporting-components',
+        component: MockComponent,
+      },
+    ]
+
+    const sections = ['learn', 'learn/describing-the-ui']
+    const result = groupNodesBySection(nodes, sections)
+
+    expect(result['learn']).toHaveLength(3)
+    expect(result['learn'].map((n) => n.id)).toEqual([
+      'learn',
+      'thinking',
+      'describing',
+    ])
+
+    expect(result['learn/describing-the-ui']).toHaveLength(2)
+    expect(result['learn/describing-the-ui'].map((n) => n.id)).toEqual([
+      'first',
+      'import',
+    ])
+  })
+
+  it('excludes nodes deeper than max depth 1', () => {
+    const nodes: NavigationNode[] = [
+      { id: 'learn', label: 'Learn', to: '/learn', component: MockComponent },
+      { id: 'ui', label: 'UI', to: '/learn/ui', component: MockComponent },
+      {
+        id: 'deep',
+        label: 'Deep',
+        to: '/learn/ui/components',
+        component: MockComponent,
+      },
+    ]
+
+    const sections = ['learn']
+    const result = groupNodesBySection(nodes, sections)
+
+    expect(result['learn']).toHaveLength(2)
+    expect(result['learn'].map((n) => n.id)).toEqual(['learn', 'ui'])
+  })
+
+  it('assigns node to first matching section only', () => {
+    const nodes: NavigationNode[] = [
+      {
+        id: 'describing',
+        label: 'Describing',
+        to: '/learn/describing-the-ui',
+        component: MockComponent,
+      },
+    ]
+
+    const sections = ['learn', 'learn/describing-the-ui']
+    const result = groupNodesBySection(nodes, sections)
+
+    expect(result['learn']).toHaveLength(1)
+    expect(result['learn/describing-the-ui']).toHaveLength(0)
+  })
+
+  it('handles empty sections', () => {
+    const nodes: NavigationNode[] = [
+      { id: 'home', label: 'Home', to: '/home', component: MockComponent },
+    ]
+
+    const sections = ['learn', 'docs']
+    const result = groupNodesBySection(nodes, sections)
+
+    expect(result['learn']).toEqual([])
+    expect(result['docs']).toEqual([])
+  })
+
+  it('normalizes paths correctly', () => {
+    const nodes: NavigationNode[] = [
+      { id: 'learn', label: 'Learn', to: '/learn/', component: MockComponent },
+      {
+        id: 'basics',
+        label: 'Basics',
+        to: '//learn//basics//',
+        component: MockComponent,
+      },
+    ]
+
+    const sections = ['/learn/']
+    const result = groupNodesBySection(nodes, sections)
+
+    expect(result['/learn/']).toHaveLength(2)
   })
 })
