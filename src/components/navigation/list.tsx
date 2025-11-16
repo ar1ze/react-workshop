@@ -1,7 +1,7 @@
 import type { NavigationNode } from '@/types/navigation'
 
 import type { ButtonProps } from '../ui/button'
-import { NavigationItem } from './nav-list-item'
+import { NavigationItem } from './item'
 
 interface NavigationListProps {
   nodes: NavigationNode[]

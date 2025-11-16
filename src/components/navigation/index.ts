@@ -1,4 +1,4 @@
-import { NavigationList } from './nav-list'
-import { NavigationItem } from './nav-list-item'
+import { NavigationItem } from './item'
+import { NavigationList } from './list'
 
 export { NavigationItem, NavigationList }
