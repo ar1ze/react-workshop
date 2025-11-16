@@ -1,5 +1,4 @@
-import { page } from '@/utils/nav-builder'
-import { navigationToRoutes } from '@/utils/nav-to-routes'
+import { navigationToRoutes, page } from '@/utils/navigation'
 
 import { BlogPage } from './root-page'
 

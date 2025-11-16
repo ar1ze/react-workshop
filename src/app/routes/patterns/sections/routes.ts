@@ -1,4 +1,4 @@
-import { navigationToRoutes } from '@/utils/nav-to-routes'
+import { navigationToRoutes } from '@/utils/navigation'
 
 import { PageSectionOneNavigationConfig } from './page-section-one'
 import { PageSectionTwoNavigationConfig } from './page-section-two'

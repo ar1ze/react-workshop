@@ -1,5 +1,5 @@
 import type { NavigationNode } from '@/types/navigation'
-import { flattenNavigationTree } from '@/utils/nav-utils'
+import { flattenNavigationTree } from '@/utils/navigation'
 
 import type { ButtonProps } from '../ui/button'
 import { NavigationItem } from './nav-list-item'

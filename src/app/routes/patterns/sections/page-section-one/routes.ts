@@ -1,5 +1,4 @@
-import { page, section } from '@/utils/nav-builder'
-import { navigationToRoutes } from '@/utils/nav-to-routes'
+import { navigationToRoutes, page, section } from '@/utils/navigation'
 
 import { PageSectionOneRootPage } from './root-page'
 import { PageSectionOneSubPageOne } from './sub-page-one'

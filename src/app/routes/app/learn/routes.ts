@@ -1,5 +1,4 @@
-import { index, section } from '@/utils/nav-builder'
-import { navigationToRoutes } from '@/utils/nav-to-routes'
+import { index, navigationToRoutes, section } from '@/utils/navigation'
 
 import { PagesNavigationConfig } from '../../patterns/pages'
 import { LearnPageLayout } from './layout'
