@@ -11,8 +11,8 @@ export const LearnContentLayout = ({
   return (
     <ContentLayout
       title={title}
-      titleClassName={titleClassName}
-      className={twMerge('px-[4%]', className)}
+      titleClassName={twMerge('', titleClassName)}
+      className={twMerge('px-[clamp(1rem,2%,12rem)]', className)}
     >
       <section>{children}</section>
     </ContentLayout>
