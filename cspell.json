@@ -3,16 +3,17 @@
   "version": "0.2",
   "language": "en",
   "words": [
-    "vite",
-    "oklch",
-    "tailwindcss",
     "clsx",
-    "lucide",
-    "shadcn",
-    "tseslint",
-    "vitest",
     "commitlint",
-    "kebabcase"
+    "kebabcase",
+    "lucide",
+    "nums",
+    "oklch",
+    "shadcn",
+    "tailwindcss",
+    "tseslint",
+    "vite",
+    "vitest"
   ],
   "ignorePaths": ["node_modules/", "dist/", "package-lock.json", ".git/"]
 }
