@@ -1,23 +1,23 @@
 import { Outlet } from 'react-router'
 
-import { Sidebar } from '@/components/common/sidebar'
-import { SidebarLayout } from '@/components/layouts'
+import { SidebarLayout } from '@/components/layouts/sidebar'
+import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
+import { useIsMobile } from '@/hooks/use-mobile'
 
-import { LearnNavigationBar } from '../components/nav-bar' // Import the new component
-
-const createSidebar = () => {
-  return (
-    <Sidebar className="border-r px-4">
-      <LearnNavigationBar />
-    </Sidebar>
-  )
-}
+import { LearnSidebar } from '../components/sidebar'
 
 export const LearnSidebarLayout = () => {
-  const sidebar = createSidebar()
+  const sidebar = <LearnSidebar />
+  const isMobile = useIsMobile()
+
   return (
-    <SidebarLayout sidebar={sidebar} className="grid-cols-[20rem_1fr]">
-      <Outlet />
-    </SidebarLayout>
+    <div className="relative h-full w-full">
+      <SidebarLayout sidebar={sidebar} className="h-full min-h-0">
+        <div className="pl-4">{isMobile && <SidebarTrigger />}</div>
+        <SidebarInset>
+          <Outlet />
+        </SidebarInset>
+      </SidebarLayout>
+    </div>
   )
 }

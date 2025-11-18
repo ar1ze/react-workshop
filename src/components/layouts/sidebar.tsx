@@ -1,23 +1,21 @@
 import { type ReactNode } from 'react'
-import { twMerge } from 'tailwind-merge'
 
+import { SidebarProvider } from '@/components/ui/sidebar'
 import { type BaseProps } from '@/types/props'
 
 export interface SidebarLayoutProps extends BaseProps {
   sidebar: ReactNode
-  children: ReactNode
 }
 
 export const SidebarLayout = ({
   sidebar,
-  className,
   children,
+  className,
 }: SidebarLayoutProps) => {
-  const defaultClass = 'grid h-full grid-cols-[auto_1fr]'
   return (
-    <main className={twMerge(defaultClass, className)}>
+    <SidebarProvider className={className}>
       {sidebar}
       {children}
-    </main>
+    </SidebarProvider>
   )
 }
