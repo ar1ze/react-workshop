@@ -1,4 +1,4 @@
-import { ThemeButton } from './theme-button'
-import { ThemeProvider } from './theme-provider'
+import { ThemeButton } from './button'
+import { ThemeProvider } from './provider'
 
 export { ThemeButton, ThemeProvider }

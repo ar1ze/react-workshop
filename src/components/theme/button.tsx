@@ -2,7 +2,7 @@ import { type LucideProps, Moon, Sun } from 'lucide-react'
 
 import { IconButton } from '../common/icon-button'
 import { type ButtonProps } from '../ui/button'
-import { useTheme } from './theme-context'
+import { useTheme } from './context'
 
 interface ThemeButtonProps {
   iconProps?: LucideProps
