@@ -1,6 +1,6 @@
-import { ContentLayout, type ContentLayoutProps } from './content-layout'
-import { HeaderLayout, type HeaderLayoutProps } from './header-layout'
-import { SidebarLayout, type SidebarLayoutProps } from './sidebar-layout'
+import { ContentLayout, type ContentLayoutProps } from './content'
+import { HeaderLayout, type HeaderLayoutProps } from './header'
+import { SidebarLayout, type SidebarLayoutProps } from './sidebar'
 
 export {
   ContentLayout,
