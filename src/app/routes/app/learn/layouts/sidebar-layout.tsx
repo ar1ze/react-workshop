@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router'
 
+import { Sidebar } from '@/components/common/sidebar'
 import { SidebarLayout } from '@/components/layouts'
-import { Sidebar } from '@/components/ui/sidebar'
 
 import { LearnNavigationBar } from '../components/nav-bar' // Import the new component
 
