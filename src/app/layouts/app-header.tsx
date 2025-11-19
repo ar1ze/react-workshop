@@ -5,8 +5,7 @@ import { GithubIcon } from '@/components/icons'
 import { NavigationLinkStyled } from '@/components/navigation'
 import { ThemeButton } from '@/components/theme'
 
-import { BLOG_PAGE_PREFIX } from '../routes/app/blog'
-import { LEARN_PAGE_PREFIX } from '../routes/app/learn'
+import { LearnNavigationLinks } from './config'
 
 const BrandLink = () => (
   <NavLink to="/" className="text-muted-background text-xl font-bold">
@@ -15,14 +14,9 @@ const BrandLink = () => (
 )
 
 const HeaderNavLinks = () => {
-  const navLinks = [
-    { to: LEARN_PAGE_PREFIX, label: 'Learn' },
-    { to: BLOG_PAGE_PREFIX, label: 'Blog' },
-  ]
-
   return (
     <nav className="flex gap-4">
-      {navLinks.map(({ to, label }) => (
+      {LearnNavigationLinks.map(({ to, label }) => (
         <NavigationLinkStyled
           key={to}
           to={to}
