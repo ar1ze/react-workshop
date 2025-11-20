@@ -31,21 +31,21 @@ const HeaderNavLinks = () => {
 }
 
 const HeaderActions = () => {
-  const icon = <GithubIcon />
-
   return (
-    <div className="flex">
-      <Button asChild variant="ghost" size="icon">
+    <div className="flex items-center">
+      <Button asChild variant="ghost" size="icon-lg">
         <a
           href="https://github.com/ar1ze/react-workshop"
           target="_blank"
           rel="noopener noreferrer"
         >
-          {icon}
+          <GithubIcon className="size-5" />
         </a>
       </Button>
-
-      <ThemeButton buttonProps={{ variant: 'ghost' }} />
+      <ThemeButton
+        buttonProps={{ variant: 'ghost', size: 'icon-lg' }}
+        iconProps={{ className: 'size-6' }}
+      />
     </div>
   )
 }
@@ -55,7 +55,7 @@ const HeaderNavigation = () => {
 
   return isMobile ? (
     <Button variant="ghost" size="icon-lg">
-      <Menu />
+      <Menu className="size-6" />
     </Button>
   ) : (
     <div className="flex items-center gap-2 md:gap-4">
