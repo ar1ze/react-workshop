@@ -1,9 +1,11 @@
+import { Menu } from 'lucide-react'
 import { NavLink } from 'react-router'
 
-import { IconButton } from '@/components/common'
 import { GithubIcon } from '@/components/icons'
 import { NavigationLinkStyled } from '@/components/navigation'
 import { ThemeButton } from '@/components/theme'
+import { Button } from '@/components/ui/button'
+import { useIsMobile } from '@/hooks/use-mobile'
 
 import { LearnNavigationLinks } from './config'
 
@@ -28,22 +30,40 @@ const HeaderNavLinks = () => {
   )
 }
 
-const HeaderActions = () => (
-  <div className="flex">
-    <IconButton
-      icon={<GithubIcon />}
-      href="https://github.com/ar1ze/react-workshop"
-    />
-    <ThemeButton />
-  </div>
-)
+const HeaderActions = () => {
+  const icon = <GithubIcon />
 
-const HeaderNavigation = () => (
-  <div className="flex items-center gap-2 md:gap-4">
-    <HeaderNavLinks />
-    <HeaderActions />
-  </div>
-)
+  return (
+    <div className="flex">
+      <Button asChild variant="ghost" size="icon">
+        <a
+          href="https://github.com/ar1ze/react-workshop"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {icon}
+        </a>
+      </Button>
+
+      <ThemeButton buttonProps={{ variant: 'ghost' }} />
+    </div>
+  )
+}
+
+const HeaderNavigation = () => {
+  const isMobile = useIsMobile()
+
+  return isMobile ? (
+    <Button variant="ghost" size="icon-lg">
+      <Menu />
+    </Button>
+  ) : (
+    <div className="flex items-center gap-2 md:gap-4">
+      <HeaderNavLinks />
+      <HeaderActions />
+    </div>
+  )
+}
 
 export const AppHeader = () => (
   <header className="flex items-center justify-between p-4">
