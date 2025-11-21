@@ -1,11 +1,13 @@
 import { Sidebar, SidebarContent, SidebarGroup } from '@/components/ui/sidebar'
 
+import { LearnNavAccordion } from './nav-accordion'
+
 export const LearnSidebar = () => {
   return (
-    <Sidebar className="absolute h-full border-r-0 pl-4">
+    <Sidebar className="absolute h-full border-none pl-2">
       <SidebarContent className="bg-background">
         <SidebarGroup className="bg-background">
-          <p>Content</p>
+          <LearnNavAccordion />
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
