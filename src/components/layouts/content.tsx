@@ -1,5 +1,4 @@
-import { twMerge } from 'tailwind-merge'
-
+import { cn } from '@/lib/utils'
 import { type BaseProps } from '@/types/props'
 
 export interface LayoutTitleProps {
@@ -13,9 +12,7 @@ const LayoutTitle = ({ title, titleClassName }: LayoutTitleProps) => {
   const defaultTitleClasses = 'text-xl font-medium'
 
   if (!title) return null
-  return (
-    <h1 className={twMerge(defaultTitleClasses, titleClassName)}>{title}</h1>
-  )
+  return <h1 className={cn(defaultTitleClasses, titleClassName)}>{title}</h1>
 }
 
 export const ContentLayout = ({
@@ -29,7 +26,7 @@ export const ContentLayout = ({
     : 'px-4'
 
   return (
-    <main className={twMerge(defaultMainClasses, className)}>
+    <main className={cn(defaultMainClasses, className)}>
       <LayoutTitle title={title} titleClassName={titleClassName} />
       {children}
     </main>

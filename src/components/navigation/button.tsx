@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from 'react-router'
-import { twMerge } from 'tailwind-merge'
 
+import { cn } from '@/lib/utils'
 import { type NavigationLink } from '@/types/navigation'
 import { arePathsEqual } from '@/utils/path'
 
@@ -27,7 +27,7 @@ export const NavigationButton = ({
     <Button
       asChild
       variant={variant}
-      className={twMerge(className, isActive && activeClassName)}
+      className={cn(className, isActive && activeClassName)}
       {...props}
     >
       <NavLink to={to}>{label}</NavLink>

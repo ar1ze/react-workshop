@@ -1,7 +1,7 @@
 import type { MouseEventHandler } from 'react'
 import { NavLink } from 'react-router'
-import { twMerge } from 'tailwind-merge'
 
+import { cn } from '@/lib/utils'
 import { type NavigationLink } from '@/types/navigation'
 import { type BaseProps } from '@/types/props'
 
@@ -20,7 +20,7 @@ export const NavigationLinkStyled = ({
       key={to}
       to={to}
       className={({ isActive }) =>
-        twMerge(
+        cn(
           'hover:text-primary transition-colors',
           isActive ? 'text-primary' : 'text-muted-foreground',
           className

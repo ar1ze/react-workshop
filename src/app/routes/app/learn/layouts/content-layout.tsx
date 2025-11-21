@@ -1,6 +1,5 @@
-import { twMerge } from 'tailwind-merge'
-
 import { ContentLayout, type ContentLayoutProps } from '@/components/layouts'
+import { cn } from '@/lib/utils'
 
 export const LearnContentLayout = ({
   title,
@@ -11,8 +10,8 @@ export const LearnContentLayout = ({
   return (
     <ContentLayout
       title={title}
-      titleClassName={twMerge('', titleClassName)}
-      className={twMerge('px-[clamp(1rem,2%,12rem)]', className)}
+      titleClassName={titleClassName}
+      className={cn('px-[clamp(1rem,2%,12rem)]', className)}
     >
       <section>{children}</section>
     </ContentLayout>
