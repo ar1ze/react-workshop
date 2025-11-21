@@ -55,7 +55,7 @@ export const NavigationAccordionTrigger = ({
               'text-muted-foreground pointer-events-none size-5 shrink-0 transition-transform duration-200',
               isActive && 'text-accent-foreground'
             )}
-            strokeWidth={3}
+            strokeWidth={2}
           />
         </Link>
       </AccordionPrimitive.Trigger>
