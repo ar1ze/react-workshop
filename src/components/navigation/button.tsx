@@ -6,20 +6,20 @@ import { arePathsEqual } from '@/utils/path'
 
 import { Button, type ButtonProps } from '../ui/button'
 
-export interface NavigationItemProps
+export interface NavigationButtonProps
   extends NavigationLink,
     Omit<ButtonProps, 'asChild'> {
   activeClassName?: string
 }
 
-export const NavigationItem = ({
+export const NavigationButton = ({
   to,
   label,
   className,
   activeClassName,
   variant = 'ghost',
   ...props
-}: NavigationItemProps) => {
+}: NavigationButtonProps) => {
   const location = useLocation()
   const isActive = arePathsEqual(location.pathname, to)
 

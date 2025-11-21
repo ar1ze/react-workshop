@@ -1,4 +1,4 @@
-import { NavigationItem } from './item'
+import { NavigationButton } from './button'
 import { NavigationLinkStyled } from './link'
 
-export { NavigationItem, NavigationLinkStyled }
+export { NavigationButton, NavigationLinkStyled }
