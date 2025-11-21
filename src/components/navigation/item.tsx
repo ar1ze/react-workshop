@@ -4,52 +4,33 @@ import { twMerge } from 'tailwind-merge'
 import { type NavigationLink } from '@/types/navigation'
 import { arePathsEqual } from '@/utils/path'
 
-import { Button } from '../ui/button'
-import { type ButtonProps } from '../ui/button'
+import { Button, type ButtonProps } from '../ui/button'
 
-export interface NavigationItemProps extends NavigationLink {
-  linkClassName?: string
-  linkActiveClassName?: string
-  buttonProps?: ButtonProps
-  buttonClassName?: string
-  buttonActiveClassName?: string
+export interface NavigationItemProps
+  extends NavigationLink,
+    Omit<ButtonProps, 'asChild'> {
+  activeClassName?: string
 }
 
 export const NavigationItem = ({
   to,
   label,
-  linkClassName,
-  linkActiveClassName,
-  buttonProps,
-  buttonClassName,
-  buttonActiveClassName,
+  className,
+  activeClassName,
+  variant = 'ghost',
+  ...props
 }: NavigationItemProps) => {
   const location = useLocation()
   const isActive = arePathsEqual(location.pathname, to)
 
-  const navLinkClassActive = twMerge('bg-accent', linkActiveClassName)
-  const navLinkClass = isActive ? navLinkClassActive : ''
-
-  const buttonClassActive = isActive ? buttonActiveClassName : ''
-
-  const defaultButtonProps: ButtonProps = {
-    asChild: true,
-    variant: 'ghost',
-  }
-
-  const mergedButtonProps = {
-    ...defaultButtonProps,
-    ...buttonProps,
-  }
-
   return (
     <Button
-      {...mergedButtonProps}
-      className={twMerge(buttonClassName, buttonClassActive)}
+      asChild
+      variant={variant}
+      className={twMerge(className, isActive && activeClassName)}
+      {...props}
     >
-      <NavLink className={twMerge(navLinkClass, linkClassName)} to={to}>
-        {label}
-      </NavLink>
+      <NavLink to={to}>{label}</NavLink>
     </Button>
   )
 }
