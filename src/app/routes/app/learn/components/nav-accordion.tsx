@@ -18,7 +18,7 @@ export function LearnNavAccordion() {
       type="single"
       collapsible
       className="w-full"
-      defaultValue="item-1"
+      defaultValue={groups[0].sectionNode?.id}
     >
       {groups.map((group) => {
         if (!group.sectionNode) {
@@ -32,13 +32,13 @@ export function LearnNavAccordion() {
           >
             <NavigationAccordionTrigger
               sectionNode={group.sectionNode}
-              className="rounded-l-none px-2"
+              className="rounded-l-none pl-4"
             />
             <AccordionContent className="pb-0">
               <ul>
                 <NavigationAccordionLinks
                   nodes={group.childrenNodes}
-                  className="rounded-l-none"
+                  className="rounded-l-none pl-4"
                   activeClassName=""
                 />
               </ul>
