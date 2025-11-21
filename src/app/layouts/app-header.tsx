@@ -6,7 +6,6 @@ import { GithubIcon } from '@/components/icons'
 import { NavigationLinkStyled } from '@/components/navigation'
 import { ThemeButton } from '@/components/theme'
 import { Button } from '@/components/ui/button'
-import { useIsMobile } from '@/hooks/use-mobile'
 import type { BaseProps } from '@/types/props'
 
 import { LearnNavigationLinks } from './config'
@@ -65,18 +64,10 @@ type MobileNavProps = {
 }
 
 const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
-  useEffect(() => {
-    if (!isOpen) return
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [isOpen])
-
-  if (!isOpen) return null
-
   return (
-    <div className="bg-background animate-in slide-in-from-top-5 fade-in absolute top-full left-0 z-50 h-[calc(100vh-100%)] w-full border-t duration-200">
+    <div
+      className={`bg-background absolute top-full left-0 z-50 h-[calc(100vh-100%)] w-full border-t md:hidden ${isOpen ? 'block' : 'hidden'}`}
+    >
       <div className="flex h-full flex-col overflow-y-auto p-6">
         <nav className="flex flex-col gap-4">
           <HeaderNavLinks className="text-lg font-medium" onClose={onClose} />
@@ -87,54 +78,56 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
   )
 }
 
-const HeaderNavigation = ({
-  isMobile,
-  isOpen,
-  onToggle,
-}: {
-  isMobile: boolean
+type HeaderNavigationProps = {
   isOpen: boolean
   onToggle: () => void
-}) => {
-  if (isMobile) {
-    return (
-      <Button onClick={onToggle} variant="ghost" size="icon-lg">
-        <div
-          className={`transition-all duration-300 ${
-            isOpen ? 'scale-110 rotate-90' : 'scale-100 rotate-0'
-          }`}
-        >
-          {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
-        </div>
-        <span className="sr-only">Toggle Menu</span>
-      </Button>
-    )
-  }
+}
 
+export const HeaderNavigation = ({
+  isOpen,
+  onToggle,
+}: HeaderNavigationProps) => {
   return (
-    <div className="flex items-center gap-4">
-      <nav className="flex gap-4">
-        <HeaderNavLinks className="font-medium" />
-      </nav>
-      <HeaderActions className="flex items-center" />
-    </div>
+    <>
+      <div className="md:hidden">
+        <Button onClick={onToggle} variant="ghost" size="icon-lg">
+          {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+        </Button>
+      </div>
+      <div className="hidden items-center gap-4 md:flex">
+        <nav className="flex gap-4">
+          <HeaderNavLinks className="font-medium" />
+        </nav>
+        <HeaderActions className="flex items-center" />
+      </div>
+    </>
   )
 }
 
 export const AppHeader = () => {
-  const isMobile = useIsMobile()
   const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    let timer: number
+    const handleResize = () => {
+      clearTimeout(timer)
+      timer = setTimeout(() => setMenuOpen(false), 150)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   return (
     <header className="relative flex items-center justify-between p-4">
       <BrandLink onClose={() => setMenuOpen(false)} />
-
       <HeaderNavigation
-        isMobile={!!isMobile}
         isOpen={menuOpen}
         onToggle={() => setMenuOpen(!menuOpen)}
       />
-
       <MobileNav isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
     </header>
   )
