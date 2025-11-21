@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router'
 
 import { GithubIcon } from '@/components/icons'
+import { NavigationButton } from '@/components/navigation'
 import { NavigationLinkStyled } from '@/components/navigation'
 import { ThemeButton } from '@/components/theme'
 import { Button } from '@/components/ui/button'
@@ -21,22 +22,6 @@ const BrandLink = ({ onClose }: LinkProps) => (
     <span>React Workshop</span>
   </NavLink>
 )
-
-const HeaderNavLinks = ({ className, onClose }: LinkProps) => {
-  return (
-    <>
-      {LearnNavigationLinks.map(({ to, label }) => (
-        <NavigationLinkStyled
-          key={to}
-          to={to}
-          label={label}
-          className={className}
-          onClick={onClose}
-        />
-      ))}
-    </>
-  )
-}
 
 const HeaderActions = ({ className }: BaseProps) => {
   return (
@@ -66,11 +51,20 @@ type MobileNavProps = {
 const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
   return (
     <div
-      className={`bg-background absolute top-full left-0 z-50 h-[calc(100vh-100%)] w-full border-t md:hidden ${isOpen ? 'block' : 'hidden'}`}
+      className={`bg-background absolute top-full left-0 z-50 h-[calc(100vh-100%)] w-full md:hidden ${isOpen ? 'block' : 'hidden'}`}
     >
-      <div className="flex h-full flex-col overflow-y-auto p-6">
-        <nav className="flex flex-col gap-4">
-          <HeaderNavLinks className="text-lg font-medium" onClose={onClose} />
+      <div className="flex h-full flex-col overflow-y-auto">
+        <nav className="border-border/70 flex justify-evenly border-y py-3">
+          {LearnNavigationLinks.map(({ to, label }) => (
+            <NavigationButton
+              key={to}
+              to={to}
+              label={label}
+              className="rounded-4xl px-16 text-lg font-medium"
+              activeClassName="bg-accent"
+              onClick={onClose}
+            />
+          ))}
         </nav>
         <HeaderActions className="mt-auto flex items-center gap-4 pt-6 pb-8" />
       </div>
@@ -96,7 +90,15 @@ export const HeaderNavigation = ({
       </div>
       <div className="hidden items-center gap-4 md:flex">
         <nav className="flex gap-4">
-          <HeaderNavLinks className="font-medium" />
+          {LearnNavigationLinks.map(({ to, label }) => (
+            <NavigationLinkStyled
+              key={to}
+              to={to}
+              label={label}
+              className="font-medium"
+              onClick={onToggle}
+            />
+          ))}
         </nav>
         <HeaderActions className="flex items-center" />
       </div>
