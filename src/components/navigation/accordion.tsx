@@ -3,10 +3,11 @@
 import * as AccordionPrimitive from '@radix-ui/react-accordion'
 import { ChevronRightIcon } from 'lucide-react'
 import * as React from 'react'
-import { Link, useLocation } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 
 import { cn } from '@/lib/utils'
 import { type NavigationNode } from '@/types/navigation'
+import { type BaseProps } from '@/types/props'
 import { arePathsEqual } from '@/utils/path'
 
 type NavigationAccordionTriggerProps = React.ComponentProps<
@@ -21,6 +22,7 @@ export const NavigationAccordionTrigger = ({
   ...props
 }: NavigationAccordionTriggerProps) => {
   const location = useLocation()
+  const navigate = useNavigate()
   const isActive = arePathsEqual(location.pathname, sectionNode.to)
 
   return (
@@ -29,8 +31,11 @@ export const NavigationAccordionTrigger = ({
         data-slot="accordion-trigger"
         asChild
         onClick={(e) => {
-          if (isActive) {
+          if (e.currentTarget.getAttribute('data-state') === 'open') {
             e.preventDefault()
+            if (location.pathname !== sectionNode.to) {
+              navigate(sectionNode.to)
+            }
           }
         }}
         {...props}
@@ -38,7 +43,7 @@ export const NavigationAccordionTrigger = ({
         <Link
           to={sectionNode.to}
           className={cn(
-            'focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 rounded-md py-4 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50',
+            'focus-visible:border-ring focus-visible:ring-ring/50 hover:bg-accent flex flex-1 items-center justify-between gap-4 rounded-md px-3 py-3 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50',
             '[&[data-state=open]>svg]:rotate-90',
             isActive ? 'bg-accent text-accent-foreground' : 'text-foreground',
             className
@@ -56,4 +61,37 @@ export const NavigationAccordionTrigger = ({
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   )
+}
+
+interface NavigationAccordionLinkProps extends BaseProps {
+  nodes: NavigationNode[]
+  activeClassName?: string
+}
+
+export function NavigationAccordionLinks({
+  nodes,
+  className,
+  activeClassName,
+}: NavigationAccordionLinkProps) {
+  const location = useLocation()
+
+  return nodes.map((node) => {
+    const isActive = arePathsEqual(location.pathname, node.to)
+
+    return (
+      <li key={node.to}>
+        <Link
+          to={node.to}
+          className={cn(
+            'focus-visible:border-ring focus-visible:ring-ring/50 hover:bg-accent flex items-center rounded-md px-3 py-3 text-xs transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50',
+            className,
+            isActive ? 'bg-accent' : 'text-accent-foreground',
+            isActive && activeClassName
+          )}
+        >
+          {node.label}
+        </Link>
+      </li>
+    )
+  })
 }
