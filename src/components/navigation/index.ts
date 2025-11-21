@@ -1,4 +1,5 @@
+import { NavigationAccordionTrigger } from './accordion'
 import { NavigationButton } from './button'
 import { NavigationLinkStyled } from './link'
 
-export { NavigationButton, NavigationLinkStyled }
+export { NavigationAccordionTrigger, NavigationButton, NavigationLinkStyled }
