@@ -10,6 +10,7 @@ export interface NavigationButtonProps
   extends NavigationLink,
     Omit<ButtonProps, 'asChild'> {
   activeClassName?: string
+  isActive?: boolean
 }
 
 export const NavigationButton = ({
@@ -18,10 +19,15 @@ export const NavigationButton = ({
   className,
   activeClassName,
   variant = 'ghost',
+  isActive: isActiveProp,
   ...props
 }: NavigationButtonProps) => {
   const location = useLocation()
-  const isActive = arePathsEqual(location.pathname, to)
+
+  const isActive =
+    typeof isActiveProp === 'boolean'
+      ? isActiveProp
+      : arePathsEqual(location.pathname, to)
 
   return (
     <Button
