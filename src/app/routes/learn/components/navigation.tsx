@@ -87,11 +87,7 @@ export const LearnNavigationMobileSections = ({
                   key={childNode.to}
                   to={childNode.to}
                   label={childNode.label}
-                  className={cn(
-                    defaultClass,
-                    'px-5 text-sm tracking-tighter',
-                    className
-                  )}
+                  className={cn(defaultClass, 'px-5 text-sm', className)}
                   activeClassName="bg-accent"
                   onClick={onClick}
                 />

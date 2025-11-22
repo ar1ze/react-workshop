@@ -3,29 +3,34 @@ import { useLocation } from 'react-router'
 import { AppNavigationLinks } from '@/app/routes'
 import { NavigationLinkStyled } from '@/components/navigation'
 import { NavigationButton } from '@/components/navigation'
+import type { BaseProps } from '@/types/props'
 import { pathStartsWith } from '@/utils/path'
 
-interface AppNavigationClickProps {
+interface AppNavigationProps extends BaseProps {
+  activeClassname?: string
   onClick?: () => void
 }
 
 export const AppNavigationDesktopLinks = ({
+  className,
   onClick,
-}: AppNavigationClickProps) => {
+}: AppNavigationProps) => {
   return AppNavigationLinks.map(({ to, label }) => (
     <NavigationLinkStyled
       key={to}
       to={to}
       label={label}
-      className="font-medium"
+      className={className}
       onClick={onClick}
     />
   ))
 }
 
 export const AppNavigationMobileButtons = ({
+  className,
+  activeClassname,
   onClick,
-}: AppNavigationClickProps) => {
+}: AppNavigationProps) => {
   const location = useLocation()
   return (
     <>
@@ -36,8 +41,8 @@ export const AppNavigationMobileButtons = ({
             key={to}
             to={to}
             label={label}
-            className="rounded-4xl px-16 py-5 text-lg font-medium"
-            activeClassName="bg-accent"
+            className={className}
+            activeClassName={activeClassname}
             isActive={isActive}
             onClick={onClick}
           />

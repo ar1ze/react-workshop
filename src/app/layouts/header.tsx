@@ -60,10 +60,15 @@ const MobileNav = ({ isOpen, onClick }: MobileNavProps) => {
     <div
       className={`bg-background absolute top-full left-0 z-50 h-[calc(100vh-100%)] w-full md:hidden ${isOpen ? 'block' : 'hidden'}`}
     >
-      <div className="flex h-full flex-col gap-2">
-        <nav className="border-border/70 flex justify-evenly border-y py-3">
-          <AppNavigationMobileButtons onClick={onClick} />
+      <div className="flex h-full flex-col">
+        <nav className="border-border/70 flex justify-evenly border-t py-3">
+          <AppNavigationMobileButtons
+            onClick={onClick}
+            className="rounded-4xl px-14 text-lg"
+            activeClassname="bg-accent"
+          />
         </nav>
+        <div className="mx-4 border-t" />
         <main className="flex flex-col overflow-y-auto">
           {(isHomePage(location.pathname) ||
             isLearnPage(location.pathname)) && (
@@ -95,7 +100,10 @@ export const HeaderNavigation = ({
       </div>
       <div className="hidden items-center gap-4 md:flex">
         <nav className="flex gap-4">
-          <AppNavigationDesktopLinks onClick={onClick} />
+          <AppNavigationDesktopLinks
+            className="font-medium"
+            onClick={onClick}
+          />
         </nav>
         <HeaderActions className="flex items-center" />
       </div>
