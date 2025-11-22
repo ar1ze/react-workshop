@@ -1,14 +1,23 @@
+import { Fragment } from 'react'
+
 import {
   NavigationAccordionLinks,
   NavigationAccordionTrigger,
 } from '@/components/navigation'
+import { NavigationButton } from '@/components/navigation'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
 } from '@/components/ui/accordion'
+import { cn } from '@/lib/utils'
+import { type BaseProps } from '@/types/props'
 
 import { useLearnNavigation } from '../hooks/navigation'
+
+interface NavigationProps extends BaseProps {
+  onClick: () => void
+}
 
 export const LearnNavigationAccordion = () => {
   const groups = useLearnNavigation()
@@ -39,7 +48,6 @@ export const LearnNavigationAccordion = () => {
                 <NavigationAccordionLinks
                   nodes={group.childrenNodes}
                   className="rounded-l-none pl-4"
-                  activeClassName=""
                 />
               </ul>
             </AccordionContent>
@@ -47,5 +55,51 @@ export const LearnNavigationAccordion = () => {
         )
       })}
     </Accordion>
+  )
+}
+
+export const LearnNavigationMobileSections = ({
+  className,
+  onClick,
+}: NavigationProps) => {
+  const groups = useLearnNavigation()
+  const defaultClass =
+    'h-11 justify-start font-normal rounded-none px-4 text-base'
+  return (
+    <>
+      {groups.map((group) => {
+        const { sectionNode, childrenNodes } = group
+        if (!sectionNode) {
+          return null
+        }
+        return (
+          <Fragment key={sectionNode.to}>
+            <NavigationButton
+              to={sectionNode.to}
+              label={sectionNode.label}
+              className={cn(defaultClass, 'text-lg font-medium', className)}
+              onClick={onClick}
+              activeClassName="bg-accent"
+            />
+            {childrenNodes.map((childNode) => {
+              return (
+                <NavigationButton
+                  key={childNode.to}
+                  to={childNode.to}
+                  label={childNode.label}
+                  className={cn(
+                    defaultClass,
+                    'px-5 text-sm tracking-tighter',
+                    className
+                  )}
+                  activeClassName="bg-accent"
+                  onClick={onClick}
+                />
+              )
+            })}
+          </Fragment>
+        )
+      })}
+    </>
   )
 }

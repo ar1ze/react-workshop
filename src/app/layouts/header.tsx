@@ -1,16 +1,19 @@
 import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router'
+import { useLocation } from 'react-router'
 
 import { GithubIcon } from '@/components/icons'
 import { ThemeButton } from '@/components/theme'
 import { Button } from '@/components/ui/button'
 import type { BaseProps } from '@/types/props'
+import { normalizePath } from '@/utils/path'
 
 import {
   AppNavigationHeaderButtons,
   AppNavigationHeaderLinks,
 } from '../components'
+import { LearnNavigationMobileSections } from '../routes/learn/components'
 
 interface NavigationProps {
   onClick: () => void
@@ -51,15 +54,27 @@ interface MobileNavProps extends NavigationProps {
 }
 
 const MobileNav = ({ isOpen, onClick }: MobileNavProps) => {
+  const location = useLocation()
+  const currentPath = location.pathname
+  const isHomePage = currentPath === '/'
+  const isLearnPage = normalizePath(currentPath).startsWith('learn')
+
   return (
     <div
       className={`bg-background absolute top-full left-0 z-50 h-[calc(100vh-100%)] w-full md:hidden ${isOpen ? 'block' : 'hidden'}`}
     >
-      <div className="flex h-full flex-col overflow-y-auto">
+      <div className="flex h-full flex-col gap-2">
         <nav className="border-border/70 flex justify-evenly border-y py-3">
           <AppNavigationHeaderButtons onClick={onClick} />
         </nav>
-        <HeaderActions className="mt-auto flex items-center gap-4 border-t px-4 pt-4 pb-6" />
+        <main className="flex flex-col overflow-y-auto">
+          {(isHomePage || isLearnPage) && (
+            <LearnNavigationMobileSections onClick={onClick} />
+          )}
+        </main>
+        <footer className="mt-auto border-t px-4 pt-4 pb-6">
+          <HeaderActions className="flex items-center gap-4" />
+        </footer>
       </div>
     </div>
   )
