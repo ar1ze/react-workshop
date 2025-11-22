@@ -1,4 +1,4 @@
-import { AppNavigationLinks } from '@/app/config'
+import { AppNavigationLinks } from '@/app/routes'
 import { NavigationLinkStyled } from '@/components/navigation'
 import { NavigationButton } from '@/components/navigation'
 
