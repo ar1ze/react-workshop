@@ -7,13 +7,13 @@ import { GithubIcon } from '@/components/icons'
 import { ThemeButton } from '@/components/theme'
 import { Button } from '@/components/ui/button'
 import type { BaseProps } from '@/types/props'
-import { normalizePath } from '@/utils/path'
 
 import {
   AppNavigationDesktopLinks,
   AppNavigationMobileButtons,
 } from '../components'
 import { LearnNavigationMobileSections } from '../routes/learn/components'
+import { isHomePage, isLearnPage } from '../utils/path'
 
 interface NavigationProps {
   onClick: () => void
@@ -55,9 +55,6 @@ interface MobileNavProps extends NavigationProps {
 
 const MobileNav = ({ isOpen, onClick }: MobileNavProps) => {
   const location = useLocation()
-  const currentPath = location.pathname
-  const isHomePage = currentPath === '/'
-  const isLearnPage = normalizePath(currentPath).startsWith('learn')
 
   return (
     <div
@@ -68,7 +65,8 @@ const MobileNav = ({ isOpen, onClick }: MobileNavProps) => {
           <AppNavigationMobileButtons onClick={onClick} />
         </nav>
         <main className="flex flex-col overflow-y-auto">
-          {(isHomePage || isLearnPage) && (
+          {(isHomePage(location.pathname) ||
+            isLearnPage(location.pathname)) && (
             <LearnNavigationMobileSections onClick={onClick} />
           )}
         </main>
