@@ -1,6 +1,6 @@
 import { navigationToRoutes, section } from '@/utils/navigation'
 
-import { LearnSidebarLayout } from './layouts/sidebar-layout'
+import { LearnSidebarLayout } from './layouts/sidebar'
 import {
   DescribingTheUISectionNavigationConfig,
   OverviewSectionNavigationConfig,

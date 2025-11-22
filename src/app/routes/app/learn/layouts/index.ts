@@ -1,4 +1,4 @@
-import { LearnContentLayout } from './content-layout'
-import { LearnSidebarLayout } from './sidebar-layout'
+import { LearnContentLayout } from './content'
+import { LearnSidebarLayout } from './sidebar'
 
 export { LearnContentLayout, LearnSidebarLayout }
