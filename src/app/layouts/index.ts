@@ -1,4 +1,4 @@
-import { AppHeader } from './app-header'
-import { AppLayout } from './app-layout'
+import { AppHeader } from './header'
+import { AppLayout } from './layout'
 
 export { AppHeader, AppLayout }

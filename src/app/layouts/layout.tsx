@@ -2,7 +2,7 @@ import { Outlet } from 'react-router'
 
 import { HeaderLayout } from '@/components/layouts'
 
-import { AppHeader } from './app-header'
+import { AppHeader } from './header'
 
 export const AppLayout = () => {
   const header = <AppHeader />
