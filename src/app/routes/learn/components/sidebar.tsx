@@ -8,7 +8,9 @@ export const LearnSidebar = () => {
     <Sidebar className="absolute m-0 h-full border-none">
       <SidebarContent className="bg-background">
         <SidebarGroup className="bg-background flex flex-col gap-2 p-0">
-          <SectionHeader>Learn React</SectionHeader>
+          <SectionHeader className="pl-4 text-xs tracking-wide">
+            Learn React
+          </SectionHeader>
           <LearnNavigationSidebarAccordion />
         </SidebarGroup>
       </SidebarContent>

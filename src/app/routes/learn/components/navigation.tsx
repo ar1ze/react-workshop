@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 
+import { SectionHeader } from '@/components/common'
 import {
   NavigationAccordionLinks,
   NavigationAccordionTrigger,
@@ -67,6 +68,9 @@ export const LearnNavigationMobileSections = ({
     'h-11 justify-start font-normal rounded-none px-4 text-base'
   return (
     <>
+      <SectionHeader className="pt-4 pb-2 pl-4 text-sm">
+        Learn React
+      </SectionHeader>
       {groups.map((group) => {
         const { sectionNode, childrenNodes } = group
         if (!sectionNode) {
