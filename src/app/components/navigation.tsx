@@ -3,7 +3,8 @@ import { useLocation } from 'react-router'
 import { AppNavigationLinks } from '@/app/routes'
 import { NavigationLinkStyled } from '@/components/navigation'
 import { NavigationButton } from '@/components/navigation'
-import { arePathsEqual } from '@/utils/path'
+import { pathStartsWith } from '@/utils/path'
+
 interface AppNavigationClickProps {
   onClick?: () => void
 }
@@ -29,7 +30,7 @@ export const AppNavigationMobileButtons = ({
   return (
     <>
       {AppNavigationLinks.map(({ to, label }) => {
-        const isActive = arePathsEqual(location.pathname, to)
+        const isActive = pathStartsWith(location.pathname, to)
         return (
           <NavigationButton
             key={to}
