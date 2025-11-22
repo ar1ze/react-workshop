@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react'
 import { Outlet } from 'react-router'
 
 import { SidebarLayout } from '@/components/layouts/sidebar'
-import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
+import { SidebarInset } from '@/components/ui/sidebar'
 
 import { LearnSidebar } from '../components/sidebar'
 
@@ -15,9 +15,6 @@ export const LearnSidebarLayout = () => {
         className="h-full min-h-0"
         style={{ '--sidebar-width': '18rem' } as CSSProperties}
       >
-        <div className="pl-4">
-          <SidebarTrigger className="md:hidden" />
-        </div>
         <SidebarInset>
           <Outlet />
         </SidebarInset>
