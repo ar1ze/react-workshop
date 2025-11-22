@@ -1,6 +1,6 @@
 import { Sidebar, SidebarContent, SidebarGroup } from '@/components/ui/sidebar'
 
-import { LearnNavigationAccordion } from './navigation'
+import { LearnNavigationSidebarAccordion } from './navigation'
 
 export const LearnSidebar = () => {
   return (
@@ -10,7 +10,7 @@ export const LearnSidebar = () => {
           <h6 className="text-muted-foreground pl-4 text-xs font-bold tracking-wider uppercase">
             Learn React
           </h6>
-          <LearnNavigationAccordion />
+          <LearnNavigationSidebarAccordion />
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>

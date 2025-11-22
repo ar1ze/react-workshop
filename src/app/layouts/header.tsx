@@ -10,8 +10,8 @@ import type { BaseProps } from '@/types/props'
 import { normalizePath } from '@/utils/path'
 
 import {
-  AppNavigationHeaderButtons,
-  AppNavigationHeaderLinks,
+  AppNavigationDesktopLinks,
+  AppNavigationMobileButtons,
 } from '../components'
 import { LearnNavigationMobileSections } from '../routes/learn/components'
 
@@ -65,7 +65,7 @@ const MobileNav = ({ isOpen, onClick }: MobileNavProps) => {
     >
       <div className="flex h-full flex-col gap-2">
         <nav className="border-border/70 flex justify-evenly border-y py-3">
-          <AppNavigationHeaderButtons onClick={onClick} />
+          <AppNavigationMobileButtons onClick={onClick} />
         </nav>
         <main className="flex flex-col overflow-y-auto">
           {(isHomePage || isLearnPage) && (
@@ -97,7 +97,7 @@ export const HeaderNavigation = ({
       </div>
       <div className="hidden items-center gap-4 md:flex">
         <nav className="flex gap-4">
-          <AppNavigationHeaderLinks onClick={onClick} />
+          <AppNavigationDesktopLinks onClick={onClick} />
         </nav>
         <HeaderActions className="flex items-center" />
       </div>

@@ -6,7 +6,7 @@ interface AppNavigationClickProps {
   onClick?: () => void
 }
 
-export const AppNavigationHeaderLinks = ({
+export const AppNavigationDesktopLinks = ({
   onClick,
 }: AppNavigationClickProps) => {
   return AppNavigationLinks.map(({ to, label }) => (
@@ -20,7 +20,7 @@ export const AppNavigationHeaderLinks = ({
   ))
 }
 
-export const AppNavigationHeaderButtons = ({
+export const AppNavigationMobileButtons = ({
   onClick,
 }: AppNavigationClickProps) => {
   return (

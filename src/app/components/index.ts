@@ -1,6 +1,6 @@
 import {
-  AppNavigationHeaderButtons,
-  AppNavigationHeaderLinks,
+  AppNavigationDesktopLinks,
+  AppNavigationMobileButtons,
 } from './navigation'
 
-export { AppNavigationHeaderButtons, AppNavigationHeaderLinks }
+export { AppNavigationDesktopLinks, AppNavigationMobileButtons }

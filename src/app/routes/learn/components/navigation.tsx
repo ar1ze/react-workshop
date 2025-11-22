@@ -19,7 +19,7 @@ interface NavigationProps extends BaseProps {
   onClick: () => void
 }
 
-export const LearnNavigationAccordion = () => {
+export const LearnNavigationSidebarAccordion = () => {
   const groups = useLearnNavigation()
 
   return (
