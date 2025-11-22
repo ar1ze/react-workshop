@@ -66,7 +66,7 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
             />
           ))}
         </nav>
-        <HeaderActions className="mt-auto flex items-center gap-4 pt-6 pb-8" />
+        <HeaderActions className="mt-auto flex items-center gap-4 border-t px-4 pt-6 pb-8" />
       </div>
     </div>
   )
