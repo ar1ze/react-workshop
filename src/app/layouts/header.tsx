@@ -59,7 +59,7 @@ const MobileNav = ({ isOpen, onClick }: MobileNavProps) => {
         <nav className="border-border/70 flex justify-evenly border-y py-3">
           <LearnNavigationHeaderButtons onClick={onClick} />
         </nav>
-        <HeaderActions className="mt-auto flex items-center gap-4 border-t px-4 pt-6 pb-8" />
+        <HeaderActions className="mt-auto flex items-center gap-4 border-t px-4 pt-4 pb-6" />
       </div>
     </div>
   )
