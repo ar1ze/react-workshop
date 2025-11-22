@@ -87,3 +87,20 @@ export const stripPrefix = (child: string, parent: string) => {
   // Remove the parent's base path from the child's path.
   return stripLeadingSlash(child.replace(base, ''))
 }
+
+/**
+ * Checks if a path starts with a specific prefix.
+ *
+ * The path is normalized (slashes stripped/collapsed) before comparison.
+ *
+ * @example
+ * // Returns true
+ * pathStartsWith('/users/123', 'users')
+ *
+ * @param path - The path to check.
+ * @param prefix - The prefix substring to look for.
+ * @returns True if the normalized path starts with the prefix.
+ */
+export const pathStartsWith = (path: string, prefix: string) => {
+  return normalizePath(path).startsWith(prefix)
+}

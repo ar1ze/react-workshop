@@ -4,6 +4,7 @@ import {
   arePathsEqual,
   joinPaths,
   normalizePath,
+  pathStartsWith,
   stripLeadingSlash,
   stripPrefix,
 } from './path'
@@ -92,5 +93,25 @@ describe('stripPrefix', () => {
 
   it('should handle parent without trailing slash', () => {
     expect(stripPrefix('/docs/guides/basics', '/docs/guides')).toBe('basics')
+  })
+})
+
+describe('pathStartsWith', () => {
+  it('should return true if path starts with prefix', () => {
+    expect(pathStartsWith('/users/123', 'users')).toBe(true)
+    expect(pathStartsWith('settings/profile', 'settings')).toBe(true)
+  })
+
+  it('should return false if path does not start with prefix', () => {
+    expect(pathStartsWith('/users/123', 'admin')).toBe(false)
+    expect(pathStartsWith('settings', 'profile')).toBe(false)
+  })
+
+  it('should normalize path before checking', () => {
+    expect(pathStartsWith('///users/123', 'users')).toBe(true)
+  })
+
+  it('should handle partial matches', () => {
+    expect(pathStartsWith('/users', 'user')).toBe(true)
   })
 })
