@@ -1,6 +1,3 @@
-import { LearnNavigationLinks } from '@/app/layouts/config'
-import { NavigationLinkStyled } from '@/components/navigation'
-import { NavigationButton } from '@/components/navigation'
 import {
   NavigationAccordionLinks,
   NavigationAccordionTrigger,
@@ -12,43 +9,6 @@ import {
 } from '@/components/ui/accordion'
 
 import { useLearnNavigation } from '../hooks/navigation'
-
-interface LearNavigationClickProps {
-  onClick?: () => void
-}
-
-export const LearnNavigationHeaderLinks = ({
-  onClick,
-}: LearNavigationClickProps) => {
-  return LearnNavigationLinks.map(({ to, label }) => (
-    <NavigationLinkStyled
-      key={to}
-      to={to}
-      label={label}
-      className="font-medium"
-      onClick={onClick}
-    />
-  ))
-}
-
-export const LearnNavigationHeaderButtons = ({
-  onClick,
-}: LearNavigationClickProps) => {
-  return (
-    <>
-      {LearnNavigationLinks.map(({ to, label }) => (
-        <NavigationButton
-          key={to}
-          to={to}
-          label={label}
-          className="rounded-4xl px-16 py-5 text-lg font-medium"
-          activeClassName="bg-accent"
-          onClick={onClick}
-        />
-      ))}
-    </>
-  )
-}
 
 export const LearnNavigationAccordion = () => {
   const groups = useLearnNavigation()

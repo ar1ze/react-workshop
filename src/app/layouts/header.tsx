@@ -8,9 +8,9 @@ import { Button } from '@/components/ui/button'
 import type { BaseProps } from '@/types/props'
 
 import {
-  LearnNavigationHeaderButtons,
-  LearnNavigationHeaderLinks,
-} from '../routes/app/learn/components'
+  AppNavigationHeaderButtons,
+  AppNavigationHeaderLinks,
+} from '../components'
 
 interface NavigationProps {
   onClick: () => void
@@ -57,7 +57,7 @@ const MobileNav = ({ isOpen, onClick }: MobileNavProps) => {
     >
       <div className="flex h-full flex-col overflow-y-auto">
         <nav className="border-border/70 flex justify-evenly border-y py-3">
-          <LearnNavigationHeaderButtons onClick={onClick} />
+          <AppNavigationHeaderButtons onClick={onClick} />
         </nav>
         <HeaderActions className="mt-auto flex items-center gap-4 border-t px-4 pt-4 pb-6" />
       </div>
@@ -82,7 +82,7 @@ export const HeaderNavigation = ({
       </div>
       <div className="hidden items-center gap-4 md:flex">
         <nav className="flex gap-4">
-          <LearnNavigationHeaderLinks onClick={onClick} />
+          <AppNavigationHeaderLinks onClick={onClick} />
         </nav>
         <HeaderActions className="flex items-center" />
       </div>
