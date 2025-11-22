@@ -2,13 +2,13 @@ import { AppNavigationLinks } from '@/app/routes'
 import { NavigationLinkStyled } from '@/components/navigation'
 import { NavigationButton } from '@/components/navigation'
 
-interface LearNavigationClickProps {
+interface AppNavigationClickProps {
   onClick?: () => void
 }
 
 export const AppNavigationHeaderLinks = ({
   onClick,
-}: LearNavigationClickProps) => {
+}: AppNavigationClickProps) => {
   return AppNavigationLinks.map(({ to, label }) => (
     <NavigationLinkStyled
       key={to}
@@ -22,7 +22,7 @@ export const AppNavigationHeaderLinks = ({
 
 export const AppNavigationHeaderButtons = ({
   onClick,
-}: LearNavigationClickProps) => {
+}: AppNavigationClickProps) => {
   return (
     <>
       {AppNavigationLinks.map(({ to, label }) => (
