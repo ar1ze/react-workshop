@@ -1,4 +1,4 @@
-import { SectionHeader } from './headings'
+import { SectionHeader, SectionTitle } from './headings'
 import { LoadingPage } from './loading-page'
 
-export { LoadingPage, SectionHeader }
+export { LoadingPage, SectionHeader, SectionTitle }

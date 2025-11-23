@@ -1,5 +1,5 @@
 import { AppContentLayout } from '@/app/layouts'
-import { Title } from '@/components/common/headings'
+import { SectionTitle } from '@/components/common'
 import { type BaseProps } from '@/types/props'
 
 interface LearnContentLayoutProps extends BaseProps {
@@ -14,7 +14,7 @@ export const LearnContentLayout = ({
   return (
     <AppContentLayout className={className}>
       <section>
-        {title && <Title>{title}</Title>}
+        {title && <SectionTitle>{title}</SectionTitle>}
         {children}
       </section>
     </AppContentLayout>

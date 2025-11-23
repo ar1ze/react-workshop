@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
 import { type BaseProps } from '@/types/props'
 
-export const Title = ({ className, children }: BaseProps) => {
+export const SectionTitle = ({ className, children }: BaseProps) => {
   return <h1 className={cn('text-xl font-medium', className)}>{children}</h1>
 }
 
