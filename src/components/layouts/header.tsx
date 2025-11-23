@@ -1,13 +1,20 @@
 import type { ReactNode } from 'react'
 
-export interface HeaderLayoutProps {
+import { cn } from '@/lib/utils'
+import { type BaseProps } from '@/types/props'
+
+interface HeaderLayoutProps extends BaseProps {
   header: ReactNode
   content: ReactNode
 }
 
-export const HeaderLayout = ({ header, content }: HeaderLayoutProps) => {
+export const HeaderLayout = ({
+  header,
+  content,
+  className,
+}: HeaderLayoutProps) => {
   return (
-    <main className="grid h-screen grid-rows-[auto_1fr] content-center">
+    <main className={cn('grid h-screen grid-rows-[auto_1fr]', className)}>
       {header}
       {content}
     </main>
