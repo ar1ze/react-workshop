@@ -1,3 +1,4 @@
+import { LearnPageHeader, LearnSectionHeader } from './headers'
 import { LearnNavigationMobileSections } from './navigation'
 
-export { LearnNavigationMobileSections }
+export { LearnNavigationMobileSections, LearnPageHeader, LearnSectionHeader }
