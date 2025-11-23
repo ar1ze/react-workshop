@@ -17,10 +17,10 @@ export const LearnPageHeader = ({
 }: BasePageHeaderProps) => {
   return (
     <BasePageHeader>
-      <SectionTitle className={cn('text-2xl font-bold', className)}>
+      <SectionTitle className={cn('text-xl font-bold', className)}>
         {title}
       </SectionTitle>
-      <p className="text-base">{children}</p>
+      <p className="text-base/7">{children}</p>
     </BasePageHeader>
   )
 }
@@ -32,8 +32,10 @@ export const LearnSectionHeader = ({
 }: BasePageHeaderProps) => {
   return (
     <BasePageHeader>
-      <SectionTitle className={className}>{title}</SectionTitle>
-      <p className="text-sm">{children}</p>
+      <SectionTitle className={cn('text-lg font-medium', className)}>
+        {title}
+      </SectionTitle>
+      <p className="text-sm/6">{children}</p>
     </BasePageHeader>
   )
 }
