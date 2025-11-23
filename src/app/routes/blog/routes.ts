@@ -1,6 +1,6 @@
 import { navigationToRoutes, page } from '@/utils/navigation'
 
-import { BlogPage } from './root-page'
+import { BlogPage } from './page'
 
 export const BLOG_PAGE_PREFIX = 'blog'
 

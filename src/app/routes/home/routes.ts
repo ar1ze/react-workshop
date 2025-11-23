@@ -1,6 +1,6 @@
 import { index, navigationToRoutes } from '@/utils/navigation'
 
-import { HomePage } from './root-page'
+import { HomePage } from './page'
 
 export const HomeNavigationConfig = [index(HomePage)]
 
