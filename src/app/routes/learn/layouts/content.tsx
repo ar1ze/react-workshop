@@ -1,7 +1,7 @@
 import { AppContentLayout } from '@/app/layouts'
 import { SectionTitle } from '@/components/common'
+import { cn } from '@/lib/utils'
 import { type BaseProps } from '@/types/props'
-
 interface LearnContentLayoutProps extends BaseProps {
   title?: string
 }
@@ -12,8 +12,8 @@ export const LearnContentLayout = ({
   children,
 }: LearnContentLayoutProps) => {
   return (
-    <AppContentLayout className={className}>
-      <section>
+    <AppContentLayout className={cn('flex', className)}>
+      <section className="w-full md:mx-auto md:max-w-120 lg:max-w-180 xl:max-w-260">
         {title && <SectionTitle>{title}</SectionTitle>}
         {children}
       </section>
