@@ -8,12 +8,9 @@ import { ThemeButton } from '@/components/theme'
 import { Button } from '@/components/ui/button'
 import type { BaseProps } from '@/types/props'
 
-import {
-  AppNavigationDesktopLinks,
-  AppNavigationMobileButtons,
-} from '../components'
 import { LearnNavigationMobileSections } from '../routes/learn/components'
 import { isHomePage, isLearnPage } from '../utils/path'
+import { AppNavigationDesktopLinks, AppNavigationMobileButtons } from '.'
 
 interface NavigationProps {
   onClick: () => void

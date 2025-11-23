@@ -1,6 +1,7 @@
+import { AppHeader } from './header'
 import {
   AppNavigationDesktopLinks,
   AppNavigationMobileButtons,
 } from './navigation'
 
-export { AppNavigationDesktopLinks, AppNavigationMobileButtons }
+export { AppHeader, AppNavigationDesktopLinks, AppNavigationMobileButtons }
