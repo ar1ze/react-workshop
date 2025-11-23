@@ -1,5 +1,5 @@
+import { AppLayout } from './app'
 import { AppContentLayout } from './content'
 import { AppHeader } from './header'
-import { AppLayout } from './layout'
 
 export { AppContentLayout, AppHeader, AppLayout }
