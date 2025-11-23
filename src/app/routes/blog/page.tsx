@@ -1,9 +1,9 @@
-import { ContentLayout } from '@/components/layouts'
+import { AppContentLayout } from '@/app/layouts'
 
 export const BlogPage = () => {
   return (
-    <ContentLayout>
+    <AppContentLayout>
       <p>Welcome to the Blog Page</p>
-    </ContentLayout>
+    </AppContentLayout>
   )
 }

@@ -1,19 +1,22 @@
-import { ContentLayout, type ContentLayoutProps } from '@/components/layouts'
-import { cn } from '@/lib/utils'
+import { AppContentLayout } from '@/app/layouts'
+import { Title } from '@/components/common/headings'
+import { type BaseProps } from '@/types/props'
+
+interface LearnContentLayoutProps extends BaseProps {
+  title?: string
+}
 
 export const LearnContentLayout = ({
   title,
-  titleClassName,
-  children,
   className,
-}: ContentLayoutProps) => {
+  children,
+}: LearnContentLayoutProps) => {
   return (
-    <ContentLayout
-      title={title}
-      titleClassName={titleClassName}
-      className={cn('px-[clamp(1rem,2%,12rem)]', className)}
-    >
-      <section>{children}</section>
-    </ContentLayout>
+    <AppContentLayout className={className}>
+      <section>
+        {title && <Title>{title}</Title>}
+        {children}
+      </section>
+    </AppContentLayout>
   )
 }

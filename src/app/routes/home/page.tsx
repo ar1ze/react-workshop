@@ -1,9 +1,9 @@
-import { ContentLayout } from '@/components/layouts'
+import { AppContentLayout } from '@/app/layouts'
 
 export const HomePage = () => {
   return (
-    <ContentLayout>
+    <AppContentLayout>
       <p>Welcome to the React Workshop</p>
-    </ContentLayout>
+    </AppContentLayout>
   )
 }
