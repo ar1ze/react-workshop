@@ -7,7 +7,7 @@ interface BasePageHeaderProps extends BaseProps {
 }
 
 const BasePageHeader = ({ className, children }: BaseProps) => {
-  return <div className={cn('flex flex-col gap-3', className)}>{children}</div>
+  return <div className={cn('flex flex-col gap-4', className)}>{children}</div>
 }
 
 export const LearnPageHeader = ({
@@ -17,10 +17,15 @@ export const LearnPageHeader = ({
 }: BasePageHeaderProps) => {
   return (
     <BasePageHeader>
-      <SectionTitle className={cn('text-xl font-bold', className)}>
+      <SectionTitle
+        className={cn(
+          'text-foreground text-3xl font-bold tracking-tight md:text-4xl',
+          className
+        )}
+      >
         {title}
       </SectionTitle>
-      <p className="text-base/7">{children}</p>
+      <p className="text-muted-foreground text-lg text-pretty">{children}</p>
     </BasePageHeader>
   )
 }
@@ -32,10 +37,17 @@ export const LearnSectionHeader = ({
 }: BasePageHeaderProps) => {
   return (
     <BasePageHeader>
-      <SectionTitle className={cn('text-lg font-medium', className)}>
+      <SectionTitle
+        className={cn(
+          'text-foreground text-xl font-semibold tracking-tight md:text-2xl',
+          className
+        )}
+      >
         {title}
       </SectionTitle>
-      <p className="text-sm/6">{children}</p>
+      <p className="text-muted-foreground text-base/7 text-pretty">
+        {children}
+      </p>
     </BasePageHeader>
   )
 }
