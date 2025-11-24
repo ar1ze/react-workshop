@@ -17,11 +17,7 @@ interface NavigationProps {
 }
 
 const BrandLink = ({ onClick: onClose }: NavigationProps) => (
-  <NavLink
-    to="/"
-    className="text-muted-background text-xl font-bold"
-    onClick={onClose}
-  >
+  <NavLink to="/" className="text-primary text-xl font-bold" onClick={onClose}>
     <span>React Workshop</span>
   </NavLink>
 )
