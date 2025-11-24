@@ -7,8 +7,8 @@ export const SectionTitle = ({ className, children }: BaseProps) => {
 
 export const SectionHeader = ({ className, children }: BaseProps) => {
   return (
-    <h6 className={cn('text-muted-foreground font-bold uppercase', className)}>
+    <h2 className={cn('text-muted-foreground font-bold uppercase', className)}>
       {children}
-    </h6>
+    </h2>
   )
 }
