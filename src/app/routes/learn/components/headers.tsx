@@ -19,13 +19,13 @@ export const LearnPageHeader = ({
     <BasePageHeader>
       <SectionTitle
         className={cn(
-          'text-foreground text-3xl font-bold tracking-tight md:text-4xl',
+          'text-2xl font-bold tracking-tight md:text-3xl',
           className
         )}
       >
         {title}
       </SectionTitle>
-      <p className="text-muted-foreground text-lg text-pretty">{children}</p>
+      <p className="dark:primary text-lg text-pretty">{children}</p>
     </BasePageHeader>
   )
 }
@@ -39,15 +39,13 @@ export const LearnSectionHeader = ({
     <BasePageHeader>
       <SectionTitle
         className={cn(
-          'text-foreground text-xl font-semibold tracking-tight md:text-2xl',
+          'text-lg font-semibold tracking-tight md:text-xl',
           className
         )}
       >
         {title}
       </SectionTitle>
-      <p className="text-muted-foreground text-base/7 text-pretty">
-        {children}
-      </p>
+      <p className="dark:text-primary text-base/7 text-pretty">{children}</p>
     </BasePageHeader>
   )
 }
