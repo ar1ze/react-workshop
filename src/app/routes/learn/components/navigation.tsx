@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import { useLocation } from 'react-router'
 
 import { SectionHeader } from '@/components/common'
 import {
@@ -13,6 +14,7 @@ import {
 } from '@/components/ui/accordion'
 import { cn } from '@/lib/utils'
 import { type BaseProps } from '@/types/props'
+import { arePathsEqual } from '@/utils/path'
 
 import { useLearnNavigation } from '../hooks/navigation'
 
@@ -22,13 +24,24 @@ interface NavigationProps extends BaseProps {
 
 export const LearnNavigationSidebarAccordion = () => {
   const groups = useLearnNavigation()
+  const location = useLocation()
+
+  const activeGroup = groups.find((group) => {
+    const isSectionActive = group.sectionNode?.to === location.pathname
+    const isChildActive = group.childrenNodes.some((node) =>
+      arePathsEqual(node.to, location.pathname)
+    )
+    return isSectionActive || isChildActive
+  })
+
+  const defaultValue = activeGroup?.sectionNode?.id ?? groups[0].sectionNode?.id
 
   return (
     <Accordion
       type="single"
       collapsible
       className="w-full"
-      defaultValue={groups[0].sectionNode?.id}
+      defaultValue={defaultValue}
     >
       {groups.map((group) => {
         if (!group.sectionNode) {
