@@ -1,4 +1,11 @@
+import { type Challenge, LearnChallengeTabs } from './challenge'
 import { LearnPageHeader, LearnSectionHeader } from './headers'
 import { LearnNavigationMobileSections } from './navigation'
 
-export { LearnNavigationMobileSections, LearnPageHeader, LearnSectionHeader }
+export {
+  type Challenge,
+  LearnChallengeTabs,
+  LearnNavigationMobileSections,
+  LearnPageHeader,
+  LearnSectionHeader,
+}
