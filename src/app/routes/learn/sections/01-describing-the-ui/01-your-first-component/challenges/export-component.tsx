@@ -1,7 +1,9 @@
 import { type Challenge } from '@/app/routes/learn/components'
 
+import japanSceneImage from './images/japan-scene.jpg'
+
 export const Solution = () => {
-  return <img src="https://i.imgur.com/lICfvbD.jpg" alt="Aklilu Lemma" />
+  return <img src={japanSceneImage} alt="Japan scene" />
 }
 
 // eslint-disable-next-line react-refresh/only-export-components

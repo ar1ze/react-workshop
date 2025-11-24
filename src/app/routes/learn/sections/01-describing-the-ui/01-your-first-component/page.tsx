@@ -11,9 +11,10 @@ export const YourFirstComponentPage = () => {
     <LearnContentLayout>
       <LearnPageLayout>
         <LearnPageHeader title="Your First Component">
-          React applications are built from isolated pieces of UI called
-          components. A React component is a JavaScript function that you can
-          sprinkle with markup.
+          Components are one of the core concepts of React and the foundation
+          upon which you build user interfaces. A component is a JavaScript
+          function that you can sprinkle with markup to create isolated,
+          reusable elements.
         </LearnPageHeader>
         <LearnChallengeTabs
           challenges={yourFirstComponentChallenges}
