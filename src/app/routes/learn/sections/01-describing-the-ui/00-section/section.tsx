@@ -6,7 +6,10 @@ export const DescribingTheUISection = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeader title="Describing the UI">
+        <LearnPageHeader
+          title="Describing the UI"
+          url="https://react.dev/learn/describing-the-ui"
+        >
           React renders user interfaces by combining small units into reusable,
           nestable components. These building blocks compose everything on the
           screen, from websites to mobile apps. This section documents how to

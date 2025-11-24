@@ -1,10 +1,9 @@
-import { ExternalLink } from 'lucide-react'
 import { type ComponentType } from 'react'
 
-import { SectionTitle } from '@/components/common'
-import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+
+import { LearnSectionHeader } from './headers'
 
 export interface Challenge {
   title: string
@@ -25,25 +24,10 @@ const generateValues = (challenges: Challenge[]) => {
 
 const renderHeader = (url: string) => (
   <div className="flex items-center">
-    <SectionTitle className="flex text-lg font-semibold tracking-tight md:text-xl">
-      Try out some challenges
-    </SectionTitle>
-
-    <Button
-      variant="ghost"
-      asChild
-      size="icon-sm"
-      className="hover:bg-background dark:hover:bg-background"
-    >
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-xd"
-      >
-        <ExternalLink />
-      </a>
-    </Button>
+    <LearnSectionHeader
+      title="Try out  some challenges"
+      url={url}
+    ></LearnSectionHeader>
   </div>
 )
 

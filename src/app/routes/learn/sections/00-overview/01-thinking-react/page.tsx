@@ -5,7 +5,10 @@ export const ThinkingReactPage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeader title="Thinking in React">
+        <LearnPageHeader
+          title="Thinking in React"
+          url="https://react.dev/learn/thinking-in-react"
+        >
           React shifts the approach to application design by focusing on
           component modularity. The process involves breaking a user interface
           into individual pieces and defining their distinct visual states.
