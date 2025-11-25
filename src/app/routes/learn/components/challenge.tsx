@@ -1,6 +1,15 @@
 import { type ComponentType } from 'react'
 
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 import { LearnSectionHeader } from './headers'
@@ -9,6 +18,7 @@ export interface Challenge {
   title: string
   description: string
   SolutionComponent: ComponentType
+  solutionCode: string
 }
 
 interface LearnChallengeTabProps {
@@ -22,7 +32,7 @@ const generateValues = (challenges: Challenge[]) => {
   )
 }
 
-const renderHeader = (url: string) => (
+const ChallengeHeader = ({ url }: { url: string }) => (
   <div className="flex items-center">
     <LearnSectionHeader
       title="Try out  some challenges"
@@ -31,7 +41,31 @@ const renderHeader = (url: string) => (
   </div>
 )
 
-const renderChallengeTabs = (challenges: Challenge[], values: string[]) => {
+const SolutionCodeDialog = ({ challenge }: { challenge: Challenge }) => {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="ghost" size="sm">
+          View Code
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="max-h-[80vh] max-w-3xl overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle>{challenge.title} - Solution</DialogTitle>
+          <DialogDescription>
+            Here is the complete source code for this solution.
+          </DialogDescription>
+        </DialogHeader>
+        <pre className="overflow-x-auto rounded-md bg-slate-950 p-4 text-slate-50">
+          <code>{challenge.solutionCode}</code>
+        </pre>
+      </DialogContent>
+    </Dialog>
+  )
+}
+
+const ChallengeTabs = ({ challenges }: { challenges: Challenge[] }) => {
+  const values = generateValues(challenges)
   return (
     <Tabs defaultValue={values[0]} className="w-full gap-4">
       <TabsList className="justify-start overflow-x-auto">
@@ -55,10 +89,10 @@ const renderChallengeTabs = (challenges: Challenge[], values: string[]) => {
                 </p>
               </CardContent>
             </Card>
-
             <Card>
               <CardHeader>
                 <CardTitle>My Solution</CardTitle>
+                <SolutionCodeDialog challenge={challenge} />
               </CardHeader>
               <CardContent>
                 <challenge.SolutionComponent />
@@ -75,12 +109,10 @@ export const LearnChallengeTabs = ({
   challenges,
   url,
 }: LearnChallengeTabProps) => {
-  const values = generateValues(challenges)
-
   return (
     <>
-      {renderHeader(url)}
-      {renderChallengeTabs(challenges, values)}
+      <ChallengeHeader url={url} />
+      <ChallengeTabs challenges={challenges} />
     </>
   )
 }
