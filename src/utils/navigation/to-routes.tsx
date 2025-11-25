@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import type { RouteObject } from 'react-router'
 
 import type { NavigationNode } from '@/components/navigation'
-import { LoadingPage } from '@/components/shared'
+import { LoadingPage } from '@/components/shared/loading-page'
 
 import { stripLeadingSlash, stripPrefix } from '../path'
 

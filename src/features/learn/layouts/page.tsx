@@ -1,4 +1,4 @@
-import { type BaseProps } from '@/components/shared'
+import { type BaseProps } from '@/components/shared/props'
 import { cn } from '@/lib/utils'
 
 export const LearnPageLayout = ({ className, children }: BaseProps) => {

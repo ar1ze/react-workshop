@@ -1,5 +1,6 @@
-import { type BaseProps } from '@/components/shared'
 import { cn } from '@/lib/utils'
+
+import { type BaseProps } from './props'
 
 export const SectionTitle = ({ className, children }: BaseProps) => {
   return <h1 className={cn('text-xl font-medium', className)}>{children}</h1>

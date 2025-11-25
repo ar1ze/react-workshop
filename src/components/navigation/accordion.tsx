@@ -5,7 +5,7 @@ import { ChevronRightIcon } from 'lucide-react'
 import { type ComponentProps } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 
-import { type BaseProps } from '@/components/shared'
+import { type BaseProps } from '@/components/shared/props'
 import { cn } from '@/lib/utils'
 import { arePathsEqual } from '@/utils/path'
 

@@ -1,7 +1,7 @@
 import { ExternalLink, type LucideProps } from 'lucide-react'
 
-import type { BaseProps } from '@/components/shared'
-import { SectionTitle } from '@/components/shared'
+import { SectionTitle } from '@/components/shared/headings'
+import type { BaseProps } from '@/components/shared/props'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 

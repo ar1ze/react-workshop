@@ -1,4 +1,4 @@
-import { SectionHeader } from '@/components/shared'
+import { SectionHeader } from '@/components/shared/headings'
 import { Sidebar, SidebarContent, SidebarGroup } from '@/components/ui/sidebar'
 
 import { LearnNavigationSidebarAccordion } from './navigation'
