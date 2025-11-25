@@ -1,4 +1,5 @@
 import { SectionHeader, SectionTitle } from './headings'
+import { GithubIcon } from './icons'
 import { LoadingPage } from './loading-page'
 
-export { LoadingPage, SectionHeader, SectionTitle }
+export { GithubIcon, LoadingPage, SectionHeader, SectionTitle }
