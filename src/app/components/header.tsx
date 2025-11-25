@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router'
 import { useLocation } from 'react-router'
 
+import type { BaseProps } from '@/components/shared'
 import { GithubIcon } from '@/components/shared'
-import type { BaseProps } from '@/components/shared/props'
 import { ThemeButton } from '@/components/theme'
 import { Button } from '@/components/ui/button'
 

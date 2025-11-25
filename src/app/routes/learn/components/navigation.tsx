@@ -7,7 +7,7 @@ import {
 } from '@/components/navigation'
 import { NavigationButton } from '@/components/navigation'
 import { SectionHeader } from '@/components/shared'
-import { type BaseProps } from '@/components/shared/props'
+import { type BaseProps } from '@/components/shared'
 import {
   Accordion,
   AccordionContent,

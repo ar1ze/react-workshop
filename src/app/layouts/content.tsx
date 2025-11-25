@@ -1,5 +1,5 @@
 import { ContentLayout } from '@/components/layouts'
-import { type BaseProps } from '@/components/shared/props'
+import { type BaseProps } from '@/components/shared'
 import { cn } from '@/lib/utils'
 
 export const AppContentLayout = ({ className, children }: BaseProps) => {

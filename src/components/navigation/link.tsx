@@ -1,7 +1,7 @@
 import type { MouseEventHandler } from 'react'
 import { NavLink } from 'react-router'
 
-import { type BaseProps } from '@/components/shared/props'
+import { type BaseProps } from '@/components/shared'
 import { cn } from '@/lib/utils'
 
 import { type NavigationLink } from './types'
