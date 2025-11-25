@@ -58,9 +58,7 @@ const SolutionCodeDialog = ({ challenge }: ChallengeProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="ghost" size="sm">
-          View Code
-        </Button>
+        <Button variant="secondary">View Code</Button>
       </DialogTrigger>
       <DialogContent className="flex max-h-[90vh] max-w-7xl flex-col">
         <DialogHeader>
@@ -103,10 +101,10 @@ const ChallengeTabs = ({ challenges }: ChallengesProps) => {
             <Card>
               <CardHeader>
                 <CardTitle>My Solution</CardTitle>
-                <SolutionCodeDialog challenge={challenge} />
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex flex-col gap-4">
                 <challenge.SolutionComponent />
+                <SolutionCodeDialog challenge={challenge} />
               </CardContent>
             </Card>
           </div>
