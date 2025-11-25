@@ -1,7 +1,7 @@
 import { type CSSProperties, type ReactNode } from 'react'
 
+import { type BaseProps } from '@/components/shared/props'
 import { SidebarProvider } from '@/components/ui/sidebar'
-import { type BaseProps } from '@/types/props'
 
 interface SidebarLayoutProps extends BaseProps {
   sidebar: ReactNode

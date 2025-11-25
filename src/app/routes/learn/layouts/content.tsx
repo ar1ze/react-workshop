@@ -1,7 +1,7 @@
 import { AppContentLayout } from '@/app/layouts'
 import { SectionTitle } from '@/components/shared'
+import { type BaseProps } from '@/components/shared/props'
 import { cn } from '@/lib/utils'
-import { type BaseProps } from '@/types/props'
 
 interface LearnContentLayoutProps extends BaseProps {
   title?: string

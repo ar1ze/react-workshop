@@ -7,13 +7,13 @@ import {
 } from '@/components/navigation'
 import { NavigationButton } from '@/components/navigation'
 import { SectionHeader } from '@/components/shared'
+import { type BaseProps } from '@/components/shared/props'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
 } from '@/components/ui/accordion'
 import { cn } from '@/lib/utils'
-import { type BaseProps } from '@/types/props'
 import { arePathsEqual } from '@/utils/path'
 
 import { useLearnNavigation } from '../hooks/navigation'

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 
+import { type BaseProps } from '@/components/shared/props'
 import { cn } from '@/lib/utils'
-import { type BaseProps } from '@/types/props'
 
 interface HeaderLayoutProps extends BaseProps {
   header: ReactNode

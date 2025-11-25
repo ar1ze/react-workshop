@@ -4,9 +4,9 @@ import { NavLink } from 'react-router'
 import { useLocation } from 'react-router'
 
 import { GithubIcon } from '@/components/shared'
+import type { BaseProps } from '@/components/shared/props'
 import { ThemeButton } from '@/components/theme'
 import { Button } from '@/components/ui/button'
-import type { BaseProps } from '@/types/props'
 
 import { LearnNavigationMobileSections } from '../routes/learn/components'
 import { isHomePage, isLearnPage } from '../utils/path'
