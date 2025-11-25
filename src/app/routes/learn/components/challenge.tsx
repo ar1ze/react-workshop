@@ -1,5 +1,6 @@
 import { type ComponentType } from 'react'
 
+import { CodeBlock } from '@/components/common/code-block'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
@@ -26,13 +27,25 @@ interface LearnChallengeTabProps {
   url: string
 }
 
+interface ChallengesProps {
+  challenges: Challenge[]
+}
+
+interface ChallengeProps {
+  challenge: Challenge
+}
+
+interface URLProps {
+  url: string
+}
+
 const generateValues = (challenges: Challenge[]) => {
   return challenges.map((challenge) =>
     challenge.title.toLowerCase().split(' ').slice(1).join('-')
   )
 }
 
-const ChallengeHeader = ({ url }: { url: string }) => (
+const ChallengeHeader = ({ url }: URLProps) => (
   <div className="flex items-center">
     <LearnSectionHeader
       title="Try out  some challenges"
@@ -41,7 +54,7 @@ const ChallengeHeader = ({ url }: { url: string }) => (
   </div>
 )
 
-const SolutionCodeDialog = ({ challenge }: { challenge: Challenge }) => {
+const SolutionCodeDialog = ({ challenge }: ChallengeProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -49,22 +62,20 @@ const SolutionCodeDialog = ({ challenge }: { challenge: Challenge }) => {
           View Code
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-h-[80vh] max-w-3xl overflow-y-auto">
+      <DialogContent className="flex max-h-[90vh] max-w-7xl flex-col">
         <DialogHeader>
           <DialogTitle>{challenge.title} - Solution</DialogTitle>
           <DialogDescription>
             Here is the complete source code for this solution.
           </DialogDescription>
         </DialogHeader>
-        <pre className="overflow-x-auto rounded-md bg-slate-950 p-4 text-slate-50">
-          <code>{challenge.solutionCode}</code>
-        </pre>
+        <CodeBlock code={challenge.solutionCode} />
       </DialogContent>
     </Dialog>
   )
 }
 
-const ChallengeTabs = ({ challenges }: { challenges: Challenge[] }) => {
+const ChallengeTabs = ({ challenges }: ChallengesProps) => {
   const values = generateValues(challenges)
   return (
     <Tabs defaultValue={values[0]} className="w-full gap-4">
