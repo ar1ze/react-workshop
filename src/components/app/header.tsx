@@ -3,13 +3,12 @@ import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router'
 import { useLocation } from 'react-router'
 
-import type { BaseProps } from '@/components/shared'
-import { GithubIcon } from '@/components/shared'
+import { type BaseProps, GithubIcon } from '@/components/shared'
 import { ThemeButton } from '@/components/theme'
 import { Button } from '@/components/ui/button'
 import { LearnNavigationMobileSections } from '@/features/learn/components'
+import { isHomePage, isLearnPage } from '@/features/utils'
 
-import { isHomePage, isLearnPage } from '../utils/path'
 import { AppNavigationDesktopLinks, AppNavigationMobileButtons } from '.'
 
 interface NavigationProps {

@@ -1,4 +1,4 @@
-import { AppContentLayout } from '@/app/layouts'
+import { AppContentLayout } from '@/components/app'
 
 export const BlogPage = () => {
   return (

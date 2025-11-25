@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 
-import { AppLayout } from '@/app/layouts'
+import { AppLayout } from '@/components/app'
 
-import { AppChildrenRoutes, NotFoundPage } from '../features'
+import { AppChildrenRoutes, NotFoundPage } from './routes'
 
 const routerBaseName = import.meta.env.VITE_BASE_URL || '/'
 
