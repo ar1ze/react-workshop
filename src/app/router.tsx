@@ -3,7 +3,7 @@ import { RouterProvider } from 'react-router/dom'
 
 import { AppLayout } from '@/app/layouts'
 
-import { AppChildrenRoutes, NotFoundPage } from './routes'
+import { AppChildrenRoutes, NotFoundPage } from '../features'
 
 const routerBaseName = import.meta.env.VITE_BASE_URL || '/'
 

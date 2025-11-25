@@ -1,5 +1,5 @@
-import { LearnPageHeader } from '@/app/routes/learn/components'
-import { LearnContentLayout, LearnPageLayout } from '@/app/routes/learn/layouts'
+import { LearnPageHeader } from '@/features/learn/components'
+import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
 
 export const ThinkingReactPage = () => {
   return (

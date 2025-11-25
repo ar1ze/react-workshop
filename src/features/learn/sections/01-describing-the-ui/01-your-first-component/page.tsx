@@ -1,8 +1,8 @@
 import {
   LearnChallengeTabs,
   LearnPageHeader,
-} from '@/app/routes/learn/components'
-import { LearnContentLayout, LearnPageLayout } from '@/app/routes/learn/layouts'
+} from '@/features/learn/components'
+import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
 
 import { yourFirstComponentChallenges } from './challenges'
 

@@ -1,4 +1,4 @@
-import { type Challenge } from '@/app/routes/learn/components'
+import { type Challenge } from '@/features/learn/components'
 
 import { Solution } from './solution'
 import solutionCode from './solution.tsx?raw'

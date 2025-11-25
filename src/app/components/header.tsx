@@ -7,8 +7,8 @@ import type { BaseProps } from '@/components/shared'
 import { GithubIcon } from '@/components/shared'
 import { ThemeButton } from '@/components/theme'
 import { Button } from '@/components/ui/button'
+import { LearnNavigationMobileSections } from '@/features/learn/components'
 
-import { LearnNavigationMobileSections } from '../routes/learn/components'
 import { isHomePage, isLearnPage } from '../utils/path'
 import { AppNavigationDesktopLinks, AppNavigationMobileButtons } from '.'
 

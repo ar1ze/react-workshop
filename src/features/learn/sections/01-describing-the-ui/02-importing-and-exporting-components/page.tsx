@@ -1,6 +1,6 @@
-import { LearnPageHeader } from '@/app/routes/learn/components'
-import { LearnPageLayout } from '@/app/routes/learn/layouts'
-import { LearnContentLayout } from '@/app/routes/learn/layouts'
+import { LearnPageHeader } from '@/features/learn/components'
+import { LearnPageLayout } from '@/features/learn/layouts'
+import { LearnContentLayout } from '@/features/learn/layouts'
 
 export const ImportingAndExportingComponentsPage = () => {
   return (

@@ -1,9 +1,9 @@
 import { useLocation } from 'react-router'
 
-import { AppNavigationLinks } from '@/app/routes'
 import { NavigationLinkStyled } from '@/components/navigation'
 import { NavigationButton } from '@/components/navigation'
 import type { BaseProps } from '@/components/shared'
+import { AppNavigationLinks } from '@/features'
 import { pathStartsWith } from '@/utils/path'
 
 interface AppNavigationProps extends BaseProps {
