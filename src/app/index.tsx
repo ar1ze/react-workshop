@@ -1,5 +1,4 @@
-import { ThemeProvider } from '@/components/theme'
-
+import { ThemeProvider } from './providers'
 import { AppRouter } from './router'
 
 export const App = () => {
