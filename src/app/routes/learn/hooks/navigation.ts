@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-import { type NavigationNode } from '@/types/navigation'
+import { type NavigationNode } from '@/components/navigation'
 import { flattenNavigationTree, groupNodesBySection } from '@/utils/navigation'
 import { arePathsEqual, joinPaths } from '@/utils/path'
 

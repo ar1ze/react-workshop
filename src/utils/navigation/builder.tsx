@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react'
 
-import { type NavigationNode } from '@/types/navigation'
+import { type NavigationNode } from '@/components/navigation'
 import { joinPaths } from '@/utils/path'
 
 /**

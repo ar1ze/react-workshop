@@ -1,4 +1,4 @@
-import { type NavigationNode } from '@/types/navigation'
+import { type NavigationNode } from '@/components/navigation'
 import { normalizePath } from '@/utils/path'
 
 /**

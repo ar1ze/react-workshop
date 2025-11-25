@@ -7,8 +7,9 @@ import { Link, useLocation, useNavigate } from 'react-router'
 
 import { type BaseProps } from '@/components/shared/props'
 import { cn } from '@/lib/utils'
-import { type NavigationNode } from '@/types/navigation'
 import { arePathsEqual } from '@/utils/path'
+
+import { type NavigationNode } from './types'
 
 type NavigationAccordionTriggerProps = ComponentProps<
   typeof AccordionPrimitive.Trigger

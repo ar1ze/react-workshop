@@ -1,7 +1,7 @@
 import type { ComponentType } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import type { NavigationNode } from '@/types/navigation'
+import type { NavigationNode } from '@/components/navigation'
 
 import { flattenNavigationTree } from './utils'
 import { groupNodesBySection } from './utils'

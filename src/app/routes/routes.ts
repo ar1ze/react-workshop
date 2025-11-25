@@ -1,4 +1,4 @@
-import { type NavigationLink } from '@/types/navigation'
+import { type NavigationLink } from '@/components/navigation'
 
 import { BLOG_PAGE_PREFIX, BlogNavigationRoutes } from './blog'
 import { HomeNavigationRoutes } from './home'

@@ -3,7 +3,8 @@ import { NavLink } from 'react-router'
 
 import { type BaseProps } from '@/components/shared/props'
 import { cn } from '@/lib/utils'
-import { type NavigationLink } from '@/types/navigation'
+
+import { type NavigationLink } from './types'
 
 interface NavigationLinkStyledProps extends NavigationLink, BaseProps {
   onClick?: MouseEventHandler<HTMLAnchorElement>

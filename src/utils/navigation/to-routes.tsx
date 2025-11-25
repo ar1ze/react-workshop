@@ -1,8 +1,8 @@
 import { Suspense } from 'react'
 import type { RouteObject } from 'react-router'
 
+import type { NavigationNode } from '@/components/navigation'
 import { LoadingPage } from '@/components/shared'
-import type { NavigationNode } from '@/types/navigation'
 
 import { stripLeadingSlash, stripPrefix } from '../path'
 
