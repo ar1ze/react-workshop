@@ -1,6 +1,6 @@
 import { type ComponentType } from 'react'
 
-import { CodeBlock } from '@/components/common/code-block'
+import { CodeBlock } from '@/components/shared/code-block'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {

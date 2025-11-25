@@ -1,12 +1,12 @@
 import { Fragment } from 'react'
 import { useLocation } from 'react-router'
 
-import { SectionHeader } from '@/components/common'
 import {
   NavigationAccordionLinks,
   NavigationAccordionTrigger,
 } from '@/components/navigation'
 import { NavigationButton } from '@/components/navigation'
+import { SectionHeader } from '@/components/shared'
 import {
   Accordion,
   AccordionContent,
