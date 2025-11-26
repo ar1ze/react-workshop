@@ -1,7 +1,11 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
-interface CodeBlockProps {
+import { cn } from '@/lib/utils'
+
+import type { BaseProps } from './props'
+
+export interface CodeBlockProps extends BaseProps {
   code: string
   language?: string
 }
@@ -9,9 +13,15 @@ interface CodeBlockProps {
 export const CodeBlock = ({
   code,
   language = 'typescript',
+  className,
 }: CodeBlockProps) => {
   return (
-    <div className="overflow-hidden rounded-md border bg-[#1e1e1e]">
+    <div
+      className={cn(
+        'grid max-w-full overflow-auto rounded-md bg-[#1e1e1e]',
+        className
+      )}
+    >
       <SyntaxHighlighter
         language={language}
         style={vscDarkPlus}
