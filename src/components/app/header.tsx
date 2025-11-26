@@ -9,6 +9,7 @@ import { ThemeButton } from '@/components/shared/theme-button'
 import { Button } from '@/components/ui/button'
 import { LearnNavigationMobileSections } from '@/features/learn/components'
 import { isHomePage, isLearnPage } from '@/features/utils'
+import { cn } from '@/lib/utils'
 
 import {
   AppNavigationDesktopLinks,
@@ -109,6 +110,7 @@ export const HeaderNavigation = ({
 
 export const AppHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     let timer: number
@@ -124,8 +126,26 @@ export const AppHeader = () => {
     }
   }, [])
 
+  useEffect(() => {
+    const handleScroll = (e: Event) => {
+      const target = e.target as HTMLElement
+      setIsScrolled(target.scrollTop > 0)
+    }
+
+    window.addEventListener('scroll', handleScroll, { capture: true })
+    return () => {
+      window.removeEventListener('scroll', handleScroll, { capture: true })
+    }
+  }, [])
+
   return (
-    <header className="relative flex items-center justify-between p-4">
+    <header
+      className={cn(
+        'relative flex items-center justify-between p-4 transition-all duration-100',
+        isScrolled &&
+          'bg-background/80 supports-backdrop-filter:bg-background/60 border-b shadow-sm backdrop-blur-md'
+      )}
+    >
       <BrandLink onClick={() => setMenuOpen(false)} />
       <HeaderNavigation
         isOpen={menuOpen}
