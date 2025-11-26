@@ -55,13 +55,13 @@ export const LearnNavigationSidebarAccordion = () => {
           >
             <NavigationAccordionTrigger
               sectionNode={group.sectionNode}
-              className="rounded-l-none pl-4"
+              className="rounded-l-none pl-4 text-base"
             />
             <AccordionContent className="pb-0">
               <ul>
                 <NavigationAccordionLinks
                   nodes={group.childrenNodes}
-                  className="rounded-l-none pl-4"
+                  className="rounded-l-none pl-4 text-sm"
                 />
               </ul>
             </AccordionContent>
@@ -94,7 +94,7 @@ export const LearnNavigationMobileSections = ({
             <NavigationButton
               to={sectionNode.to}
               label={sectionNode.label}
-              className={cn(defaultClass, 'text-lg font-medium', className)}
+              className={cn(defaultClass, 'text-lg font-bold', className)}
               onClick={onClick}
               activeClassName="bg-accent"
             />
@@ -104,7 +104,7 @@ export const LearnNavigationMobileSections = ({
                   key={childNode.to}
                   to={childNode.to}
                   label={childNode.label}
-                  className={cn(defaultClass, 'px-5 text-sm', className)}
+                  className={cn(defaultClass, 'font px-5 text-sm', className)}
                   activeClassName="bg-accent"
                   onClick={onClick}
                 />

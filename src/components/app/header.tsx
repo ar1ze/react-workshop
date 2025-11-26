@@ -20,7 +20,7 @@ interface NavigationProps {
 }
 
 const BrandLink = ({ onClick: onClose }: NavigationProps) => (
-  <NavLink to="/" className="text-primary text-xl font-bold" onClick={onClose}>
+  <NavLink to="/" className="text-xl font-bold" onClick={onClose}>
     <span>React Workshop</span>
   </NavLink>
 )
@@ -60,7 +60,7 @@ const MobileNav = ({ isOpen, onClick }: MobileNavProps) => {
         <nav className="border-border/70 flex justify-evenly border-t py-3">
           <AppNavigationMobileButtons
             onClick={onClick}
-            className="rounded-4xl px-14 text-lg"
+            className="rounded-4xl px-14 text-lg font-bold"
             activeClassname="bg-accent"
           />
         </nav>
