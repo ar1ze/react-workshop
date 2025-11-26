@@ -6,7 +6,7 @@ import solutionCode from './solution.tsx?raw'
 export const fixReturnStatementChallenge: Challenge = {
   title: '2. Fix the return statement',
   description:
-    'This sandbox doesn’t work because the root component is not exported',
+    'The return statement is failing because the JSX starts on a new line. Fix the return statement to ensure the image renders.',
   SolutionComponent: Solution,
   solutionCode,
 }

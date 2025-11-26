@@ -6,7 +6,7 @@ import solutionCode from './solution.tsx?raw'
 export const exportComponentChallenge: Challenge = {
   title: '1. Export the component',
   description:
-    'This sandbox doesn’t work because the root component is not exported. In React, you must explicitly export components so they can be imported and used in other files.',
+    'The Profile component is defined but not rendering. Add the default export to the component definition to make it visible.',
   SolutionComponent: Solution,
   solutionCode,
 }
