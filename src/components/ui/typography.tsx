@@ -113,3 +113,16 @@ export function TypographyMuted({ className, children }: BaseProps) {
     <p className={cn('text-muted-foreground text-sm', className)}>{children}</p>
   )
 }
+
+export function TypographyOverline({ className, children }: BaseProps) {
+  return (
+    <p
+      className={cn(
+        'text-muted-foreground text-xs font-bold tracking-wider uppercase',
+        className
+      )}
+    >
+      {children}
+    </p>
+  )
+}
