@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Menu } from 'lucide-react'
 import { type ComponentType, useState } from 'react'
 
 import { CodeBlock } from '@/components/shared/code-block'
@@ -13,6 +13,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 import { LearnSectionHeader } from './headers'
@@ -44,6 +50,8 @@ interface URLProps {
 interface ChallengeListProps {
   challenges: Challenge[]
   values: string[]
+  activeTab: string
+  onSelect: (value: string) => void
   onPrevious: () => void
   onNext: () => void
 }
@@ -90,33 +98,73 @@ const SolutionCodeDialog = ({ challenge }: ChallengeProps) => {
 const ChallengeList = ({
   challenges,
   values,
+  activeTab,
+  onSelect,
   onPrevious,
   onNext,
 }: ChallengeListProps) => {
+  const activeIndex = values.indexOf(activeTab)
+  const activeLabel = challenges[activeIndex]?.title || 'Select Challenge'
+
   return (
-    <div className="flex items-center justify-between">
-      <TabsList className="justify-start overflow-x-auto">
-        {challenges.map((challenge, index) => (
-          <TabsTrigger key={values[index]} value={values[index]}>
-            {challenge.title}
-          </TabsTrigger>
-        ))}
-      </TabsList>
-      <ButtonGroup>
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={onPrevious}
-          className="h-8"
-        >
-          <ArrowLeft />
-        </Button>
-        <ButtonGroupSeparator />
-        <Button variant="outline" size="icon" onClick={onNext} className="h-8">
-          <ArrowRight />
-        </Button>
-      </ButtonGroup>
-    </div>
+    <>
+      {/* Mobile View */}
+      <div className="md:hidden">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild className="flex w-full">
+            <Button
+              variant="outline"
+              size="default"
+              className="flex items-center justify-between"
+            >
+              <span className="text-base font-semibold">{activeLabel}</span>
+              <Menu className="size-5" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-56">
+            {challenges.map((challenge, index) => (
+              <DropdownMenuItem
+                key={values[index]}
+                onClick={() => onSelect(values[index])}
+                className={activeTab === values[index] ? 'bg-accent' : ''}
+              >
+                {challenge.title}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+
+      {/* Desktop View */}
+      <div className="hidden items-center justify-between md:flex">
+        <TabsList className="justify-start overflow-x-auto">
+          {challenges.map((challenge, index) => (
+            <TabsTrigger key={values[index]} value={values[index]}>
+              {challenge.title}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+        <ButtonGroup>
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={onPrevious}
+            className="h-8"
+          >
+            <ArrowLeft />
+          </Button>
+          <ButtonGroupSeparator />
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={onNext}
+            className="h-8"
+          >
+            <ArrowRight />
+          </Button>
+        </ButtonGroup>
+      </div>
+    </>
   )
 }
 
@@ -177,6 +225,8 @@ const ChallengeTabs = ({ challenges }: ChallengesProps) => {
       <ChallengeList
         challenges={challenges}
         values={values}
+        activeTab={activeTab}
+        onSelect={setActiveTab}
         onPrevious={handlePrevious}
         onNext={handleNext}
       />
