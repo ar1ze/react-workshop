@@ -1,7 +1,9 @@
-import { OverviewSection } from './00-section'
-import { OverviewSectionNavigationConfig } from './routes'
+import { index, page } from '@/utils/navigation'
 
-export {
-  OverviewSectionNavigationConfig,
-  OverviewSection as OverviewSectionPage,
-}
+import { OverviewSection } from './00-section'
+import { ThinkingReactPage } from './01-thinking-react'
+
+export const OverviewSectionNavigationConfig = [
+  index(OverviewSection),
+  page('thinking-in-react', 'Thinking in React', ThinkingReactPage),
+]

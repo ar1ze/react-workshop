@@ -2,7 +2,7 @@ import { LearnPageHeader } from '@/features/learn/components'
 import { LearnPageLayout } from '@/features/learn/layouts'
 import { LearnContentLayout } from '@/features/learn/layouts'
 
-export const DescribingTheUISection = () => {
+export const DescribingTheUISectionPage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
