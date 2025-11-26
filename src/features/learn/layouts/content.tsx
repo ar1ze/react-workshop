@@ -1,4 +1,5 @@
-import { AppContentLayout } from '@/components/app'
+import { AppFooter } from '@/components/app'
+import { ContentLayout } from '@/components/layouts'
 import { type BaseProps } from '@/components/shared/props'
 import { TypographyH1 } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
@@ -13,11 +14,12 @@ export const LearnContentLayout = ({
   children,
 }: LearnContentLayoutProps) => {
   return (
-    <AppContentLayout className={cn('flex', className)}>
-      <section className="w-full pb-20 md:mx-8 lg:mx-auto lg:max-w-200 xl:max-w-260">
+    <ContentLayout className={cn('flex min-h-full flex-col', className)}>
+      <section className="w-full flex-1 pb-16 md:mx-8 lg:mx-auto lg:max-w-200 xl:max-w-260">
         {title && <TypographyH1>{title}</TypographyH1>}
         {children}
       </section>
-    </AppContentLayout>
+      <AppFooter />
+    </ContentLayout>
   )
 }
