@@ -13,7 +13,7 @@ export const LearnSidebarLayout = () => {
         sidebar={sidebar}
         className="h-full min-h-0 md:[--sidebar-width:16rem]! lg:[--sidebar-width:18rem]!"
       >
-        <SidebarInset>
+        <SidebarInset className="h-full overflow-x-hidden overflow-y-auto">
           <Outlet />
         </SidebarInset>
       </SidebarLayout>
