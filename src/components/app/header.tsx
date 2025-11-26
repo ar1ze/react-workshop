@@ -137,13 +137,12 @@ export const AppHeader = () => {
       window.removeEventListener('scroll', handleScroll, { capture: true })
     }
   }, [])
-
   return (
     <header
       className={cn(
-        'relative flex items-center justify-between px-4 py-2 transition-all duration-100',
+        'relative flex items-center justify-between border-b border-transparent px-4 py-2 transition-all duration-100',
         isScrolled &&
-          'bg-background/80 supports-backdrop-filter:bg-background/60 border-b shadow-sm backdrop-blur-md'
+          'bg-background/80 supports-backdrop-filter:bg-background/60 border-border shadow-sm backdrop-blur-md'
       )}
     >
       <BrandLink onClick={() => setMenuOpen(false)} />
