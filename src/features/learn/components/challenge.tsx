@@ -210,7 +210,7 @@ const ChallengeContent = ({ challenges, values }: ChallengeContentProps) => {
               <CardHeader>
                 <CardTitle>My Solution</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="grid place-content-center">
                 <challenge.SolutionComponent />
               </CardContent>
               <CardFooter className="px-6">
