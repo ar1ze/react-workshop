@@ -1,7 +1,9 @@
-import { type ComponentType } from 'react'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { type ComponentType, useState } from 'react'
 
 import { CodeBlock } from '@/components/shared/code-block'
 import { Button } from '@/components/ui/button'
+import { ButtonGroup, ButtonGroupSeparator } from '@/components/ui/button-group'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   Dialog,
@@ -39,6 +41,18 @@ interface URLProps {
   url: string
 }
 
+interface ChallengeListProps {
+  challenges: Challenge[]
+  values: string[]
+  onPrevious: () => void
+  onNext: () => void
+}
+
+interface ChallengeContentProps {
+  challenges: Challenge[]
+  values: string[]
+}
+
 const generateValues = (challenges: Challenge[]) => {
   return challenges.map((challenge) =>
     challenge.title.toLowerCase().split(' ').slice(1).join('-')
@@ -48,7 +62,7 @@ const generateValues = (challenges: Challenge[]) => {
 const ChallengeHeader = ({ url }: URLProps) => (
   <div className="flex items-center">
     <LearnSectionHeader
-      title="Try out  some challenges"
+      title="Try out some challenges"
       url={url}
     ></LearnSectionHeader>
   </div>
@@ -73,10 +87,14 @@ const SolutionCodeDialog = ({ challenge }: ChallengeProps) => {
   )
 }
 
-const ChallengeTabs = ({ challenges }: ChallengesProps) => {
-  const values = generateValues(challenges)
+const ChallengeList = ({
+  challenges,
+  values,
+  onPrevious,
+  onNext,
+}: ChallengeListProps) => {
   return (
-    <Tabs defaultValue={values[0]} className="w-full gap-4">
+    <div className="flex items-center justify-between">
       <TabsList className="justify-start overflow-x-auto">
         {challenges.map((challenge, index) => (
           <TabsTrigger key={values[index]} value={values[index]}>
@@ -84,7 +102,27 @@ const ChallengeTabs = ({ challenges }: ChallengesProps) => {
           </TabsTrigger>
         ))}
       </TabsList>
+      <ButtonGroup>
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={onPrevious}
+          className="h-8"
+        >
+          <ArrowLeft />
+        </Button>
+        <ButtonGroupSeparator />
+        <Button variant="outline" size="icon" onClick={onNext} className="h-8">
+          <ArrowRight />
+        </Button>
+      </ButtonGroup>
+    </div>
+  )
+}
 
+const ChallengeContent = ({ challenges, values }: ChallengeContentProps) => {
+  return (
+    <>
       {challenges.map((challenge, index) => (
         <TabsContent key={values[index]} value={values[index]}>
           <div className="grid gap-4 lg:grid-cols-2">
@@ -110,6 +148,39 @@ const ChallengeTabs = ({ challenges }: ChallengesProps) => {
           </div>
         </TabsContent>
       ))}
+    </>
+  )
+}
+
+const ChallengeTabs = ({ challenges }: ChallengesProps) => {
+  const values = generateValues(challenges)
+  const [activeTab, setActiveTab] = useState(values[0])
+
+  const currentIndex = values.indexOf(activeTab)
+
+  const handlePrevious = () => {
+    const newIndex = (currentIndex - 1 + values.length) % values.length
+    setActiveTab(values[newIndex])
+  }
+
+  const handleNext = () => {
+    const newIndex = (currentIndex + 1) % values.length
+    setActiveTab(values[newIndex])
+  }
+
+  return (
+    <Tabs
+      value={activeTab}
+      onValueChange={setActiveTab}
+      className="w-full gap-4"
+    >
+      <ChallengeList
+        challenges={challenges}
+        values={values}
+        onPrevious={handlePrevious}
+        onNext={handleNext}
+      />
+      <ChallengeContent challenges={challenges} values={values} />
     </Tabs>
   )
 }
