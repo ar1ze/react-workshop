@@ -1,8 +1,13 @@
 import { ExternalLink, type LucideProps } from 'lucide-react'
 
-import { SectionTitle } from '@/components/shared/headings'
 import type { BaseProps } from '@/components/shared/props'
 import { Button } from '@/components/ui/button'
+import {
+  TypographyH1,
+  TypographyH2,
+  TypographyLarge,
+  TypographyP,
+} from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 
 interface BasePageHeaderProps extends BaseProps {
@@ -22,8 +27,8 @@ const BasePageHeader = ({ className, children }: BaseProps) => {
 const ExternalButton = ({ url, type }: ExternalButtonProps) => {
   const isHeader = type === 'header'
   const iconProps: LucideProps = {
-    className: `mt-0.5 ${isHeader ? 'size-6 md:size-7' : 'size-4 md:size-5'}`,
-    strokeWidth: 3,
+    className: `${isHeader ? 'mt-0.5 size-5 md:size-6' : '-mt-1.5 size-4 md:size-5 md:-mt-1'}`,
+    strokeWidth: isHeader ? 4 : 3,
   }
   const buttonSize = isHeader ? 'icon' : 'icon-sm'
 
@@ -50,19 +55,10 @@ export const LearnPageHeader = ({
   return (
     <BasePageHeader>
       <div className="flex items-center gap-0.5 md:gap-1">
-        <SectionTitle
-          className={cn(
-            'text-2xl font-bold tracking-tight md:text-3xl',
-            className
-          )}
-        >
-          {title}
-        </SectionTitle>
+        <TypographyH1 className={className}>{title}</TypographyH1>
         {url && <ExternalButton url={url} type="header" />}
       </div>
-      {children && (
-        <p className="dark:primary text-lg text-pretty">{children}</p>
-      )}
+      {children && <TypographyLarge>{children}</TypographyLarge>}
     </BasePageHeader>
   )
 }
@@ -76,19 +72,12 @@ export const LearnSectionHeader = ({
   return (
     <BasePageHeader>
       <div className="flex items-center">
-        <SectionTitle
-          className={cn(
-            'text-lg font-semibold tracking-tight md:text-xl',
-            className
-          )}
-        >
+        <TypographyH2 className={cn('border-none', className)}>
           {title}
-        </SectionTitle>
+        </TypographyH2>
         {url && <ExternalButton url={url} type="section" />}
       </div>
-      {children && (
-        <p className="dark:text-primary text-base/7 text-pretty">{children}</p>
-      )}
+      {children && <TypographyP>{children}</TypographyP>}
     </BasePageHeader>
   )
 }
