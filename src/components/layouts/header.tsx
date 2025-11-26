@@ -14,9 +14,15 @@ export const HeaderLayout = ({
   className,
 }: HeaderLayoutProps) => {
   return (
-    <main className={cn('grid h-screen grid-rows-[auto_1fr]', className)}>
+    <main
+      className={cn(
+        'grid h-screen grid-rows-[auto_1fr] overflow-hidden',
+        className
+      )}
+    >
       {header}
-      {content}
+
+      <div className="min-h-0 overflow-y-auto">{content}</div>
     </main>
   )
 }
