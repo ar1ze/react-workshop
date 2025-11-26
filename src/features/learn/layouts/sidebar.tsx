@@ -8,12 +8,12 @@ import { LearnSidebar } from '../components/sidebar'
 export const LearnSidebarLayout = () => {
   const sidebar = <LearnSidebar />
   return (
-    <div className="relative h-full w-full">
+    <div className="relative min-h-0">
       <SidebarLayout
         sidebar={sidebar}
-        className="h-full min-h-0 md:[--sidebar-width:16rem]! lg:[--sidebar-width:18rem]!"
+        className="h-full md:[--sidebar-width:16rem]! lg:[--sidebar-width:18rem]!"
       >
-        <SidebarInset className="h-full overflow-x-hidden overflow-y-auto">
+        <SidebarInset className="overflow-y-auto">
           <Outlet />
         </SidebarInset>
       </SidebarLayout>

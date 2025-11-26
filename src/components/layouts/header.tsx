@@ -21,8 +21,7 @@ export const HeaderLayout = ({
       )}
     >
       {header}
-
-      <div className="min-h-0">{content}</div>
+      {content}
     </main>
   )
 }

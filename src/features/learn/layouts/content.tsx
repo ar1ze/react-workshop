@@ -1,26 +1,14 @@
 import { AppContentLayout, AppFooter } from '@/components/app'
 import { type BaseProps } from '@/components/shared/props'
-import { TypographyH1 } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 
-interface LearnContentLayoutProps extends BaseProps {
-  title?: string
-}
-
-export const LearnContentLayout = ({
-  title,
-  className,
-  children,
-}: LearnContentLayoutProps) => {
+export const LearnContentLayout = ({ className, children }: BaseProps) => {
   return (
-    <AppContentLayout
-      className={cn('flex min-h-full flex-col px-0 pt-2', className)}
-    >
-      <section className="w-full flex-1 pb-16 md:mx-8 lg:mx-auto lg:max-w-200 xl:max-w-260">
-        {title && <TypographyH1>{title}</TypographyH1>}
-        {children}
+    <AppContentLayout className={cn('flex flex-1', className)}>
+      <section className="flex w-full flex-col pb-16 md:mx-8 lg:mx-auto lg:max-w-200 xl:max-w-240">
+        <div className="flex-1 pb-12">{children}</div>
+        <AppFooter className="border-t" />
       </section>
-      <AppFooter className="border-t" />
     </AppContentLayout>
   )
 }
