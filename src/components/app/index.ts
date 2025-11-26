@@ -1,5 +1,6 @@
 import { AppLayout } from './app-layout'
 import { AppContentLayout } from './content-layout'
+import { AppFooter } from './footer'
 import { AppHeader } from './header'
 import {
   AppNavigationDesktopLinks,
@@ -8,6 +9,7 @@ import {
 
 export {
   AppContentLayout,
+  AppFooter,
   AppHeader,
   AppLayout,
   AppNavigationDesktopLinks,
