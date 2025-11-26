@@ -82,7 +82,7 @@ const SolutionCodeDialog = ({ challenge }: ChallengeProps) => {
       <DialogTrigger asChild>
         <Button variant="secondary">View Code</Button>
       </DialogTrigger>
-      <DialogContent className="flex max-h-[90vh] max-w-7xl flex-col">
+      <DialogContent className="flex max-h-[90vh] w-full max-w-[90vw] flex-col md:max-w-3xl">
         <DialogHeader>
           <DialogTitle>{challenge.title} - Solution</DialogTitle>
           <DialogDescription>
