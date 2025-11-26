@@ -141,7 +141,7 @@ export const AppHeader = () => {
   return (
     <header
       className={cn(
-        'relative flex items-center justify-between p-4 transition-all duration-100',
+        'relative flex items-center justify-between px-4 py-2 transition-all duration-100',
         isScrolled &&
           'bg-background/80 supports-backdrop-filter:bg-background/60 border-b shadow-sm backdrop-blur-md'
       )}
