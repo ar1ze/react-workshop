@@ -1,10 +1,16 @@
-import { ArrowLeft, ArrowRight, Menu } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Code2, Menu } from 'lucide-react'
 import { type ComponentType, useState } from 'react'
 
 import { CodeBlock } from '@/components/shared/code-block'
 import { Button } from '@/components/ui/button'
 import { ButtonGroup, ButtonGroupSeparator } from '@/components/ui/button-group'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
 import {
   Dialog,
   DialogContent,
@@ -27,6 +33,7 @@ export interface Challenge {
   title: string
   description: string
   SolutionComponent: ComponentType
+  problemCode: string
   solutionCode: string
 }
 
@@ -80,16 +87,33 @@ const SolutionCodeDialog = ({ challenge }: ChallengeProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="secondary">View Code</Button>
+        <Button variant="secondary" className="flex w-full items-center">
+          <Code2 className="text-primary" />
+          <span className="text-primary font-normal">View Code</span>
+        </Button>
       </DialogTrigger>
-      <DialogContent className="flex max-h-[90vh] w-full max-w-[90vw] flex-col md:max-w-3xl">
+      <DialogContent className="flex max-h-[90vh] w-full max-w-[90vw] flex-col md:max-w-2xl">
         <DialogHeader>
-          <DialogTitle>{challenge.title} - Solution</DialogTitle>
+          <DialogTitle>Source Code</DialogTitle>
           <DialogDescription>
-            Here is the complete source code for this solution.
+            Review the starter code and the final solution below.
           </DialogDescription>
         </DialogHeader>
-        <CodeBlock code={challenge.solutionCode} />
+        <Tabs
+          defaultValue="solution"
+          className="flex flex-1 flex-col overflow-hidden"
+        >
+          <TabsList className="w-fit">
+            <TabsTrigger value="solution">My Solution</TabsTrigger>
+            <TabsTrigger value="starter">Starter Code</TabsTrigger>
+          </TabsList>
+          <TabsContent value="solution" className="mt-4 flex-1 overflow-auto">
+            <CodeBlock code={challenge.solutionCode} />
+          </TabsContent>
+          <TabsContent value="starter" className="mt-4 flex-1 overflow-auto">
+            <CodeBlock code={challenge.problemCode} />
+          </TabsContent>
+        </Tabs>
       </DialogContent>
     </Dialog>
   )
@@ -108,7 +132,6 @@ const ChallengeList = ({
 
   return (
     <>
-      {/* Mobile View */}
       <div className="md:hidden">
         <DropdownMenu>
           <DropdownMenuTrigger asChild className="flex w-full">
@@ -135,7 +158,6 @@ const ChallengeList = ({
         </DropdownMenu>
       </div>
 
-      {/* Desktop View */}
       <div className="hidden items-center justify-between md:flex">
         <TabsList className="justify-start overflow-x-auto">
           {challenges.map((challenge, index) => (
@@ -188,10 +210,12 @@ const ChallengeContent = ({ challenges, values }: ChallengeContentProps) => {
               <CardHeader>
                 <CardTitle>My Solution</CardTitle>
               </CardHeader>
-              <CardContent className="flex flex-col gap-4">
+              <CardContent>
                 <challenge.SolutionComponent />
-                <SolutionCodeDialog challenge={challenge} />
               </CardContent>
+              <CardFooter className="px-6">
+                <SolutionCodeDialog challenge={challenge} />
+              </CardFooter>
             </Card>
           </div>
         </TabsContent>
