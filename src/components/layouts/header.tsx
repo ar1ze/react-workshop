@@ -22,7 +22,7 @@ export const HeaderLayout = ({
     >
       {header}
 
-      <div className="min-h-0 overflow-y-auto">{content}</div>
+      <div className="min-h-0">{content}</div>
     </main>
   )
 }
