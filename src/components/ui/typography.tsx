@@ -1,3 +1,4 @@
+import { CodeBlock, type CodeBlockProps } from '@/components/shared/code-block'
 import { type BaseProps } from '@/components/shared/props'
 import { cn } from '@/lib/utils'
 
@@ -19,7 +20,7 @@ export function TypographyH2({ className, children }: BaseProps) {
   return (
     <h2
       className={cn(
-        'scroll-m-20 border-b pb-2 font-semibold tracking-tight first:mt-0',
+        'scroll-m-20 font-semibold tracking-tight first:mt-0',
         'text-xl md:text-2xl',
         className
       )}
@@ -58,12 +59,12 @@ export function TypographyH4({ className, children }: BaseProps) {
 }
 
 export function TypographyP({ className, children }: BaseProps) {
-  return <p className={cn('leading-7', className)}>{children}</p>
+  return <p className={cn('leading-7 not-first:mt-4', className)}>{children}</p>
 }
 
 export function TypographyBlockquote({ className, children }: BaseProps) {
   return (
-    <blockquote className={cn('mt-6 border-l-2 pl-6 italic', className)}>
+    <blockquote className={cn('mt-4 border-l-2 pl-6 italic', className)}>
       {children}
     </blockquote>
   )
@@ -71,7 +72,7 @@ export function TypographyBlockquote({ className, children }: BaseProps) {
 
 export function TypographyList({ className, children }: BaseProps) {
   return (
-    <ul className={cn('my-6 ml-6 list-disc [&>li]:mt-2', className)}>
+    <ul className={cn('mt-2 mb-2 ml-6 list-disc [&>li]:mt-2', className)}>
       {children}
     </ul>
   )
@@ -87,6 +88,20 @@ export function TypographyInlineCode({ className, children }: BaseProps) {
     >
       {children}
     </code>
+  )
+}
+
+export function TypographyCodeBlock({
+  code,
+  language = 'typescript',
+  className,
+}: CodeBlockProps) {
+  return (
+    <CodeBlock
+      code={code}
+      language={language}
+      className={cn('mt-4', className)}
+    />
   )
 }
 

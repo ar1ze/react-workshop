@@ -1,6 +1,6 @@
 import {
   LearnChallengeTabs,
-  LearnPageHeader,
+  LearnPageHeaderBlock,
 } from '@/features/learn/components'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
 
@@ -10,7 +10,7 @@ export const YourFirstComponentPage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeader
+        <LearnPageHeaderBlock
           title="Your First Component"
           url="https://react.dev/learn/your-first-component"
         >
@@ -18,7 +18,7 @@ export const YourFirstComponentPage = () => {
           upon which you build user interfaces. A component is a JavaScript
           function that you can sprinkle with markup to create isolated,
           reusable elements.
-        </LearnPageHeader>
+        </LearnPageHeaderBlock>
         <LearnChallengeTabs
           challenges={yourFirstComponentChallenges}
           url="https://react.dev/learn/your-first-component#challenges"

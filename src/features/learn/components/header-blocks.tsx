@@ -6,7 +6,6 @@ import {
   TypographyH1,
   TypographyH2,
   TypographyLarge,
-  TypographyP,
 } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 
@@ -21,7 +20,7 @@ interface ExternalButtonProps {
 }
 
 const BasePageHeader = ({ className, children }: BaseProps) => {
-  return <div className={cn('flex flex-col gap-4', className)}>{children}</div>
+  return <div className={cn('flex flex-col', className)}>{children}</div>
 }
 
 const ExternalButton = ({ url, type }: ExternalButtonProps) => {
@@ -46,14 +45,14 @@ const ExternalButton = ({ url, type }: ExternalButtonProps) => {
   )
 }
 
-export const LearnPageHeader = ({
+export const LearnPageHeaderBlock = ({
   title,
   url,
   className,
   children,
 }: BasePageHeaderProps) => {
   return (
-    <BasePageHeader>
+    <BasePageHeader className="gap-3 md:gap-4">
       <div className="flex items-center gap-0.5 md:gap-1">
         <TypographyH1 className={className}>{title}</TypographyH1>
         {url && <ExternalButton url={url} type="header" />}
@@ -63,7 +62,7 @@ export const LearnPageHeader = ({
   )
 }
 
-export const LearnSectionHeader = ({
+export const LearnSectionHeaderBlock = ({
   title,
   url,
   className,
@@ -77,7 +76,7 @@ export const LearnSectionHeader = ({
         </TypographyH2>
         {url && <ExternalButton url={url} type="section" />}
       </div>
-      {children && <TypographyP>{children}</TypographyP>}
+      {children}
     </BasePageHeader>
   )
 }

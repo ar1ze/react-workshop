@@ -27,7 +27,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
-import { LearnSectionHeader } from './headers'
+import { LearnSectionHeaderBlock } from './header-blocks'
 
 export interface Challenge {
   title: string
@@ -76,10 +76,10 @@ const generateValues = (challenges: Challenge[]) => {
 
 const ChallengeHeader = ({ url }: URLProps) => (
   <div className="flex items-center">
-    <LearnSectionHeader
+    <LearnSectionHeaderBlock
       title="Try out some challenges"
       url={url}
-    ></LearnSectionHeader>
+    ></LearnSectionHeaderBlock>
   </div>
 )
 

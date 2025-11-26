@@ -1,4 +1,4 @@
-import { LearnPageHeader } from '@/features/learn/components'
+import { LearnPageHeaderBlock } from '@/features/learn/components'
 import { LearnPageLayout } from '@/features/learn/layouts'
 import { LearnContentLayout } from '@/features/learn/layouts'
 
@@ -6,7 +6,7 @@ export const DescribingTheUISectionPage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeader
+        <LearnPageHeaderBlock
           title="Describing the UI"
           url="https://react.dev/learn/describing-the-ui"
         >
@@ -15,7 +15,7 @@ export const DescribingTheUISectionPage = () => {
           screen, from websites to mobile apps. This section documents how to
           create, customize, and conditionally display these fundamental UI
           elements.
-        </LearnPageHeader>
+        </LearnPageHeaderBlock>
       </LearnPageLayout>
     </LearnContentLayout>
   )
