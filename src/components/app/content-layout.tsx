@@ -4,6 +4,8 @@ import { cn } from '@/lib/utils'
 
 export const AppContentLayout = ({ className, children }: BaseProps) => {
   return (
-    <ContentLayout className={cn('px-4', className)}>{children}</ContentLayout>
+    <ContentLayout className={cn('px-4 pt-4', className)}>
+      {children}
+    </ContentLayout>
   )
 }
