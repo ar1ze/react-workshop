@@ -1,5 +1,5 @@
-import { SectionHeader } from '@/components/shared/headings'
 import { Sidebar, SidebarContent, SidebarGroup } from '@/components/ui/sidebar'
+import { TypographyOverline } from '@/components/ui/typography'
 
 import { LearnNavigationSidebarAccordion } from './navigation'
 
@@ -8,9 +8,7 @@ export const LearnSidebar = () => {
     <Sidebar className="absolute m-0 h-full border-none">
       <SidebarContent className="bg-background">
         <SidebarGroup className="bg-background flex flex-col gap-2 p-0">
-          <SectionHeader className="pl-4 text-xs tracking-wide">
-            Learn React
-          </SectionHeader>
+          <TypographyOverline className="pl-4">Learn React</TypographyOverline>
           <LearnNavigationSidebarAccordion />
         </SidebarGroup>
       </SidebarContent>

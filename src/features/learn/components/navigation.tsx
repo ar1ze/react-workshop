@@ -6,13 +6,13 @@ import {
   NavigationAccordionTrigger,
   NavigationButton,
 } from '@/components/navigation'
-import { SectionHeader } from '@/components/shared/headings'
 import { type BaseProps } from '@/components/shared/props'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
 } from '@/components/ui/accordion'
+import { TypographyOverline } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 import { arePathsEqual } from '@/utils/path'
 
@@ -81,9 +81,9 @@ export const LearnNavigationMobileSections = ({
     'h-11 justify-start font-normal rounded-none px-4 text-base'
   return (
     <>
-      <SectionHeader className="pt-4 pb-2 pl-4 text-sm">
+      <TypographyOverline className="pt-4 pb-2 pl-4">
         Learn React
-      </SectionHeader>
+      </TypographyOverline>
       {groups.map((group) => {
         const { sectionNode, childrenNodes } = group
         if (!sectionNode) {
