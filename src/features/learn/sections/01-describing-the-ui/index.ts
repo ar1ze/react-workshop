@@ -11,9 +11,11 @@ import { RenderingListsPage } from './07-rendering-lists'
 import { KeepingComponentsPurePage } from './08-keeping-components-pure'
 import { UIAsTreePage } from './09-your-ui-as-a-tree'
 
+export const DESCRIBE_THE_UI_PREFIX = 'describing-the-ui'
+
 export const DescribingTheUISectionNavigationConfigUI = [
   section(
-    'describing-the-ui',
+    DESCRIBE_THE_UI_PREFIX,
     DescribingTheUISectionPage,
     [
       page('your-first-component', YourFirstComponentPage),
