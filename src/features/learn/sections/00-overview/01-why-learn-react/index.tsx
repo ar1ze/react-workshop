@@ -10,32 +10,36 @@ export const WhyLearnReactPage = () => {
     <LearnContentLayout>
       <LearnPageLayout>
         <LearnPageHeaderBlock title="Why Learn React">
-          React is a JavaScript library for building user interfaces. It lets
-          you define the UI based on your data and handles updates when that
-          data changes. Its component model helps break the interface into
-          clear, reusable parts, making it a practical choice for modern
-          development.
+          React is one of the most powerful and widely used JavaScript libraries
+          today. The frontend landscape changes constantly, so choosing a
+          framework can feel risky, but React has proven it is here to stay. It
+          makes code scalable, readable, and efficient.
         </LearnPageHeaderBlock>
 
-        <LearnSectionHeaderBlock title="The Technical Appeal">
+        <LearnSectionHeaderBlock title="The Practical Reasons">
           <TypographyP>
-            Beyond popularity, React introduces a mental model that simplifies
-            UI development:
+            Once you dive in, you realize why it is the industry standard:
           </TypographyP>
           <TypographyList>
             <li>
-              <strong>Declarative Nature:</strong> You describe <em>what</em>{' '}
-              the UI should look like for a given state, and React handles the
-              "how" (DOM updates).
+              <strong>Components are reusable:</strong> You build pieces of UI
+              once and use them anywhere, making your code cleaner and easier to
+              maintain.
             </li>
             <li>
-              <strong>Component-Based:</strong> Encapsulating logic and markup
-              into small, reusable units makes complex applications manageable.
+              <strong>It is well-supported:</strong> Because of its massive
+              popularity, if you get stuck, someone has likely already solved
+              your problem.
             </li>
             <li>
-              <strong>"Just JavaScript":</strong> Unlike frameworks that
-              introduce heavy domain-specific languages, React relies mostly on
-              standard JavaScript patterns.
+              <strong>It is unopinionated:</strong> React doesn't force you to
+              follow specific design patterns or project structures. You decide
+              how to organize your logic.
+            </li>
+            <li>
+              <strong>Smaller learning curve:</strong> If you already have a
+              grasp of standard JavaScript, HTML, and CSS, React is much easier
+              to pick up than heavier frameworks.
             </li>
           </TypographyList>
         </LearnSectionHeaderBlock>
