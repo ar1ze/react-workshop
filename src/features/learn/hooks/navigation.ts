@@ -14,7 +14,6 @@ export interface LearnNavigationGroup {
 export const useLearnNavigation = (): LearnNavigationGroup[] => {
   const groups = useMemo(() => {
     const allNodesFlat = flattenNavigationTree(LearnNavigationConfig)
-    console.log(allNodesFlat)
     const sectionLearn = joinPaths('learn')
     const sectionLearnDescribePath = joinPaths('learn', 'describing-the-ui')
     const sectionLearnInteractivityPath = joinPaths(
