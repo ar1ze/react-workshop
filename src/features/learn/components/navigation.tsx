@@ -14,8 +14,12 @@ import {
   AccordionContent,
   AccordionItem,
 } from '@/components/ui/accordion'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { TypographyH2, TypographyList } from '@/components/ui/typography'
+import { CardContent, CardHeader } from '@/components/ui/card'
+import {
+  TypographyCard,
+  TypographyH2,
+  TypographyList,
+} from '@/components/ui/typography'
 import { TypographyOverline } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 import { arePathsEqual } from '@/utils/path'
@@ -26,7 +30,7 @@ interface NavigationProps extends BaseProps {
   onClick: () => void
 }
 
-interface NavigationCardProps {
+interface NavigationCardProps extends BaseProps {
   nodes: NavigationNode[]
   title?: string
 }
@@ -130,9 +134,13 @@ export const LearnNavigationMobileSections = ({
   )
 }
 
-export const LearnNavigationCard = ({ nodes, title }: NavigationCardProps) => {
+export const LearnNavigationCard = ({
+  nodes,
+  title,
+  className,
+}: NavigationCardProps) => {
   return (
-    <Card className="mt-2 gap-4">
+    <TypographyCard className={className}>
       <CardHeader>
         <TypographyH2>{title ?? 'In this chapter'}</TypographyH2>
       </CardHeader>
@@ -151,6 +159,6 @@ export const LearnNavigationCard = ({ nodes, title }: NavigationCardProps) => {
             ))}
         </TypographyList>
       </CardContent>
-    </Card>
+    </TypographyCard>
   )
 }
