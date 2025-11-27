@@ -27,7 +27,13 @@ export const DescribingTheUISectionPage = () => {
           create, customize, and conditionally display these fundamental UI
           elements.
         </LearnPageHeaderBlock>
-        {nodes && <LearnNavigationCard nodes={nodes} className="mt-0" />}
+        {nodes && (
+          <LearnNavigationCard
+            nodes={nodes}
+            title="In this chapter"
+            className="mt-0"
+          />
+        )}
       </LearnPageLayout>
     </LearnContentLayout>
   )

@@ -17,7 +17,7 @@ import {
 import { CardContent, CardHeader } from '@/components/ui/card'
 import {
   TypographyCard,
-  TypographyH2,
+  TypographyH3,
   TypographyList,
 } from '@/components/ui/typography'
 import { TypographyOverline } from '@/components/ui/typography'
@@ -143,7 +143,7 @@ export const LearnNavigationCard = ({
     <TypographyCard className={className}>
       {title && (
         <CardHeader>
-          <TypographyH2>{title ?? 'In this chapter'}</TypographyH2>
+          <TypographyH3>{title}</TypographyH3>
         </CardHeader>
       )}
       <CardContent>
