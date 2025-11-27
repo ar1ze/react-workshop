@@ -9,10 +9,15 @@ import {
 export const LEARN_PAGE_PREFIX = 'learn'
 
 export const LearnNavigationConfig = [
-  section('learn', 'Overview', LearnSidebarLayout, [
-    ...OverviewSectionNavigationConfig,
-    ...DescribingTheUISectionNavigationConfig,
-  ]),
+  section(
+    'learn',
+    LearnSidebarLayout,
+    [
+      ...OverviewSectionNavigationConfig,
+      ...DescribingTheUISectionNavigationConfig,
+    ],
+    'Overview'
+  ),
 ]
 
 export const LearnNavigationRoutes = navigationToRoutes(LearnNavigationConfig)

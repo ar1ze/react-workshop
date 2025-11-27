@@ -5,5 +5,5 @@ import { ThinkingReactPage } from './01-thinking-react'
 
 export const OverviewSectionNavigationConfig = [
   index(OverviewSection),
-  page('thinking-in-react', 'Thinking in React', ThinkingReactPage),
+  page('thinking-in-react', ThinkingReactPage),
 ]

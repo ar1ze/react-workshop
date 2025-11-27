@@ -1,6 +1,7 @@
 import type { ComponentType } from 'react'
 
 import { type NavigationNode } from '@/components/navigation'
+import { assertKebabCase, generateLabelFromId } from '@/utils/formatting'
 import { joinPaths } from '@/utils/path'
 
 /**
@@ -40,52 +41,54 @@ export const buildChildPath = (
 }
 
 /**
- * Factory function to create a `NavigationNode` for a single page (no children).
- *
- * @param id - The unique ID, also used as the path segment.
- * @param label - The human-readable text for display.
- * @param component - The React component to render.
- * @returns A `NavigationNode` configured as a standalone page.
+ * Factory function to create a `NavigationNode` for a single page.
+ * * @param id - The unique ID (kebab-case). Used to auto-generate label if not provided.
+ * @param component - The React component.
+ * @param label - (Optional) Manual override for the display text.
  */
 export const page = (
   id: string,
-  label: string,
-  component: ComponentType
+  component: ComponentType,
+  label?: string
 ): NavigationNode => {
-  // The `to` path is just its ID. It will be prefixed by a parent `section` if nested.
+  // 1. Validate inputs
+  assertKebabCase(id)
+
+  // 2. Generate Label if not provided
+  const finalLabel = label || generateLabelFromId(id)
+
+  // 3. Construct path
   const basePath = joinPaths(id)
 
   return {
     id,
-    label,
+    label: finalLabel,
     to: basePath,
     component,
   }
 }
 
 /**
- * Factory function to create a `NavigationNode` section (a node with children).
- * This function automatically resolves all child paths.
- *
- * @param id - The unique ID, also used as the path segment.
- *Details
- * @param label - The human-readable text for display.
- * @param component - The layout component for this section.
- * @param children - An array of child `NavigationNode`s (from `page` or `index`).
- * @returns A `NavigationNode` configured as a parent section.
+ * Factory function to create a `NavigationNode` section.
+ * * @param id - The unique ID (kebab-case).
+ * @param component - The layout component.
+ * @param children - Array of child nodes.
+ * @param label - (Optional) Manual override for the display text.
  */
 export const section = (
   id: string,
-  label: string,
   component: ComponentType,
-  children: NavigationNode[]
+  children: NavigationNode[],
+  label?: string
 ): NavigationNode => {
-  // This section's base path (e.g., "/settings").
+  assertKebabCase(id)
+
+  const finalLabel = label || generateLabelFromId(id)
   const basePath = joinPaths(id)
 
   return {
     id,
-    label,
+    label: finalLabel, // e.g. "Advanced Routing"
     to: basePath,
     component,
     // Build absolute paths for all children relative to this section.
