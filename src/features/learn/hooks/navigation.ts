@@ -14,15 +14,25 @@ export interface LearnNavigationGroup {
 export const useLearnNavigation = (): LearnNavigationGroup[] => {
   const groups = useMemo(() => {
     const allNodesFlat = flattenNavigationTree(LearnNavigationConfig)
+    console.log(allNodesFlat)
     const sectionLearn = joinPaths('learn')
     const sectionLearnDescribePath = joinPaths('learn', 'describing-the-ui')
+    const sectionLearnInteractivityPath = joinPaths(
+      'learn',
+      'adding-interactivity'
+    )
 
-    const sectionPaths = [sectionLearn, sectionLearnDescribePath]
+    const sectionPaths = [
+      sectionLearn,
+      sectionLearnDescribePath,
+      sectionLearnInteractivityPath,
+    ]
 
     const allChildNodes = allNodesFlat.filter(
       (node) =>
         !arePathsEqual(node.to, sectionLearn) &&
-        !arePathsEqual(node.to, sectionLearnDescribePath)
+        !arePathsEqual(node.to, sectionLearnDescribePath) &&
+        !arePathsEqual(node.to, sectionLearnInteractivityPath)
     )
 
     const groupedChildren = groupNodesBySection(allChildNodes, sectionPaths)

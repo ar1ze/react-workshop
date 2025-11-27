@@ -2,6 +2,7 @@ import { navigationToRoutes, section } from '@/utils/navigation'
 
 import { LearnSidebarLayout } from './layouts/sidebar'
 import {
+  AddingInteractivitySectionNavigationConfig,
   DescribingTheUISectionNavigationConfig,
   OverviewSectionNavigationConfig,
 } from './sections'
@@ -15,6 +16,7 @@ export const LearnNavigationConfig = [
     [
       ...OverviewSectionNavigationConfig,
       ...DescribingTheUISectionNavigationConfig,
+      ...AddingInteractivitySectionNavigationConfig,
     ],
     'Overview'
   ),
