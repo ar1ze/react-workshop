@@ -141,9 +141,11 @@ export const LearnNavigationCard = ({
 }: NavigationCardProps) => {
   return (
     <TypographyCard className={className}>
-      <CardHeader>
-        <TypographyH2>{title ?? 'In this chapter'}</TypographyH2>
-      </CardHeader>
+      {title && (
+        <CardHeader>
+          <TypographyH2>{title ?? 'In this chapter'}</TypographyH2>
+        </CardHeader>
+      )}
       <CardContent>
         <TypographyList className="mt-0">
           {nodes &&
