@@ -14,7 +14,10 @@ export const RespondingToEventsPage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeaderBlock title="Responding to Events">
+        <LearnPageHeaderBlock
+          title="Responding to Events"
+          url="https://react.dev/learn/responding-to-events"
+        >
           React lets you handle user interactions by passing functions as props
           to JSX elements. Event handlers are the primary place for side effects
           (like API calls or state updates) because they do not need to be pure.
