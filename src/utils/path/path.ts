@@ -1,31 +1,4 @@
 /**
- * Joins multiple path segments into a single, normalized URL-style path.
- *
- * This function ensures the path always starts with a single `/`,
- * collapses multiple concurrent slashes, and removes any trailing slash.
- *
- * @example
- * // Returns "/users/123/profile"
- * joinPaths('users', '//123', 'profile/')
- *
- * @param segments - The path segments to join.
- * @returns A single normalized path string.
- */
-export const joinPaths = (...segments: string[]): string => {
-  const joined = '/' + segments.join('/')
-
-  // Replace multiple slashes (e.g., /a///b) with a single slash
-  const path = joined.replace(/\/+/g, '/')
-
-  if (path === '/') {
-    return '/'
-  }
-
-  // Remove trailing slashes (e.g., /a/b/ -> /a/b)
-  return path.replace(/\/+$/, '')
-}
-
-/**
  * Normalizes a path by removing leading/trailing slashes and collapsing slashes.
  *
  * This is ideal for creating a canonical representation for comparisons.
@@ -42,21 +15,27 @@ export const normalizePath = (path: string): string => {
 }
 
 /**
- * Compares two path strings for equality, ignoring formatting differences.
+ * Joins multiple path segments into a single, normalized URL-style path.
  *
- * It uses `normalizePath` to strip leading/trailing slashes and collapse
- * multiple slashes before comparing.
+ * This function ensures the path always starts with a single `/`,
+ * collapses multiple concurrent slashes, and removes any trailing slash.
  *
  * @example
- * // Returns true
- * arePathsEqual('/users//123', 'users/123/')
+ * // Returns "/users/123/profile"
+ * joinPaths('users', '//123', 'profile/')
  *
- * @param path1 - The first path.
- * @param path2 - The second path.
- * @returns True if the paths are semantically equal.
+ * @param segments - The path segments to join.
+ * @returns A single normalized path string.
  */
-export const arePathsEqual = (path1: string, path2: string): boolean => {
-  return normalizePath(path1) === normalizePath(path2)
+export const joinPaths = (...segments: string[]): string => {
+  const joined = '/' + segments.join('/')
+  // Replace multiple slashes (e.g., /a///b) with a single slash
+  const path = joined.replace(/\/+/g, '/')
+  if (path === '/') {
+    return '/'
+  }
+  // Remove trailing slashes (e.g., /a/b/ -> /a/b)
+  return path.replace(/\/+$/, '')
 }
 
 /**
@@ -89,6 +68,24 @@ export const stripPrefix = (child: string, parent: string) => {
 }
 
 /**
+ * Compares two path strings for equality, ignoring formatting differences.
+ *
+ * It uses `normalizePath` to strip leading/trailing slashes and collapse
+ * multiple slashes before comparing.
+ *
+ * @example
+ * // Returns true
+ * arePathsEqual('/users//123', 'users/123/')
+ *
+ * @param path1 - The first path.
+ * @param path2 - The second path.
+ * @returns True if the paths are semantically equal.
+ */
+export const arePathsEqual = (path1: string, path2: string): boolean => {
+  return normalizePath(path1) === normalizePath(path2)
+}
+
+/**
  * Checks if a path starts with a specific prefix.
  *
  * The path is normalized (slashes stripped/collapsed) before comparison.
@@ -103,4 +100,28 @@ export const stripPrefix = (child: string, parent: string) => {
  */
 export const pathStartsWith = (path: string, prefix: string) => {
   return normalizePath(path).startsWith(prefix)
+}
+
+/**
+ * Checks if a subpath exists anywhere within a full path.
+ *
+ * Both paths are normalized before checking if the subpath appears
+ * as a substring within the full path.
+ *
+ * @example
+ * // Returns true
+ * isSubpath("users", "/api/users/profile")
+ *
+ * @example
+ * // Returns true
+ * isSubpath("/settings/", "/app/settings/account")
+ *
+ * @param subpath - The path segment to search for.
+ * @param fullPath - The full path to search within.
+ * @returns True if the normalized subpath is found within the normalized full path.
+ */
+export const isSubpath = (subpath: string, fullPath: string): boolean => {
+  const normalizedSubpath = normalizePath(subpath)
+  const normalizedFullPath = normalizePath(fullPath)
+  return normalizedFullPath.includes(normalizedSubpath)
 }

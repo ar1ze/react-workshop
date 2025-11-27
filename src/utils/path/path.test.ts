@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 import {
   arePathsEqual,
+  isSubpath,
   joinPaths,
   normalizePath,
   pathStartsWith,
@@ -113,5 +114,20 @@ describe('pathStartsWith', () => {
 
   it('should handle partial matches', () => {
     expect(pathStartsWith('/users', 'user')).toBe(true)
+  })
+})
+
+describe('isSubpath', () => {
+  it('should return true when subpath exists in full path', () => {
+    expect(isSubpath('users', '/api/users/profile')).toBe(true)
+    expect(isSubpath('settings', '/app/settings/account')).toBe(true)
+  })
+  it('should normalize paths before checking', () => {
+    expect(isSubpath('/users/', '/api/users/profile')).toBe(true)
+    expect(isSubpath('//settings//', '///app/settings/account')).toBe(true)
+  })
+  it('should return false when subpath does not exist', () => {
+    expect(isSubpath('admin', '/api/users/profile')).toBe(false)
+    expect(isSubpath('profile', '/settings/account')).toBe(false)
   })
 })
