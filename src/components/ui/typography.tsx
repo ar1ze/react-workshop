@@ -2,6 +2,13 @@ import { CodeBlock, type CodeBlockProps } from '@/components/shared/code-block'
 import { type BaseProps } from '@/components/shared/props'
 import { cn } from '@/lib/utils'
 
+// Interfaces
+interface TypographyImageProps
+  extends React.ImgHTMLAttributes<HTMLImageElement> {
+  caption?: string
+}
+
+// Heading Components (H1 → H4)
 export function TypographyH1({ className, children }: BaseProps) {
   return (
     <h1
@@ -58,10 +65,49 @@ export function TypographyH4({ className, children }: BaseProps) {
   )
 }
 
+// Body Text Components
 export function TypographyP({ className, children }: BaseProps) {
   return <p className={cn('leading-7 not-first:mt-4', className)}>{children}</p>
 }
 
+export function TypographyLead({ className, children }: BaseProps) {
+  return <p className={cn('text-lg md:text-xl', className)}>{children}</p>
+}
+
+export function TypographyLarge({ className, children }: BaseProps) {
+  return (
+    <div className={cn('text-lg font-semibold', className)}>{children}</div>
+  )
+}
+
+export function TypographySmall({ className, children }: BaseProps) {
+  return (
+    <small className={cn('text-sm leading-none font-medium', className)}>
+      {children}
+    </small>
+  )
+}
+
+export function TypographyMuted({ className, children }: BaseProps) {
+  return (
+    <p className={cn('text-muted-foreground text-sm', className)}>{children}</p>
+  )
+}
+
+export function TypographyOverline({ className, children }: BaseProps) {
+  return (
+    <p
+      className={cn(
+        'text-muted-foreground text-xs font-bold tracking-wider uppercase',
+        className
+      )}
+    >
+      {children}
+    </p>
+  )
+}
+
+// Content Components
 export function TypographyBlockquote({ className, children }: BaseProps) {
   return (
     <blockquote className={cn('mt-4 border-l-2 pl-6 italic', className)}>
@@ -105,39 +151,24 @@ export function TypographyCodeBlock({
   )
 }
 
-export function TypographyLead({ className, children }: BaseProps) {
-  return <p className={cn('text-lg md:text-xl', className)}>{children}</p>
-}
-
-export function TypographyLarge({ className, children }: BaseProps) {
+export function TypographyImage({
+  className,
+  alt,
+  caption,
+  ...props
+}: TypographyImageProps) {
   return (
-    <div className={cn('text-lg font-semibold', className)}>{children}</div>
-  )
-}
-
-export function TypographySmall({ className, children }: BaseProps) {
-  return (
-    <small className={cn('text-sm leading-none font-medium', className)}>
-      {children}
-    </small>
-  )
-}
-
-export function TypographyMuted({ className, children }: BaseProps) {
-  return (
-    <p className={cn('text-muted-foreground text-sm', className)}>{children}</p>
-  )
-}
-
-export function TypographyOverline({ className, children }: BaseProps) {
-  return (
-    <p
-      className={cn(
-        'text-muted-foreground text-xs font-bold tracking-wider uppercase',
-        className
+    <figure className={cn('group mt-6', className)}>
+      <img
+        className="bg-muted rounded-lg border transition-colors"
+        alt={alt}
+        {...props}
+      />
+      {caption && (
+        <figcaption className="mt-4 text-center">
+          <TypographyMuted>{caption}</TypographyMuted>
+        </figcaption>
       )}
-    >
-      {children}
-    </p>
+    </figure>
   )
 }
