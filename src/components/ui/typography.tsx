@@ -167,7 +167,7 @@ export function TypographyImage({
   ...props
 }: TypographyImageProps) {
   return (
-    <figure className={cn('group mt-6', className)}>
+    <figure className={cn('group mt-6 grid place-content-center', className)}>
       <img
         className="bg-muted rounded-lg border transition-colors"
         alt={alt}
