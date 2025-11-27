@@ -2,7 +2,6 @@ import { CodeBlock, type CodeBlockProps } from '@/components/shared/code-block'
 import { type BaseProps } from '@/components/shared/props'
 import { cn } from '@/lib/utils'
 
-// Interfaces
 interface TypographyImageProps
   extends React.ImgHTMLAttributes<HTMLImageElement> {
   caption?: string
@@ -118,7 +117,12 @@ export function TypographyBlockquote({ className, children }: BaseProps) {
 
 export function TypographyList({ className, children }: BaseProps) {
   return (
-    <ul className={cn('mt-2 mb-2 ml-6 list-disc [&>li]:mt-2', className)}>
+    <ul
+      className={cn(
+        'mt-4 mb-2 ml-6 list-disc [&>li:not(:first-child)]:mt-2',
+        className
+      )}
+    >
       {children}
     </ul>
   )
