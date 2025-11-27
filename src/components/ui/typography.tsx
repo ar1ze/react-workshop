@@ -1,5 +1,6 @@
 import { CodeBlock, type CodeBlockProps } from '@/components/shared/code-block'
 import { type BaseProps } from '@/components/shared/props'
+import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 
 interface TypographyImageProps
@@ -139,6 +140,10 @@ export function TypographyInlineCode({ className, children }: BaseProps) {
       {children}
     </code>
   )
+}
+
+export function TypographyCard({ className, children }: BaseProps) {
+  return <Card className={cn('mt-4 gap-4', className)}>{children}</Card>
 }
 
 export function TypographyCodeBlock({
