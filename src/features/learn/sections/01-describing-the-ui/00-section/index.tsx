@@ -1,8 +1,19 @@
 import { LearnPageHeaderBlock } from '@/features/learn/components'
+import { LearnNavigationCard } from '@/features/learn/components'
 import { LearnPageLayout } from '@/features/learn/layouts'
 import { LearnContentLayout } from '@/features/learn/layouts'
+import { LearnNavigationConfig } from '@/features/learn/routes'
+import { arePathsEqual, isSubpath } from '@/utils/path'
+
+import { DESCRIBE_THE_UI_PREFIX } from '..'
 
 export const DescribingTheUISectionPage = () => {
+  const nodes = LearnNavigationConfig[0].children?.filter(
+    (node) =>
+      isSubpath(DESCRIBE_THE_UI_PREFIX, node.to) &&
+      !arePathsEqual(DESCRIBE_THE_UI_PREFIX, node.id)
+  )
+
   return (
     <LearnContentLayout>
       <LearnPageLayout>
@@ -16,6 +27,7 @@ export const DescribingTheUISectionPage = () => {
           create, customize, and conditionally display these fundamental UI
           elements.
         </LearnPageHeaderBlock>
+        {nodes && <LearnNavigationCard nodes={nodes} />}
       </LearnPageLayout>
     </LearnContentLayout>
   )

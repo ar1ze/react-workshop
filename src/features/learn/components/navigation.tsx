@@ -1,10 +1,12 @@
 import { Fragment } from 'react'
 import { useLocation } from 'react-router'
+import { NavLink } from 'react-router'
 
 import {
   NavigationAccordionLinks,
   NavigationAccordionTrigger,
   NavigationButton,
+  type NavigationNode,
 } from '@/components/navigation'
 import { type BaseProps } from '@/components/shared/props'
 import {
@@ -12,6 +14,8 @@ import {
   AccordionContent,
   AccordionItem,
 } from '@/components/ui/accordion'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { TypographyH2, TypographyList } from '@/components/ui/typography'
 import { TypographyOverline } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 import { arePathsEqual } from '@/utils/path'
@@ -20,6 +24,11 @@ import { useLearnNavigation } from '../hooks/navigation'
 
 interface NavigationProps extends BaseProps {
   onClick: () => void
+}
+
+interface NavigationCardProps {
+  nodes: NavigationNode[]
+  title?: string
 }
 
 export const LearnNavigationSidebarAccordion = () => {
@@ -118,5 +127,30 @@ export const LearnNavigationMobileSections = ({
         )
       })}
     </>
+  )
+}
+
+export const LearnNavigationCard = ({ nodes, title }: NavigationCardProps) => {
+  return (
+    <Card className="mt-2 gap-4">
+      <CardHeader>
+        <TypographyH2>{title ?? 'In this chapter'}</TypographyH2>
+      </CardHeader>
+      <CardContent>
+        <TypographyList className="mt-0">
+          {nodes &&
+            nodes.map((node) => (
+              <li key={node.id}>
+                <NavLink
+                  to={node.to}
+                  className="transition-all duration-200 hover:underline"
+                >
+                  {node.label}{' '}
+                </NavLink>
+              </li>
+            ))}
+        </TypographyList>
+      </CardContent>
+    </Card>
   )
 }
