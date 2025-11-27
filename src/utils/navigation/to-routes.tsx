@@ -3,8 +3,7 @@ import type { RouteObject } from 'react-router'
 
 import type { NavigationNode } from '@/components/navigation'
 import { LoadingPage } from '@/components/shared/loading-page'
-
-import { stripLeadingSlash, stripPrefix } from '../path'
+import { stripLeadingSlash, stripPrefix } from '@/utils/path'
 
 /**
  * Converts an array of `NavigationNode`s into `RouteObject`s for react-router.
