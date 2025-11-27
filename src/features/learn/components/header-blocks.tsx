@@ -26,7 +26,7 @@ const BasePageHeader = ({ className, children }: BaseProps) => {
 const ExternalButton = ({ url, type }: ExternalButtonProps) => {
   const isHeader = type === 'header'
   const iconProps: LucideProps = {
-    className: `${isHeader ? 'mt-0.5 size-5 md:size-6' : '-mt-1.5 size-4 md:size-5 md:-mt-1'}`,
+    className: `${isHeader ? 'mt-0.5 size-5 md:size-6' : 'mt-0.5 size-4 md:size-5 md:mt-1'}`,
     strokeWidth: isHeader ? 4 : 3,
   }
   const buttonSize = isHeader ? 'icon' : 'icon-sm'
