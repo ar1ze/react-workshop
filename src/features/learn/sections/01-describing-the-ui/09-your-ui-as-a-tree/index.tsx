@@ -1,5 +1,6 @@
 import {
   TypographyCodeBlock,
+  TypographyImage,
   TypographyInlineCode,
   TypographyList,
   TypographyP,
@@ -10,22 +11,27 @@ import {
 } from '@/features/learn/components'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
 
-export const UiAsTreePage = () => {
+import ModuleDependencyTreeImg from './images/module-dependency-tree.webp'
+import RenderTreeImg from './images/render-tree.webp'
+
+export const UIAsTreePage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeaderBlock title="Your UI as a Tree">
+        <LearnPageHeaderBlock
+          title="Your UI as a Tree"
+          url="https://react.dev/learn/understanding-your-ui-as-a-tree"
+        >
           React models your UI as a tree structure. Understanding this helps you
           debug performance, data flow, and app size. There are two distinct
           types of trees you should know.
         </LearnPageHeaderBlock>
 
-        <LearnSectionHeaderBlock title="1. The Render Tree">
+        <LearnSectionHeaderBlock title="The Render Tree">
           <TypographyP>
             This tree represents the <strong>runtime</strong> relationship
             between components during a <strong>single render pass</strong>.
           </TypographyP>
-
           <TypographyList>
             <li>
               <strong>Nodes:</strong> Individual Components (e.g.,{' '}
@@ -49,9 +55,14 @@ export const UiAsTreePage = () => {
               leaf updates).
             </li>
           </TypographyList>
+          <TypographyImage
+            src={RenderTreeImg}
+            alt="React render tree diagram"
+            caption="The Render Tree represents the component hierarchy during a single render pass."
+          />
         </LearnSectionHeaderBlock>
 
-        <LearnSectionHeaderBlock title="2. The Module Dependency Tree">
+        <LearnSectionHeaderBlock title="The Module Dependency Tree">
           <TypographyP>
             This tree represents the <strong>static</strong> relationship
             between your JavaScript files (modules).
@@ -76,6 +87,11 @@ export const UiAsTreePage = () => {
               large bundle sizes.
             </li>
           </TypographyList>
+          <TypographyImage
+            src={ModuleDependencyTreeImg}
+            alt="Module dependency tree diagram"
+            caption="The Module Dependency Tree shows static import relationships between files."
+          />
         </LearnSectionHeaderBlock>
 
         <LearnSectionHeaderBlock title="Key Difference">
