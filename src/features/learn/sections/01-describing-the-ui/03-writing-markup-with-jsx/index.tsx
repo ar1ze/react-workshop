@@ -14,7 +14,10 @@ export const WritingMarkupWithJSXPage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeaderBlock title="Writing Markup with JSX">
+        <LearnPageHeaderBlock
+          title="Writing Markup with JSX"
+          url="https://react.dev/learn/writing-markup-with-jsx"
+        >
           JSX is a syntax extension that lets you write HTML-like markup inside
           JavaScript. It groups rendering logic and markup together, ensuring
           they stay in sync. While it looks like HTML, it is stricter and more

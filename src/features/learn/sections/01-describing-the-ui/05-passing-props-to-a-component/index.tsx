@@ -14,7 +14,10 @@ export const PassingPropsPage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeaderBlock title="Passing Props to a Component">
+        <LearnPageHeaderBlock
+          title="Passing Props to a Component"
+          url="https://react.dev/learn/passing-props-to-a-component"
+        >
           Props are the communication channel between parent and child
           components. They function like arguments to a function and allow you
           to make components dynamic and reusable.

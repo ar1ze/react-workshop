@@ -14,7 +14,10 @@ export const JavascriptInJsxPage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeaderBlock title="JavaScript in JSX with Curly Braces">
+        <LearnPageHeaderBlock
+          title="JavaScript in JSX with Curly Braces"
+          url="https://react.dev/learn/javascript-in-jsx-with-curly-braces"
+        >
           Curly braces <TypographyInlineCode>{'{ }'}</TypographyInlineCode> open
           a "window" to JavaScript within your JSX. They allow you to pass
           dynamic variables, function calls, and objects instead of static

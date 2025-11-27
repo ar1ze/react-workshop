@@ -14,7 +14,10 @@ export const ImportingAndExportingComponentsPage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeaderBlock title="Importing And Exporting Components">
+        <LearnPageHeaderBlock
+          title="Importing And Exporting Components"
+          url="https://react.dev/learn/importing-and-exporting-components"
+        >
           The magic of components lies in reusability. As your application
           grows, splitting components into separate files keeps your project
           modular and scannable.
