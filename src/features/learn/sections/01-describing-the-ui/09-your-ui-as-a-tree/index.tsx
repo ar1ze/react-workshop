@@ -1,6 +1,5 @@
 import {
   TypographyCodeBlock,
-  TypographyImage,
   TypographyInlineCode,
   TypographyList,
   TypographyP,
@@ -10,9 +9,6 @@ import {
   LearnSectionHeaderBlock,
 } from '@/features/learn/components'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
-
-import ModuleDependencyTreeImg from './images/module-dependency-tree.webp'
-import RenderTreeImg from './images/render-tree.webp'
 
 export const UIAsTreePage = () => {
   return (
@@ -55,11 +51,6 @@ export const UIAsTreePage = () => {
               leaf updates).
             </li>
           </TypographyList>
-          <TypographyImage
-            src={RenderTreeImg}
-            alt="React render tree diagram"
-            caption="The Render Tree represents the component hierarchy during a single render pass."
-          />
         </LearnSectionHeaderBlock>
 
         <LearnSectionHeaderBlock title="The Module Dependency Tree">
@@ -87,11 +78,6 @@ export const UIAsTreePage = () => {
               large bundle sizes.
             </li>
           </TypographyList>
-          <TypographyImage
-            src={ModuleDependencyTreeImg}
-            alt="Module dependency tree diagram"
-            caption="The Module Dependency Tree shows static import relationships between files."
-          />
         </LearnSectionHeaderBlock>
 
         <LearnSectionHeaderBlock title="Key Difference">
