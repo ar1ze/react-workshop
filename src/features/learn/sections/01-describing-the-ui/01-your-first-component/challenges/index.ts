@@ -1,7 +1,16 @@
-import { ExportComponentChallenge } from './01-export-component'
-import { FixReturnStatementChallenge } from './02-fix-return-statement'
+import { type Challenge } from '@/features/learn/components'
 
-export const YourFirstComponentChallenges = [
-  ExportComponentChallenge,
-  FixReturnStatementChallenge,
-]
+import problemCode from './problem.txt?raw'
+import { Solution } from './solution'
+import solutionCode from './solution.tsx?raw'
+
+const FixReturnStatementChallenge: Challenge = {
+  title: '1. Fix the return statement',
+  description:
+    'The return statement is failing because the JSX starts on a new line. Fix the return statement to ensure the image renders.',
+  SolutionComponent: Solution,
+  problemCode,
+  solutionCode,
+}
+
+export const YourFirstComponentChallenges = [FixReturnStatementChallenge]
