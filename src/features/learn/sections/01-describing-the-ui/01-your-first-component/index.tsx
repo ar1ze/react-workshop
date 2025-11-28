@@ -4,7 +4,7 @@ import {
 } from '@/features/learn/components'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
 
-import { yourFirstComponentChallenges } from './challenges'
+import { YourFirstComponentChallenges } from './challenges'
 
 export const YourFirstComponentPage = () => {
   return (
@@ -20,7 +20,7 @@ export const YourFirstComponentPage = () => {
           reusable elements.
         </LearnPageHeaderBlock>
         <LearnChallengeTabs
-          challenges={yourFirstComponentChallenges}
+          challenges={YourFirstComponentChallenges}
           url="https://react.dev/learn/your-first-component#challenges"
         />
       </LearnPageLayout>

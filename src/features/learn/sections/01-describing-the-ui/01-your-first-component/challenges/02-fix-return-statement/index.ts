@@ -4,7 +4,7 @@ import problemCode from './problem.txt?raw'
 import { Solution } from './solution'
 import solutionCode from './solution.tsx?raw'
 
-export const fixReturnStatementChallenge: Challenge = {
+export const FixReturnStatementChallenge: Challenge = {
   title: '2. Fix the return statement',
   description:
     'The return statement is failing because the JSX starts on a new line. Fix the return statement to ensure the image renders.',

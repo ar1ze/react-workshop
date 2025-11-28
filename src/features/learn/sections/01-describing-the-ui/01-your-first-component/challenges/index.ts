@@ -1,7 +1,7 @@
-import { exportComponentChallenge } from './01-export-component'
-import { fixReturnStatementChallenge } from './02-fix-return-statement'
+import { ExportComponentChallenge } from './01-export-component'
+import { FixReturnStatementChallenge } from './02-fix-return-statement'
 
-export const yourFirstComponentChallenges = [
-  exportComponentChallenge,
-  fixReturnStatementChallenge,
+export const YourFirstComponentChallenges = [
+  ExportComponentChallenge,
+  FixReturnStatementChallenge,
 ]
