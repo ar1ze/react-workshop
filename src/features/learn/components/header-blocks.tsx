@@ -52,9 +52,9 @@ export const LearnPageHeaderBlock = ({
   children,
 }: BasePageHeaderProps) => {
   return (
-    <BasePageHeader className="gap-3 md:gap-4">
+    <BasePageHeader className={cn('gap-3 md:gap-4', className)}>
       <div className="flex items-center gap-0.5 md:gap-1">
-        <TypographyH1 className={className}>{title}</TypographyH1>
+        <TypographyH1>{title}</TypographyH1>
         {url && <ExternalButton url={url} type="header" />}
       </div>
       {children && <TypographyLarge>{children}</TypographyLarge>}
@@ -69,11 +69,9 @@ export const LearnSectionHeaderBlock = ({
   children,
 }: BasePageHeaderProps) => {
   return (
-    <BasePageHeader>
+    <BasePageHeader className={className}>
       <div className="flex items-center">
-        <TypographyH2 className={cn('border-none', className)}>
-          {title}
-        </TypographyH2>
+        <TypographyH2 className="border-none">{title}</TypographyH2>
         {url && <ExternalButton url={url} type="section" />}
       </div>
       {children}

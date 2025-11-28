@@ -50,10 +50,6 @@ interface ChallengeProps {
   challenge: Challenge
 }
 
-interface URLProps {
-  url: string
-}
-
 interface ChallengeListProps {
   challenges: Challenge[]
   values: string[]
@@ -73,15 +69,6 @@ const generateValues = (challenges: Challenge[]) => {
     challenge.title.toLowerCase().split(' ').slice(1).join('-')
   )
 }
-
-const ChallengeHeader = ({ url }: URLProps) => (
-  <div className="flex items-center">
-    <LearnSectionHeaderBlock
-      title="Try out some challenges"
-      url={url}
-    ></LearnSectionHeaderBlock>
-  </div>
-)
 
 const SolutionCodeDialog = ({ challenge }: ChallengeProps) => {
   return (
@@ -264,9 +251,12 @@ export const LearnChallengeTabs = ({
   url,
 }: LearnChallengeTabProps) => {
   return (
-    <>
-      <ChallengeHeader url={url} />
+    <LearnSectionHeaderBlock
+      title="Try out some challenges"
+      url={url}
+      className="gap-5 md:gap-6"
+    >
       <ChallengeTabs challenges={challenges} />
-    </>
+    </LearnSectionHeaderBlock>
   )
 }
