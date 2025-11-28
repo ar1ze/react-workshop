@@ -246,7 +246,7 @@ const ChallengeTabs = ({ challenges }: ChallengesProps) => {
   )
 }
 
-export const LearnChallengeTabs = ({
+export const LearnChallengeTabsBlock = ({
   challenges,
   url,
 }: LearnChallengeTabProps) => {

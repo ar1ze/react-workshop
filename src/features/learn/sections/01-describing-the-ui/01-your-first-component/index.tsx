@@ -1,5 +1,5 @@
 import {
-  LearnChallengeTabs,
+  LearnChallengeTabsBlock,
   LearnPageHeaderBlock,
 } from '@/features/learn/components'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
@@ -19,7 +19,7 @@ export const YourFirstComponentPage = () => {
           function that you can sprinkle with markup to create isolated,
           reusable elements.
         </LearnPageHeaderBlock>
-        <LearnChallengeTabs
+        <LearnChallengeTabsBlock
           challenges={YourFirstComponentChallenges}
           url="https://react.dev/learn/your-first-component#challenges"
         />
