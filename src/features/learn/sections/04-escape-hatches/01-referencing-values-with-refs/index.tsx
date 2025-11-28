@@ -16,7 +16,10 @@ export const ReferencingValuesWithRefsPage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeaderBlock title="Referencing Values with Refs">
+        <LearnPageHeaderBlock
+          title="Referencing Values with Refs"
+          url="https://react.dev/learn/referencing-values-with-refs"
+        >
           When you want a component to "remember" information without triggering
           new renders, use a <strong>Ref</strong>. It is like a secret pocket in
           your component that React doesn't track.
