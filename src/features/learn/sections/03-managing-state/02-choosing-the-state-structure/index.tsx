@@ -15,7 +15,10 @@ export const ChoosingStateStructurePage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeaderBlock title="Choosing the State Structure">
+        <LearnPageHeaderBlock
+          title="Choosing the State Structure"
+          url="https://react.dev/learn/choosing-the-state-structure"
+        >
           Structuring state correctly is the single biggest factor in preventing
           bugs. The goal is to represent the data with the{' '}
           <strong>minimum number of state variables</strong> needed to calculate

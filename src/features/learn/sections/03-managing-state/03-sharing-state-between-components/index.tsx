@@ -16,7 +16,10 @@ export const SharingStatePage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeaderBlock title="Sharing State Between Components">
+        <LearnPageHeaderBlock
+          title="Sharing State Between Components"
+          url="https://react.dev/learn/sharing-state-between-components"
+        >
           When two components need to coordinate (e.g., only one panel open at a
           time), you must remove state from them and move it to their closest
           common parent. This is called <strong>Lifting State Up</strong>.

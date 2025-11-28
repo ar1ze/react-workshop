@@ -16,7 +16,10 @@ export const ScalingUpPage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeaderBlock title="Scaling Up with Reducer and Context">
+        <LearnPageHeaderBlock
+          title="Scaling Up with Reducer and Context"
+          url="https://react.dev/learn/scaling-up-with-reducer-and-context"
+        >
           Reducers consolidate state logic. Context passes data deep. Combining
           them creates a powerful state management engine that scales for
           complex screens, allowing you to avoid "Prop Drilling" completely.

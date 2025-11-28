@@ -16,7 +16,10 @@ export const PreservingStatePage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeaderBlock title="Preserving and Resetting State">
+        <LearnPageHeaderBlock
+          title="Preserving and Resetting State"
+          url="https://react.dev/learn/preserving-and-resetting-state"
+        >
           State is not held inside the component function; it is held inside
           React and associated with the component's{' '}
           <strong>position in the Render Tree</strong>. Understanding how React

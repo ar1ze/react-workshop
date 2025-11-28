@@ -16,7 +16,10 @@ export const PassingDataDeeplyPage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeaderBlock title="Passing Data Deeply with Context">
+        <LearnPageHeaderBlock
+          title="Passing Data Deeply with Context"
+          url="https://react.dev/learn/passing-data-deeply-with-context"
+        >
           Usually, you pass data via props. But when you need to pass data
           through many intermediate components that don't use it (Prop
           Drilling), it becomes verbose. <strong>Context</strong> allows a

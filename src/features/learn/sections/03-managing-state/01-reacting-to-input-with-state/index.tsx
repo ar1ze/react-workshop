@@ -19,7 +19,10 @@ export const ReactingToInputPage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeaderBlock title="Reacting to Input with State">
+        <LearnPageHeaderBlock
+          title="Reacting to Input with State"
+          url="https://react.dev/learn/reacting-to-input-with-state"
+        >
           React forces a shift from <strong>Imperative</strong> (manipulating
           the UI directly) to <strong>Declarative</strong> (describing the UI
           based on state). You don't enable/disable buttons; you describe what

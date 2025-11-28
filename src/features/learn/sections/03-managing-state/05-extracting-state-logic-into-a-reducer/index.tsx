@@ -14,7 +14,10 @@ export const ExtractingStateLogicPage = () => {
   return (
     <LearnContentLayout>
       <LearnPageLayout>
-        <LearnPageHeaderBlock title="Extracting State Logic into a Reducer">
+        <LearnPageHeaderBlock
+          title="Extracting State Logic into a Reducer"
+          url="https://react.dev/learn/extracting-state-logic-into-a-reducer"
+        >
           When a component becomes complex with many event handlers updating
           state in different ways, you can move that logic into a single
           function called a <strong>Reducer</strong>. This separates the{' '}
