@@ -4,6 +4,7 @@ import { LearnSidebarLayout } from './layouts/sidebar'
 import {
   AddingInteractivitySectionNavigationConfig,
   DescribingTheUISectionNavigationConfig,
+  EscapeHatchesSectionNavigationConfig,
   ManagingStateSectionNavigationConfig,
   OverviewSectionNavigationConfig,
 } from './sections'
@@ -19,6 +20,7 @@ export const LearnNavigationConfig = [
       ...DescribingTheUISectionNavigationConfig,
       ...AddingInteractivitySectionNavigationConfig,
       ...ManagingStateSectionNavigationConfig,
+      ...EscapeHatchesSectionNavigationConfig,
     ],
     'Overview'
   ),
