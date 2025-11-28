@@ -1,10 +1,18 @@
 import { useMemo } from 'react'
 
 import { type NavigationNode } from '@/components/navigation'
+import {
+  LEARN_PAGE_PREFIX,
+  LearnNavigationConfig,
+} from '@/features/learn/routes'
+import {
+  ADDING_INTERACTIVITY_PREFIX,
+  DESCRIBE_THE_UI_PREFIX,
+  ESCAPE_HATCHES_PREFIX,
+  MANAGING_STATE_PREFIX,
+} from '@/features/learn/sections'
 import { flattenNavigationTree, groupNodesBySection } from '@/utils/navigation'
 import { arePathsEqual, joinPaths } from '@/utils/path'
-
-import { LearnNavigationConfig } from '../routes'
 
 export interface LearnNavigationGroup {
   sectionNode?: NavigationNode
@@ -14,14 +22,24 @@ export interface LearnNavigationGroup {
 export const useLearnNavigation = (): LearnNavigationGroup[] => {
   const groups = useMemo(() => {
     const allNodesFlat = flattenNavigationTree(LearnNavigationConfig)
-    const sectionLearn = joinPaths('learn')
-    const sectionLearnDescribePath = joinPaths('learn', 'describing-the-ui')
-    const sectionLearnInteractivityPath = joinPaths(
-      'learn',
-      'adding-interactivity'
+    const sectionLearn = joinPaths(LEARN_PAGE_PREFIX)
+
+    const sectionLearnDescribePath = joinPaths(
+      LEARN_PAGE_PREFIX,
+      DESCRIBE_THE_UI_PREFIX
     )
-    const sectionLearnManagingState = joinPaths('learn', 'managing-state')
-    const sectionLearnEscapeHatches = joinPaths('learn', 'escape-hatches')
+    const sectionLearnInteractivityPath = joinPaths(
+      LEARN_PAGE_PREFIX,
+      ADDING_INTERACTIVITY_PREFIX
+    )
+    const sectionLearnManagingState = joinPaths(
+      LEARN_PAGE_PREFIX,
+      MANAGING_STATE_PREFIX
+    )
+    const sectionLearnEscapeHatches = joinPaths(
+      LEARN_PAGE_PREFIX,
+      ESCAPE_HATCHES_PREFIX
+    )
 
     const sectionPaths = [
       sectionLearn,
