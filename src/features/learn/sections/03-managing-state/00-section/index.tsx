@@ -2,17 +2,11 @@ import {
   LearnNavigationCard,
   LearnPageHeaderBlock,
 } from '@/features/learn/components'
+import { getLearnNodesByPrefix } from '@/features/learn/hooks'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
-import { LearnNavigationConfig } from '@/features/learn/routes'
-import { MANAGING_STATE_PREFIX } from '@/features/learn/sections'
-import { arePathsEqual, isSubpath } from '@/utils/path'
 
 export const ManagingStateSectionPage = () => {
-  const nodes = LearnNavigationConfig[0].children?.filter(
-    (node) =>
-      isSubpath(MANAGING_STATE_PREFIX, node.to) &&
-      !arePathsEqual(MANAGING_STATE_PREFIX, node.id)
-  )
+  const nodes = getLearnNodesByPrefix('managing-state')
 
   return (
     <LearnContentLayout>
