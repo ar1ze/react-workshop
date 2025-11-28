@@ -19,12 +19,11 @@ import {
   TypographyCard,
   TypographyH3,
   TypographyList,
+  TypographyOverline,
 } from '@/components/ui/typography'
-import { TypographyOverline } from '@/components/ui/typography'
+import { useLearnNavigation } from '@/features/learn/hooks'
 import { cn } from '@/lib/utils'
 import { arePathsEqual } from '@/utils/path'
-
-import { useLearnNavigation } from '../hooks/navigation'
 
 interface NavigationProps extends BaseProps {
   onClick: () => void
