@@ -12,7 +12,12 @@ import {
   MANAGING_STATE_PREFIX,
 } from '@/features/learn/sections'
 import { flattenNavigationTree, groupNodesBySection } from '@/utils/navigation'
-import { arePathsEqual, isSubpath, joinPaths } from '@/utils/path'
+import {
+  arePathsEqual,
+  isSubpath,
+  joinPaths,
+  normalizePath,
+} from '@/utils/path'
 
 export interface LearnNavigationGroup {
   sectionNode?: NavigationNode
@@ -24,6 +29,17 @@ export type LearnSectionPrefix =
   | typeof ADDING_INTERACTIVITY_PREFIX
   | typeof MANAGING_STATE_PREFIX
   | typeof ESCAPE_HATCHES_PREFIX
+
+export const getLearnSectionNodes = (
+  sections: LearnSectionPrefix[]
+): NavigationNode[] => {
+  const root = LearnNavigationConfig[0]
+  if (!root?.children) return []
+
+  return root.children.filter((node) =>
+    sections.includes(normalizePath(node.id) as LearnSectionPrefix)
+  )
+}
 
 export const getLearnNodesByPrefix = (
   prefix: LearnSectionPrefix
