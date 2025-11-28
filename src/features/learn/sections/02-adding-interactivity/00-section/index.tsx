@@ -1,11 +1,11 @@
-import { LearnPageHeaderBlock } from '@/features/learn/components'
-import { LearnNavigationCard } from '@/features/learn/components'
-import { LearnPageLayout } from '@/features/learn/layouts'
-import { LearnContentLayout } from '@/features/learn/layouts'
+import {
+  LearnNavigationCard,
+  LearnPageHeaderBlock,
+} from '@/features/learn/components'
+import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
 import { LearnNavigationConfig } from '@/features/learn/routes'
+import { ADDING_INTERACTIVITY_PREFIX } from '@/features/learn/sections'
 import { arePathsEqual, isSubpath } from '@/utils/path'
-
-import { ADDING_INTERACTIVITY_PREFIX } from '..'
 
 export const AddingInteractivitySectionPage = () => {
   const nodes = LearnNavigationConfig[0].children?.filter(

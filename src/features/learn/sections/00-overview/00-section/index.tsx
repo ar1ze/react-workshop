@@ -6,12 +6,14 @@ import {
 } from '@/features/learn/components'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
 import { LearnNavigationConfig } from '@/features/learn/routes'
+import {
+  ADDING_INTERACTIVITY_PREFIX,
+  DESCRIBE_THE_UI_PREFIX,
+} from '@/features/learn/sections'
 import { normalizePath } from '@/utils/path'
 
-import { DESCRIBE_THE_UI_PREFIX } from '../../01-describing-the-ui'
-
 export const OverviewSection = () => {
-  const sections = [DESCRIBE_THE_UI_PREFIX]
+  const sections = [DESCRIBE_THE_UI_PREFIX, ADDING_INTERACTIVITY_PREFIX]
   const nodes = LearnNavigationConfig[0].children?.filter((node) =>
     sections.includes(normalizePath(node.id))
   )
