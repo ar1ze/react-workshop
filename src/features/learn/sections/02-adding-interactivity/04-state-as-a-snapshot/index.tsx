@@ -7,10 +7,13 @@ import {
   TypographyP,
 } from '@/components/ui/typography'
 import {
+  LearnChallengeTabsBlock,
   LearnPageHeaderBlock,
   LearnSectionHeaderBlock,
 } from '@/features/learn/components'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
+
+import { StateAsASnapshotChallenges } from './challenge'
 
 export const StateAsSnapshotPage = () => {
   return (
@@ -119,6 +122,11 @@ export const StateAsSnapshotPage = () => {
             </CardContent>
           </TypographyCard>
         </LearnSectionHeaderBlock>
+
+        <LearnChallengeTabsBlock
+          challenges={StateAsASnapshotChallenges}
+          url="https://react.dev/learn/state-as-a-snapshot#challenges"
+        />
       </LearnPageLayout>
     </LearnContentLayout>
   )

@@ -5,10 +5,13 @@ import {
   TypographyP,
 } from '@/components/ui/typography'
 import {
+  LearnChallengeTabsBlock,
   LearnPageHeaderBlock,
   LearnSectionHeaderBlock,
 } from '@/features/learn/components'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
+
+import { QueueingStatesChallenges } from './challenge'
 
 export const StateUpdatesQueuePage = () => {
   return (
@@ -96,6 +99,11 @@ export const StateUpdatesQueuePage = () => {
             </li>
           </TypographyList>
         </LearnSectionHeaderBlock>
+
+        <LearnChallengeTabsBlock
+          challenges={QueueingStatesChallenges}
+          url="https://react.dev/learn/queueing-a-series-of-state-updates#challenges"
+        />
       </LearnPageLayout>
     </LearnContentLayout>
   )

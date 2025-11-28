@@ -7,10 +7,13 @@ import {
   TypographyP,
 } from '@/components/ui/typography'
 import {
+  LearnChallengeTabsBlock,
   LearnPageHeaderBlock,
   LearnSectionHeaderBlock,
 } from '@/features/learn/components'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
+
+import { UpdatingArraysInStateChallenges } from './challenge'
 
 export const UpdatingArraysPage = () => {
   return (
@@ -76,8 +79,7 @@ export const UpdatingArraysPage = () => {
                   </li>
                   <li>
                     <TypographyInlineCode>toSorted</TypographyInlineCode>,{' '}
-                    <TypographyInlineCode>toReversed</TypographyInlineCode>{' '}
-                    (Newer JS)
+                    <TypographyInlineCode>toReversed</TypographyInlineCode>
                   </li>
                 </TypographyList>
               </CardContent>
@@ -146,6 +148,11 @@ nextList[0].seen = true;
             handles the immutable updates for you.
           </TypographyP>
         </LearnSectionHeaderBlock>
+
+        <LearnChallengeTabsBlock
+          challenges={UpdatingArraysInStateChallenges}
+          url="https://react.dev/learn/updating-arrays-in-state#challenges"
+        />
       </LearnPageLayout>
     </LearnContentLayout>
   )
