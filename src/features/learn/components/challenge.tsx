@@ -183,7 +183,7 @@ const ChallengeContent = ({ challenges, values }: ChallengeContentProps) => {
       {challenges.map((challenge, index) => (
         <TabsContent key={values[index]} value={values[index]}>
           <div className="grid gap-4 lg:grid-cols-2">
-            <Card>
+            <Card className="gap-4">
               <CardHeader>
                 <CardTitle>The Problem</CardTitle>
               </CardHeader>
@@ -193,7 +193,7 @@ const ChallengeContent = ({ challenges, values }: ChallengeContentProps) => {
                 </p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="gap-4">
               <CardHeader>
                 <CardTitle>My Solution</CardTitle>
               </CardHeader>
