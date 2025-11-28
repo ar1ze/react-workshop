@@ -13,7 +13,7 @@ export function TypographyH1({ className, children }: BaseProps) {
   return (
     <h1
       className={cn(
-        'scroll-m-20 text-center font-extrabold tracking-tight text-balance',
+        'scroll-m-20 font-extrabold tracking-tight text-balance',
         'text-2xl md:text-3xl',
         className
       )}
