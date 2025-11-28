@@ -7,10 +7,13 @@ import {
   TypographyP,
 } from '@/components/ui/typography'
 import {
+  LearnChallengeTabsBlock,
   LearnPageHeaderBlock,
   LearnSectionHeaderBlock,
 } from '@/features/learn/components'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
+
+import { ReactingToInputWithStateChallenges } from './challenge'
 
 export const ReactingToInputPage = () => {
   return (
@@ -134,6 +137,11 @@ const isSubmitting = status === 'submitting'; // Derived variable`}
             </CardContent>
           </TypographyCard>
         </LearnSectionHeaderBlock>
+
+        <LearnChallengeTabsBlock
+          challenges={ReactingToInputWithStateChallenges}
+          url="https://react.dev/learn/reacting-to-input-with-state#challenges"
+        />
       </LearnPageLayout>
     </LearnContentLayout>
   )
