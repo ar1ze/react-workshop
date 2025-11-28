@@ -13,7 +13,7 @@ import { UIAsTreePage } from './09-your-ui-as-a-tree'
 
 export const DESCRIBE_THE_UI_PREFIX = 'describing-the-ui'
 
-export const DescribingTheUISectionNavigationConfigUI = [
+const DescribingTheUISectionNavigationConfigUI = [
   section(
     DESCRIBE_THE_UI_PREFIX,
     DescribingTheUISectionPage,

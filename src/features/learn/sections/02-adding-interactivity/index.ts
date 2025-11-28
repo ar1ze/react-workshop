@@ -11,7 +11,7 @@ import { UpdatingArraysPage } from './07-updating-arrays-in-state'
 
 export const ADDING_INTERACTIVITY_PREFIX = 'adding-interactivity'
 
-export const AddingInteractivitySectionNavigationConfigUI = [
+const AddingInteractivitySectionNavigationConfigUI = [
   section(ADDING_INTERACTIVITY_PREFIX, AddingInteractivitySectionPage, [
     page('responding-to-events', RespondingToEventsPage),
     page(
