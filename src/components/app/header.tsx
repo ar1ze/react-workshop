@@ -66,7 +66,7 @@ const MobileNav = ({ isOpen, onClick }: MobileNavProps) => {
           />
         </nav>
         <div className="mx-4 border-t" />
-        <main className="flex flex-col overflow-y-auto">
+        <main className="flex flex-col overflow-y-auto pb-4">
           {(isHomePage(location.pathname) ||
             isLearnPage(location.pathname)) && (
             <LearnNavigationMobileSections onClick={onClick} />
@@ -137,10 +137,11 @@ export const AppHeader = () => {
       window.removeEventListener('scroll', handleScroll, { capture: true })
     }
   }, [])
+
   return (
     <header
       className={cn(
-        'relative flex items-center justify-between border-b border-transparent px-4 py-2 transition-all duration-100',
+        'relative z-50 flex items-center justify-between border-b border-transparent px-4 py-2 transition-all duration-100',
         isScrolled &&
           'bg-background/80 supports-backdrop-filter:bg-background/60 border-border shadow-sm backdrop-blur-md'
       )}
