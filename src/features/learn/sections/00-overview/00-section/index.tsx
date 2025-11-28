@@ -4,19 +4,16 @@ import {
   LearnPageHeaderBlock,
   LearnSectionHeaderBlock,
 } from '@/features/learn/components'
+import { getLearnSectionNodes } from '@/features/learn/hooks'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
-import { LearnNavigationConfig } from '@/features/learn/routes'
-import {
-  ADDING_INTERACTIVITY_PREFIX,
-  DESCRIBE_THE_UI_PREFIX,
-} from '@/features/learn/sections'
-import { normalizePath } from '@/utils/path'
 
 export const OverviewSection = () => {
-  const sections = [DESCRIBE_THE_UI_PREFIX, ADDING_INTERACTIVITY_PREFIX]
-  const nodes = LearnNavigationConfig[0].children?.filter((node) =>
-    sections.includes(normalizePath(node.id))
-  )
+  const nodes = getLearnSectionNodes([
+    'describing-the-ui',
+    'adding-interactivity',
+    'managing-state',
+    'escape-hatches',
+  ])
 
   return (
     <LearnContentLayout>
