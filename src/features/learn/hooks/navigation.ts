@@ -20,18 +20,21 @@ export const useLearnNavigation = (): LearnNavigationGroup[] => {
       'learn',
       'adding-interactivity'
     )
+    const sectionLearnManagingState = joinPaths('learn', 'managing-state')
 
     const sectionPaths = [
       sectionLearn,
       sectionLearnDescribePath,
       sectionLearnInteractivityPath,
+      sectionLearnManagingState,
     ]
 
     const allChildNodes = allNodesFlat.filter(
       (node) =>
         !arePathsEqual(node.to, sectionLearn) &&
         !arePathsEqual(node.to, sectionLearnDescribePath) &&
-        !arePathsEqual(node.to, sectionLearnInteractivityPath)
+        !arePathsEqual(node.to, sectionLearnInteractivityPath) &&
+        !arePathsEqual(node.to, sectionLearnManagingState)
     )
 
     const groupedChildren = groupNodesBySection(allChildNodes, sectionPaths)
