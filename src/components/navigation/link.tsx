@@ -1,4 +1,4 @@
-import type { MouseEventHandler } from 'react'
+import { type MouseEventHandler } from 'react'
 import { NavLink } from 'react-router'
 
 import { type BaseProps } from '@/components/shared/props'
@@ -14,7 +14,6 @@ export const NavigationLinkStyled = ({
   to,
   label,
   className,
-  ...props
 }: NavigationLinkStyledProps) => {
   return (
     <NavLink
@@ -22,12 +21,11 @@ export const NavigationLinkStyled = ({
       to={to}
       className={({ isActive }) =>
         cn(
-          'hover:text-primary transition-colors',
+          'focus-visible:border-ring focus-visible:ring-ring/50 hover:text-primary rounded-md px-2 py-1 transition-colors outline-none focus-visible:ring-[3px]',
           isActive ? 'text-primary' : 'text-muted-foreground',
           className
         )
       }
-      {...props}
     >
       {label}
     </NavLink>
