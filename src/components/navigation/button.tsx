@@ -1,9 +1,9 @@
 import { NavLink, useLocation } from 'react-router'
 
+import { Button, type ButtonProps } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { arePathsEqual } from '@/utils/path'
 
-import { Button, type ButtonProps } from '../ui/button'
 import { type NavigationLink } from './types'
 
 export interface NavigationButtonProps

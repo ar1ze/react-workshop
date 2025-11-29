@@ -1,7 +1,6 @@
+import { BLOG_PAGE_PREFIX } from '@/features/blog/routes'
+import { LEARN_PAGE_PREFIX } from '@/features/learn/routes'
 import { pathStartsWith } from '@/utils/path'
-
-import { BLOG_PAGE_PREFIX } from '../blog'
-import { LEARN_PAGE_PREFIX } from '../learn'
 
 export const isHomePage = (path: string) => {
   return path === '/'

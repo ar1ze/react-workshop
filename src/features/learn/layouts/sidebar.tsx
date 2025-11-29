@@ -2,8 +2,7 @@ import { Outlet } from 'react-router'
 
 import { SidebarLayout } from '@/components/layouts/sidebar'
 import { SidebarInset } from '@/components/ui/sidebar'
-
-import { LearnSidebar } from '../components/sidebar'
+import { LearnSidebar } from '@/features/learn/components'
 
 export const LearnSidebarLayout = () => {
   const sidebar = <LearnSidebar />
