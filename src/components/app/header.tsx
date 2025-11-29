@@ -2,7 +2,7 @@ import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
 
-import { NavigationLinkStyled } from '@/components/navigation'
+import { NavigationLink } from '@/components/navigation'
 import { GithubIcon } from '@/components/shared/icons'
 import { type BaseProps } from '@/components/shared/props'
 import { ThemeButton } from '@/components/shared/theme-button'
@@ -21,12 +21,12 @@ interface NavigationProps {
 }
 
 const BrandLink = ({ onClick: onClose }: NavigationProps) => (
-  <NavigationLinkStyled
+  <NavigationLink
     to="/"
     label="React Workshop"
     className="text-foreground hover:text-foreground px-0 text-xl font-bold"
     onClick={onClose}
-  ></NavigationLinkStyled>
+  ></NavigationLink>
 )
 
 const HeaderActions = ({ className }: BaseProps) => {

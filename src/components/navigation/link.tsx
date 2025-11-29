@@ -6,17 +6,17 @@ import { cn } from '@/lib/utils'
 
 import { type NavigationLinkProps } from './types'
 
-interface NavigationLinkStyledProps extends NavigationLinkProps, BaseProps {
+interface NavigationLinkComponentProps extends NavigationLinkProps, BaseProps {
   activeClassName?: string
   onClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
-export const NavigationLinkStyled = ({
+export const NavigationLink = ({
   to,
   label,
   className,
   activeClassName,
-}: NavigationLinkStyledProps) => {
+}: NavigationLinkComponentProps) => {
   return (
     <NavLink
       key={to}

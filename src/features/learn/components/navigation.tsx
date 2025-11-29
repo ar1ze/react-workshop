@@ -5,7 +5,7 @@ import {
   NavigationAccordionLinks,
   NavigationAccordionTrigger,
   NavigationButton,
-  NavigationLinkStyled,
+  NavigationLink,
   type NavigationNode,
 } from '@/components/navigation'
 import { type BaseProps } from '@/components/shared/props'
@@ -207,7 +207,7 @@ export const LearnNavigationCard = ({
           {nodes &&
             nodes.map((node) => (
               <li key={node.id}>
-                <NavigationLinkStyled
+                <NavigationLink
                   to={node.to}
                   label={node.label}
                   className="transition-all duration-200 hover:underline"
