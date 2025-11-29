@@ -39,22 +39,20 @@ export const LearnNavigationSidebarAccordion = () => {
   const location = useLocation()
 
   const activeGroup = groups.find((group) => {
-    const isSectionActive = group.sectionNode?.to === location.pathname
+    const isSectionActive = arePathsEqual(
+      group.sectionNode?.to ?? '',
+      location.pathname
+    )
     const isChildActive = group.childrenNodes.some((node) =>
       arePathsEqual(node.to, location.pathname)
     )
     return isSectionActive || isChildActive
   })
 
-  const defaultValue = activeGroup?.sectionNode?.id ?? groups[0].sectionNode?.id
+  const activeId = activeGroup?.sectionNode?.id ?? groups[0].sectionNode?.id
 
   return (
-    <Accordion
-      type="single"
-      collapsible
-      className="w-full"
-      defaultValue={defaultValue}
-    >
+    <Accordion type="single" collapsible className="w-full" value={activeId}>
       {groups.map((group) => {
         if (!group.sectionNode) {
           return null
