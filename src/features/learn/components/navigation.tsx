@@ -24,7 +24,7 @@ import {
 } from '@/components/ui/typography'
 import {
   type LearnNavigationGroup,
-  useLearnNavigation,
+  useLearnNavigationGroups,
 } from '@/features/learn/hooks'
 import { LEARN_PAGE_PREFIX } from '@/features/learn/routes'
 import { cn } from '@/lib/utils'
@@ -40,7 +40,7 @@ interface NavigationCardProps extends BaseProps {
 }
 
 export const LearnNavigationSidebarAccordion = () => {
-  const groups = useLearnNavigation()
+  const groups = useLearnNavigationGroups()
   const location = useLocation()
 
   // Find which group contains the current page
@@ -117,7 +117,7 @@ export const LearnNavigationMobileSections = ({
   className,
   onClick,
 }: NavigationProps) => {
-  const groups = useLearnNavigation()
+  const groups = useLearnNavigationGroups()
 
   // Split into Background and Learn React sections
   const backgroundGroups = groups.filter((g) =>

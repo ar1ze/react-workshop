@@ -52,7 +52,7 @@ export const getLearnNodesByPrefix = (
   )
 }
 
-export const useLearnNavigation = (): LearnNavigationGroup[] => {
+export const useLearnNavigationGroups = (): LearnNavigationGroup[] => {
   const groups = useMemo(() => {
     const allNodesFlat = flattenNavigationTree(LearnNavigationConfig)
     const sectionLearn = joinPaths(LEARN_PAGE_PREFIX)
