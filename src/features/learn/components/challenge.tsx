@@ -74,7 +74,7 @@ const SolutionCodeDialog = ({ challenge }: ChallengeProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="secondary" className="flex w-full items-center">
+        <Button variant="outline" className="flex w-full items-center">
           <Code2 className="text-primary" />
           <span className="text-primary font-normal">View Code</span>
         </Button>
