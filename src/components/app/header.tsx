@@ -96,7 +96,7 @@ export const HeaderNavigation = ({
         </Button>
       </div>
       <div className="hidden items-center gap-4 md:flex">
-        <nav className="flex gap-4">
+        <nav className="flex gap-1">
           <AppNavigationDesktopLinks
             className="font-medium"
             onClick={onClick}
