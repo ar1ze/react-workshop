@@ -4,6 +4,7 @@ import { type NavigationNode } from '@/components/navigation'
 import {
   LEARN_PAGE_PREFIX,
   LearnNavigationConfig,
+  LearnNavigationConfigFlat,
 } from '@/features/learn/routes'
 import {
   ADDING_INTERACTIVITY_PREFIX,
@@ -11,7 +12,7 @@ import {
   ESCAPE_HATCHES_PREFIX,
   MANAGING_STATE_PREFIX,
 } from '@/features/learn/sections'
-import { flattenNavigationTree, groupNodesBySection } from '@/utils/navigation'
+import { groupNodesBySection } from '@/utils/navigation'
 import {
   arePathsEqual,
   isSubpath,
@@ -54,7 +55,6 @@ export const getLearnNodesByPrefix = (
 
 export const useLearnNavigationGroups = (): LearnNavigationGroup[] => {
   const groups = useMemo(() => {
-    const allNodesFlat = flattenNavigationTree(LearnNavigationConfig)
     const sectionLearn = joinPaths(LEARN_PAGE_PREFIX)
 
     const sectionLearnDescribePath = joinPaths(
@@ -82,7 +82,7 @@ export const useLearnNavigationGroups = (): LearnNavigationGroup[] => {
       sectionLearnEscapeHatches,
     ]
 
-    const allChildNodes = allNodesFlat.filter(
+    const allChildNodes = LearnNavigationConfigFlat.filter(
       (node) =>
         !arePathsEqual(node.to, sectionLearn) &&
         !arePathsEqual(node.to, sectionLearnDescribePath) &&
@@ -94,7 +94,7 @@ export const useLearnNavigationGroups = (): LearnNavigationGroup[] => {
     const groupedChildren = groupNodesBySection(allChildNodes, sectionPaths)
 
     return sectionPaths.map((sectionPath) => {
-      const sectionNode = allNodesFlat.find((node) =>
+      const sectionNode = LearnNavigationConfigFlat.find((node) =>
         arePathsEqual(node.to, sectionPath)
       )
 
