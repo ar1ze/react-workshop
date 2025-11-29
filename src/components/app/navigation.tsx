@@ -2,16 +2,18 @@ import { useLocation } from 'react-router'
 
 import { AppNavigationLinks } from '@/app/routes'
 import { NavigationButton, NavigationLinkStyled } from '@/components/navigation'
-import type { BaseProps } from '@/components/shared/props'
 import { pathStartsWith } from '@/utils/path'
 
+import { type BaseProps } from '../shared/props'
+
 interface AppNavigationProps extends BaseProps {
-  activeClassname?: string
+  activeClassName?: string
   onClick?: () => void
 }
 
 export const AppNavigationDesktopLinks = ({
   className,
+  activeClassName,
   onClick,
 }: AppNavigationProps) => {
   return AppNavigationLinks.map(({ to, label }) => (
@@ -20,6 +22,7 @@ export const AppNavigationDesktopLinks = ({
       to={to}
       label={label}
       className={className}
+      activeClassName={activeClassName}
       onClick={onClick}
     />
   ))
@@ -27,7 +30,7 @@ export const AppNavigationDesktopLinks = ({
 
 export const AppNavigationMobileButtons = ({
   className,
-  activeClassname,
+  activeClassName,
   onClick,
 }: AppNavigationProps) => {
   const location = useLocation()
@@ -41,7 +44,7 @@ export const AppNavigationMobileButtons = ({
             to={to}
             label={label}
             className={className}
-            activeClassName={activeClassname}
+            activeClassName={activeClassName}
             isActive={isActive}
             onClick={onClick}
           />

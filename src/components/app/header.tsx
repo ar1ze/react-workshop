@@ -1,8 +1,8 @@
 import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { NavLink } from 'react-router'
 import { useLocation } from 'react-router'
 
+import { NavigationLinkStyled } from '@/components/navigation'
 import { GithubIcon } from '@/components/shared/icons'
 import { type BaseProps } from '@/components/shared/props'
 import { ThemeButton } from '@/components/shared/theme-button'
@@ -21,9 +21,12 @@ interface NavigationProps {
 }
 
 const BrandLink = ({ onClick: onClose }: NavigationProps) => (
-  <NavLink to="/" className="text-xl font-bold" onClick={onClose}>
-    <span>React Workshop</span>
-  </NavLink>
+  <NavigationLinkStyled
+    to="/"
+    label="React Workshop"
+    className="text-foreground hover:text-foreground px-0 text-xl font-bold"
+    onClick={onClose}
+  ></NavigationLinkStyled>
 )
 
 const HeaderActions = ({ className }: BaseProps) => {
@@ -62,7 +65,7 @@ const MobileNav = ({ isOpen, onClick }: MobileNavProps) => {
           <AppNavigationMobileButtons
             onClick={onClick}
             className="rounded-4xl px-14 text-lg font-bold"
-            activeClassname="bg-accent"
+            activeClassName="bg-accent"
           />
         </nav>
         <div className="mx-4 border-t" />
@@ -96,9 +99,10 @@ export const HeaderNavigation = ({
         </Button>
       </div>
       <div className="hidden items-center gap-4 md:flex">
-        <nav className="flex gap-1">
+        <nav className="flex gap-0.5">
           <AppNavigationDesktopLinks
-            className="font-medium"
+            className="text-muted-foreground font-medium"
+            activeClassName="text-primary"
             onClick={onClick}
           />
         </nav>

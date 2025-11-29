@@ -1,11 +1,11 @@
 import { Fragment } from 'react'
 import { useLocation } from 'react-router'
-import { NavLink } from 'react-router'
 
 import {
   NavigationAccordionLinks,
   NavigationAccordionTrigger,
   NavigationButton,
+  NavigationLinkStyled,
   type NavigationNode,
 } from '@/components/navigation'
 import { type BaseProps } from '@/components/shared/props'
@@ -207,12 +207,11 @@ export const LearnNavigationCard = ({
           {nodes &&
             nodes.map((node) => (
               <li key={node.id}>
-                <NavLink
+                <NavigationLinkStyled
                   to={node.to}
+                  label={node.label}
                   className="transition-all duration-200 hover:underline"
-                >
-                  {node.label}{' '}
-                </NavLink>
+                />
               </li>
             ))}
         </TypographyList>
