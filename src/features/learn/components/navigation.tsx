@@ -1,5 +1,7 @@
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Fragment } from 'react'
 import { useLocation } from 'react-router'
+import { NavLink } from 'react-router'
 
 import {
   NavigationAccordionLinks,
@@ -14,6 +16,7 @@ import {
   AccordionContent,
   AccordionItem,
 } from '@/components/ui/accordion'
+import { Button } from '@/components/ui/button'
 import { CardContent, CardHeader } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import {
@@ -26,7 +29,10 @@ import {
   type LearnNavigationGroup,
   useLearnNavigationGroups,
 } from '@/features/learn/hooks'
-import { LEARN_PAGE_PREFIX } from '@/features/learn/routes'
+import {
+  LEARN_PAGE_PREFIX,
+  LearnNavigationConfigFlat,
+} from '@/features/learn/routes'
 import { cn } from '@/lib/utils'
 import { arePathsEqual } from '@/utils/path'
 
@@ -217,5 +223,80 @@ export const LearnNavigationCard = ({
         </TypographyList>
       </CardContent>
     </TypographyCard>
+  )
+}
+
+export const LearnNavigationPreviousNext = ({ className }: BaseProps) => {
+  const location = useLocation()
+
+  const currentIndex = LearnNavigationConfigFlat.findIndex((node) =>
+    arePathsEqual(node.to, location.pathname)
+  )
+
+  if (currentIndex === -1) return null
+
+  const prevNode = LearnNavigationConfigFlat[currentIndex - 1]
+  const nextNode = LearnNavigationConfigFlat[currentIndex + 1]
+
+  return (
+    <div
+      className={cn('flex flex-col md:flex-row md:justify-between', className)}
+    >
+      <div>
+        {prevNode ? (
+          <Button
+            variant="ghost"
+            className="group h-auto w-full justify-start px-4 py-4 whitespace-normal"
+            asChild
+          >
+            <NavLink to={prevNode.to}>
+              <div className="grid grid-cols-[auto_1fr] items-center gap-x-1">
+                <ChevronLeft
+                  className="mr-2 size-5 shrink-0 transition-transform"
+                  strokeWidth={3}
+                />
+                <div className="flex min-w-0 flex-col items-start text-left">
+                  <span className="text-muted-foreground text-xs font-semibold tracking-wider uppercase">
+                    Previous
+                  </span>
+                  <span className="text-foreground w-full truncate text-base font-medium group-hover:underline">
+                    {prevNode.label}
+                  </span>
+                </div>
+              </div>
+            </NavLink>
+          </Button>
+        ) : (
+          <div />
+        )}
+      </div>
+
+      <div>
+        {nextNode && (
+          <Button
+            variant="ghost"
+            className="group h-auto w-full justify-end px-4 py-4"
+            asChild
+          >
+            <NavLink to={nextNode.to}>
+              <div className="grid grid-cols-[1fr_auto] items-center gap-x-1">
+                <div className="flex min-w-0 flex-col items-end text-right">
+                  <span className="text-muted-foreground text-xs font-semibold tracking-wider uppercase">
+                    Next
+                  </span>
+                  <span className="text-foreground w-full truncate text-base font-medium group-hover:underline">
+                    {nextNode.label}
+                  </span>
+                </div>
+                <ChevronRight
+                  className="ml-2 size-5 shrink-0 transition-transform"
+                  strokeWidth={3}
+                />
+              </div>
+            </NavLink>
+          </Button>
+        )}
+      </div>
+    </div>
   )
 }
