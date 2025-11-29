@@ -1,4 +1,8 @@
-import { navigationToRoutes, section } from '@/utils/navigation'
+import {
+  flattenNavigationTree,
+  navigationToRoutes,
+  section,
+} from '@/utils/navigation'
 
 import { LearnSidebarLayout } from './layouts/sidebar'
 import {
@@ -25,5 +29,9 @@ export const LearnNavigationConfig = [
     'Overview'
   ),
 ]
+
+export const LearnNavigationConfigFlat = flattenNavigationTree(
+  LearnNavigationConfig
+)
 
 export const LearnNavigationRoutes = navigationToRoutes(LearnNavigationConfig)
