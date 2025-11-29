@@ -20,7 +20,7 @@ export const NavigationButton = ({
   activeClassName,
   variant = 'ghost',
   isActive: isActiveProp,
-  ...props
+  ...buttonProps
 }: NavigationButtonProps) => {
   const location = useLocation()
 
@@ -34,7 +34,7 @@ export const NavigationButton = ({
       asChild
       variant={variant}
       className={cn(className, isActive && activeClassName)}
-      {...props}
+      {...buttonProps}
     >
       <NavLink to={to}>{label}</NavLink>
     </Button>
