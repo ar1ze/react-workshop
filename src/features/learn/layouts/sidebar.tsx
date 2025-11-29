@@ -24,7 +24,7 @@ export const LearnSidebarLayout = () => {
         className="h-full min-h-0 md:[--sidebar-width:16rem]! lg:[--sidebar-width:18rem]!"
       >
         <SidebarInset className="overflow-hidden">
-          <div ref={scrollRef} className="h-full w-full overflow-y-auto">
+          <div ref={scrollRef} className="flex h-full w-full overflow-y-auto">
             <Outlet />
           </div>
         </SidebarInset>
