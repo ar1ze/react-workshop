@@ -1,7 +1,7 @@
 import { ExternalLink, type LucideProps } from 'lucide-react'
 
 import type { BaseProps } from '@/components/shared/props'
-import { Button } from '@/components/ui/button'
+import { Button, type ButtonProps } from '@/components/ui/button'
 import {
   TypographyH1,
   TypographyH2,
@@ -16,27 +16,25 @@ interface BasePageHeaderProps extends BaseProps {
 
 interface ExternalButtonProps {
   url: string
-  type: 'header' | 'section'
+  buttonProps?: ButtonProps
+  iconProps?: LucideProps
 }
 
 const BasePageHeader = ({ className, children }: BaseProps) => {
   return <div className={cn('flex flex-col', className)}>{children}</div>
 }
 
-const ExternalButton = ({ url, type }: ExternalButtonProps) => {
-  const isHeader = type === 'header'
-  const iconProps: LucideProps = {
-    className: `${isHeader ? 'mt-0.5 size-5 md:size-6' : 'mt-0.5 size-4 md:size-5 md:mt-1'}`,
-    strokeWidth: isHeader ? 4 : 3,
-  }
-  const buttonSize = isHeader ? 'icon' : 'icon-sm'
-
+const ExternalButton = ({
+  url,
+  buttonProps,
+  iconProps,
+}: ExternalButtonProps) => {
   return (
     <Button
       variant="ghost"
       asChild
-      size={buttonSize}
       className="hover:bg-background dark:hover:bg-background"
+      {...buttonProps}
     >
       <a href={url} target="_blank" rel="noopener noreferrer">
         <ExternalLink {...iconProps} />
@@ -53,9 +51,19 @@ export const LearnPageHeaderBlock = ({
 }: BasePageHeaderProps) => {
   return (
     <BasePageHeader className={cn('gap-3 md:gap-4', className)}>
-      <div className="flex items-center gap-0.5 md:gap-1">
+      <div className="flex items-center md:gap-1">
         <TypographyH1>{title}</TypographyH1>
-        {url && <ExternalButton url={url} type="header" />}
+        {url && (
+          <ExternalButton
+            url={url}
+            buttonProps={{ size: 'icon' }}
+            iconProps={{
+              className:
+                'mt-[1px] size-[var(--text-xl)] md:size-[var(--text-2xl)] ',
+              strokeWidth: 4,
+            }}
+          />
+        )}
       </div>
       {children && <TypographyLarge>{children}</TypographyLarge>}
     </BasePageHeader>
@@ -71,8 +79,18 @@ export const LearnSectionHeaderBlock = ({
   return (
     <BasePageHeader className={className}>
       <div className="flex items-center">
-        <TypographyH2 className="border-none">{title}</TypographyH2>
-        {url && <ExternalButton url={url} type="section" />}
+        <TypographyH2>{title}</TypographyH2>
+        {url && (
+          <ExternalButton
+            url={url}
+            buttonProps={{ size: 'icon' }}
+            iconProps={{
+              className:
+                'mt-[1px] -ml-1 md:mt-0.5 size-[var(--text-base)] md:size-[var(--text-lg)]',
+              strokeWidth: 3,
+            }}
+          />
+        )}
       </div>
       {children}
     </BasePageHeader>
