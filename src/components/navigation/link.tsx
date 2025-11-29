@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 import { type NavigationLink } from './types'
 
 interface NavigationLinkStyledProps extends NavigationLink, BaseProps {
+  activeStyle?: boolean
   onClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
@@ -14,6 +15,7 @@ export const NavigationLinkStyled = ({
   to,
   label,
   className,
+  activeStyle = true,
 }: NavigationLinkStyledProps) => {
   return (
     <NavLink
@@ -22,7 +24,7 @@ export const NavigationLinkStyled = ({
       className={({ isActive }) =>
         cn(
           'focus-visible:border-ring focus-visible:ring-ring/50 hover:text-primary rounded-md px-2 py-1 transition-colors outline-none focus-visible:ring-[3px]',
-          isActive ? 'text-primary' : 'text-muted-foreground',
+          isActive && activeStyle ? 'text-primary' : 'text-muted-foreground',
           className
         )
       }
