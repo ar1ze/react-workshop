@@ -44,7 +44,7 @@ export const NavigationAccordionTrigger = ({
         <Link
           to={sectionNode.to}
           className={cn(
-            'focus-visible:border-ring focus-visible:ring-ring/50 hover:bg-accent flex flex-1 items-center justify-between gap-4 rounded-md px-3 py-3 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50',
+            'focus-visible:border-ring focus-visible:ring-ring/50 hover:bg-accent flex flex-1 items-center justify-between gap-4 rounded-md px-3 py-3 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] focus-visible:ring-inset disabled:pointer-events-none disabled:opacity-50',
             '[&[data-state=open]>svg]:rotate-90',
             isActive ? 'bg-accent text-accent-foreground' : 'text-foreground',
             className
@@ -84,7 +84,7 @@ export function NavigationAccordionLinks({
         <Link
           to={node.to}
           className={cn(
-            'focus-visible:border-ring focus-visible:ring-ring/50 hover:bg-accent flex items-center rounded-md px-3 py-3 text-xs transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50',
+            'focus-visible:border-ring focus-visible:ring-ring/50 hover:bg-accent flex items-center rounded-md px-3 py-3 text-xs transition-all outline-none focus-visible:ring-[3px] focus-visible:ring-inset disabled:pointer-events-none disabled:opacity-50',
             className,
             isActive ? 'bg-accent' : 'text-accent-foreground',
             isActive && activeClassName
