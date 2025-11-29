@@ -4,10 +4,10 @@ import { Button, type ButtonProps } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { arePathsEqual } from '@/utils/path'
 
-import { type NavigationLink } from './types'
+import { type NavigationLinkProps } from './types'
 
 export interface NavigationButtonProps
-  extends NavigationLink,
+  extends NavigationLinkProps,
     Omit<ButtonProps, 'asChild'> {
   activeClassName?: string
   isActive?: boolean

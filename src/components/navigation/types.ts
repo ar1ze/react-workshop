@@ -3,7 +3,7 @@ import type { ComponentType } from 'react'
 /**
  * Basic properties for a navigation link.
  */
-export interface NavigationLink {
+export interface NavigationLinkProps {
   /**
    * URL path the link points to (e.g., "/dashboard").
    */
@@ -16,9 +16,9 @@ export interface NavigationLink {
 
 /**
  * A node in the navigation tree, used for generating routes and menus.
- * Extends `NavigationLink` with properties for routing and nesting.
+ * Extends `NavigationLinkProps` with properties for routing and nesting.
  */
-export interface NavigationNode extends NavigationLink {
+export interface NavigationNode extends NavigationLinkProps {
   /**
    * Unique identifier, also used for path segments and React keys.
    */

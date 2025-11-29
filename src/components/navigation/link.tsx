@@ -4,9 +4,9 @@ import { NavLink } from 'react-router'
 import { type BaseProps } from '@/components/shared/props'
 import { cn } from '@/lib/utils'
 
-import { type NavigationLink } from './types'
+import { type NavigationLinkProps } from './types'
 
-interface NavigationLinkStyledProps extends NavigationLink, BaseProps {
+interface NavigationLinkStyledProps extends NavigationLinkProps, BaseProps {
   activeClassName?: string
   onClick?: MouseEventHandler<HTMLAnchorElement>
 }
