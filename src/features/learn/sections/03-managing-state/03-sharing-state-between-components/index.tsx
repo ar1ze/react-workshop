@@ -7,10 +7,13 @@ import {
   TypographyP,
 } from '@/components/ui/typography'
 import {
+  LearnChallengeTabsBlock,
   LearnPageHeaderBlock,
   LearnSectionHeaderBlock,
 } from '@/features/learn/components'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
+
+import { SharingStatBetweenComponentsChallenges } from './challenges'
 
 export const SharingStatePage = () => {
   return (
@@ -133,6 +136,11 @@ function Panel({ title, isActive, onShow }) {
             multiple components need it, lift it up.
           </TypographyP>
         </LearnSectionHeaderBlock>
+
+        <LearnChallengeTabsBlock
+          challenges={SharingStatBetweenComponentsChallenges}
+          url="https://react.dev/learn/sharing-state-between-components#challenges"
+        />
       </LearnPageLayout>
     </LearnContentLayout>
   )
