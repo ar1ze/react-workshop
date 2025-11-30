@@ -36,7 +36,12 @@ const ExternalButton = ({
       className="hover:bg-background dark:hover:bg-background"
       {...buttonProps}
     >
-      <a href={url} target="_blank" rel="noopener noreferrer">
+      <a
+        href={url}
+        title="Open React Docs"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <ExternalLink {...iconProps} />
       </a>
     </Button>
