@@ -1,9 +1,9 @@
-import { ArrowLeft, ArrowRight, Code2, Menu, RotateCcw } from 'lucide-react'
+import { Code2, RotateCcw } from 'lucide-react'
 import { type ComponentType, useState } from 'react'
 
 import { CodeBlock } from '@/components/shared/code-block'
+import { TabsWithArrows } from '@/components/shared/tabs'
 import { Button } from '@/components/ui/button'
-import { ButtonGroup, ButtonGroupSeparator } from '@/components/ui/button-group'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   Dialog,
@@ -13,13 +13,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { TabsContent } from '@/components/ui/tabs'
 
 import { LearnSectionHeaderBlock } from './header-blocks'
 
@@ -44,27 +38,12 @@ interface ChallengeProps {
   challenge: Challenge
 }
 
-interface ChallengeListProps {
-  challenges: Challenge[]
-  values: string[]
-  activeTab: string
-  onSelect: (value: string) => void
-  onPrevious: () => void
-  onNext: () => void
-}
-
-interface ChallengeContentProps {
-  challenges: Challenge[]
-  values: string[]
-}
-
-const generateValues = (challenges: Challenge[]) => {
-  return challenges.map((challenge) =>
-    challenge.title.toLowerCase().split(' ').slice(1).join('-')
-  )
-}
-
 const SolutionCodeDialog = ({ challenge }: ChallengeProps) => {
+  const tabItems = [
+    { title: 'My Solution', value: 'solution' },
+    { title: 'Starter Code', value: 'starter' },
+  ]
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -79,21 +58,18 @@ const SolutionCodeDialog = ({ challenge }: ChallengeProps) => {
             Review the starter code and the final solution below.
           </DialogDescription>
         </DialogHeader>
-        <Tabs
+        <TabsWithArrows
+          items={tabItems}
           defaultValue="solution"
           className="flex flex-1 flex-col overflow-hidden"
         >
-          <TabsList className="w-fit">
-            <TabsTrigger value="solution">My Solution</TabsTrigger>
-            <TabsTrigger value="starter">Starter Code</TabsTrigger>
-          </TabsList>
-          <TabsContent value="solution" className="mt-4 flex-1 overflow-auto">
+          <TabsContent value="solution" className="flex-1 overflow-auto">
             <CodeBlock code={challenge.solutionCode} />
           </TabsContent>
-          <TabsContent value="starter" className="mt-4 flex-1 overflow-auto">
+          <TabsContent value="starter" className="flex-1 overflow-auto">
             <CodeBlock code={challenge.problemCode} />
           </TabsContent>
-        </Tabs>
+        </TabsWithArrows>
       </DialogContent>
     </Dialog>
   )
@@ -142,154 +118,29 @@ const SolutionCard = ({ challenge }: ChallengeProps) => {
   )
 }
 
-const ChallengeMobileNav = ({
-  challenges,
-  values,
-  activeTab,
-  onSelect,
-}: Pick<
-  ChallengeListProps,
-  'challenges' | 'values' | 'activeTab' | 'onSelect'
->) => {
-  const activeIndex = values.indexOf(activeTab)
-  const activeLabel = challenges[activeIndex]?.title || 'Select Challenge'
-
-  return (
-    <div className="md:hidden">
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild className="flex w-full">
-          <Button
-            variant="outline"
-            size="default"
-            className="grid grid-cols-[auto_1fr]"
-          >
-            <span className="truncate text-left text-base font-semibold">
-              {activeLabel}
-            </span>
-            <Menu className="size-5 shrink-0 place-self-end" />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent
-          align="end"
-          className="w-[calc(100vw-2rem)] p-2 sm:w-auto"
-        >
-          {challenges.map((challenge, index) => (
-            <DropdownMenuItem
-              key={values[index]}
-              onClick={() => onSelect(values[index])}
-              className={activeTab === values[index] ? 'bg-accent' : ''}
-            >
-              {challenge.title}
-            </DropdownMenuItem>
-          ))}
-        </DropdownMenuContent>
-      </DropdownMenu>
-    </div>
-  )
-}
-
-const ChallengeDesktopNav = ({
-  challenges,
-  values,
-  onPrevious,
-  onNext,
-}: Pick<
-  ChallengeListProps,
-  'challenges' | 'values' | 'onPrevious' | 'onNext'
->) => {
-  return (
-    <div className="hidden items-center justify-between md:flex">
-      <TabsList className="justify-start overflow-x-auto">
-        {challenges.map((challenge, index) => (
-          <TabsTrigger key={values[index]} value={values[index]}>
-            {challenge.title}
-          </TabsTrigger>
-        ))}
-      </TabsList>
-      <ButtonGroup>
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={onPrevious}
-          className="h-8"
-        >
-          <ArrowLeft />
-        </Button>
-        <ButtonGroupSeparator />
-        <Button variant="outline" size="icon" onClick={onNext} className="h-8">
-          <ArrowRight />
-        </Button>
-      </ButtonGroup>
-    </div>
-  )
-}
-
-const ChallengeList = (props: ChallengeListProps) => {
-  return (
-    <>
-      <ChallengeMobileNav
-        challenges={props.challenges}
-        values={props.values}
-        activeTab={props.activeTab}
-        onSelect={props.onSelect}
-      />
-      <ChallengeDesktopNav
-        challenges={props.challenges}
-        values={props.values}
-        onPrevious={props.onPrevious}
-        onNext={props.onNext}
-      />
-    </>
-  )
-}
-
-const ChallengeContent = ({ challenges, values }: ChallengeContentProps) => {
-  return (
-    <>
-      {challenges.map((challenge, index) => (
-        <TabsContent key={values[index]} value={values[index]}>
-          <div className="grid gap-4 lg:grid-cols-2">
-            <ProblemCard challenge={challenge} />
-            <SolutionCard challenge={challenge} />
-          </div>
-        </TabsContent>
-      ))}
-    </>
-  )
-}
-
 const ChallengeTabs = ({ challenges }: ChallengesProps) => {
-  const values = generateValues(challenges)
-  const [activeTab, setActiveTab] = useState(values[0])
-
-  const currentIndex = values.indexOf(activeTab)
-
-  const handlePrevious = () => {
-    const newIndex = (currentIndex - 1 + values.length) % values.length
-    setActiveTab(values[newIndex])
-  }
-
-  const handleNext = () => {
-    const newIndex = (currentIndex + 1) % values.length
-    setActiveTab(values[newIndex])
-  }
+  const tabItems = challenges.map((challenge) => {
+    const value = challenge.title.toLowerCase().split(' ').slice(1).join('-')
+    return {
+      title: challenge.title,
+      value: value,
+    }
+  })
 
   return (
-    <Tabs
-      value={activeTab}
-      onValueChange={setActiveTab}
-      className="w-full gap-4"
-    >
-      <ChallengeList
-        challenges={challenges}
-        values={values}
-        activeTab={activeTab}
-        onSelect={setActiveTab}
-        onPrevious={handlePrevious}
-        onNext={handleNext}
-      />
-      <ChallengeContent challenges={challenges} values={values} />
-    </Tabs>
+    <TabsWithArrows items={tabItems}>
+      {challenges.map((challenge, index) => {
+        const value = tabItems[index].value
+        return (
+          <TabsContent key={value} value={value}>
+            <div className="grid gap-4 lg:grid-cols-2">
+              <ProblemCard challenge={challenge} />
+              <SolutionCard challenge={challenge} />
+            </div>
+          </TabsContent>
+        )
+      })}
+    </TabsWithArrows>
   )
 }
 
