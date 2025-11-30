@@ -13,7 +13,7 @@ import {
 } from '@/features/learn/components'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
 
-import { StateAsASnapshotChallenges } from './challenge'
+import { StateAsASnapshotChallenges } from './challenges'
 
 export const StateAsSnapshotPage = () => {
   return (

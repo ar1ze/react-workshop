@@ -13,7 +13,7 @@ import {
 } from '@/features/learn/components'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
 
-import { UpdatingArraysInStateChallenges } from './challenge'
+import { UpdatingArraysInStateChallenges } from './challenges'
 
 export const UpdatingArraysPage = () => {
   return (

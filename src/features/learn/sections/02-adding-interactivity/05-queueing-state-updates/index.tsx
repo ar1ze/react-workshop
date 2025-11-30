@@ -11,7 +11,7 @@ import {
 } from '@/features/learn/components'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
 
-import { QueueingStatesChallenges } from './challenge'
+import { QueueingStatesChallenges } from './challenges'
 
 export const StateUpdatesQueuePage = () => {
   return (

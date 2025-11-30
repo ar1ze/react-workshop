@@ -13,7 +13,7 @@ import {
 } from '@/features/learn/components'
 import { LearnContentLayout, LearnPageLayout } from '@/features/learn/layouts'
 
-import { ReactingToInputWithStateChallenges } from './challenge'
+import { ReactingToInputWithStateChallenges } from './challenges'
 
 export const ReactingToInputPage = () => {
   return (
