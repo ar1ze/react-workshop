@@ -1,4 +1,5 @@
 import { ExternalLink, type LucideProps } from 'lucide-react'
+import type { AnchorHTMLAttributes } from 'react'
 
 import type { BaseProps } from '@/components/shared/props'
 import { Button, type ButtonProps } from '@/components/ui/button'
@@ -12,12 +13,16 @@ import { cn } from '@/lib/utils'
 interface BasePageHeaderProps extends BaseProps {
   title: string
   url?: string
+  buttonProps?: ButtonProps
+  iconProps?: LucideProps
+  linkProps?: AnchorHTMLAttributes<HTMLAnchorElement>
 }
 
 interface ExternalButtonProps {
   url: string
   buttonProps?: ButtonProps
   iconProps?: LucideProps
+  linkProps?: AnchorHTMLAttributes<HTMLAnchorElement>
 }
 
 const BasePageHeader = ({ className, children }: BaseProps) => {
@@ -28,6 +33,7 @@ const ExternalButton = ({
   url,
   buttonProps,
   iconProps,
+  linkProps,
 }: ExternalButtonProps) => {
   return (
     <Button
@@ -41,6 +47,7 @@ const ExternalButton = ({
         title="Open React Docs"
         target="_blank"
         rel="noopener noreferrer"
+        {...linkProps}
       >
         <ExternalLink {...iconProps} />
       </a>
@@ -53,6 +60,9 @@ export const LearnPageHeaderBlock = ({
   url,
   className,
   children,
+  buttonProps,
+  iconProps,
+  linkProps,
 }: BasePageHeaderProps) => {
   return (
     <BasePageHeader className={cn('gap-3 md:gap-4', className)}>
@@ -61,12 +71,14 @@ export const LearnPageHeaderBlock = ({
         {url && (
           <ExternalButton
             url={url}
-            buttonProps={{ size: 'icon' }}
+            buttonProps={{ size: 'icon', ...buttonProps }}
             iconProps={{
               className:
                 'mt-[1px] size-[var(--text-xl)] md:size-[var(--text-2xl)] ',
               strokeWidth: 4,
+              ...iconProps,
             }}
+            linkProps={linkProps}
           />
         )}
       </div>
@@ -80,6 +92,9 @@ export const LearnSectionHeaderBlock = ({
   url,
   className,
   children,
+  buttonProps,
+  iconProps,
+  linkProps,
 }: BasePageHeaderProps) => {
   return (
     <BasePageHeader className={className}>
@@ -88,12 +103,14 @@ export const LearnSectionHeaderBlock = ({
         {url && (
           <ExternalButton
             url={url}
-            buttonProps={{ size: 'icon' }}
+            buttonProps={{ size: 'icon', ...buttonProps }}
             iconProps={{
               className:
                 'mt-[1px] -ml-1 md:mt-0.5 size-[var(--text-base)] md:size-[var(--text-lg)]',
               strokeWidth: 3,
+              ...iconProps,
             }}
+            linkProps={linkProps}
           />
         )}
       </div>
