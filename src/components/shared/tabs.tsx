@@ -162,7 +162,7 @@ export function TabsWithArrows({
         onNext={handleNext}
       />
 
-      <div>{children}</div>
+      <div className="flex min-h-0 flex-1 flex-col">{children}</div>
     </Tabs>
   )
 }
