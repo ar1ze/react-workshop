@@ -153,6 +153,7 @@ export const LearnChallengeTabsBlock = ({
       title="Try out some challenges"
       url={url}
       className="gap-5 md:gap-6"
+      linkProps={{ title: 'Open React Challenges' }}
     >
       <ChallengeTabs challenges={challenges} />
     </LearnSectionHeaderBlock>

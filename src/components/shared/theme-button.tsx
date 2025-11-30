@@ -19,7 +19,7 @@ export const ThemeButton = ({ buttonProps, iconProps }: ThemeButtonProps) => {
     theme === 'dark' ? <Sun {...iconProps} /> : <Moon {...iconProps} />
 
   return (
-    <Button {...buttonProps} onClick={toggleTheme}>
+    <Button {...buttonProps} onClick={toggleTheme} title="Toggle theme">
       {icon}
     </Button>
   )

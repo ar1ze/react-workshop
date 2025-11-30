@@ -35,6 +35,7 @@ const HeaderActions = ({ className }: BaseProps) => {
       <Button asChild variant="ghost" size="icon-lg">
         <a
           href="https://github.com/ar1ze/react-workshop"
+          title="Open GitHub repository"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -94,7 +95,12 @@ export const HeaderNavigation = ({
   return (
     <>
       <div className="md:hidden">
-        <Button onClick={onClick} variant="ghost" size="icon-lg">
+        <Button
+          title={isOpen ? 'Close Menu' : 'Open Menu'}
+          onClick={onClick}
+          variant="ghost"
+          size="icon-lg"
+        >
           {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
         </Button>
       </div>
