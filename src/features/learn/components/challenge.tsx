@@ -4,13 +4,7 @@ import { type ComponentType, useState } from 'react'
 import { CodeBlock } from '@/components/shared/code-block'
 import { Button } from '@/components/ui/button'
 import { ButtonGroup, ButtonGroupSeparator } from '@/components/ui/button-group'
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   Dialog,
   DialogContent,
@@ -74,9 +68,8 @@ const SolutionCodeDialog = ({ challenge }: ChallengeProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="flex w-full items-center">
-          <Code2 className="text-primary" />
-          <span className="text-primary font-normal">View Code</span>
+        <Button variant="ghost" title="View Code" size="icon">
+          <Code2 className="shrink-0" />
         </Button>
       </DialogTrigger>
       <DialogContent className="flex max-h-[90vh] w-full max-w-[90vw] flex-col md:max-w-2xl">
@@ -130,21 +123,21 @@ const SolutionCard = ({ challenge }: ChallengeProps) => {
     <Card className="gap-4">
       <CardHeader className="flex flex-row items-center justify-between space-y-0">
         <CardTitle>My Solution</CardTitle>
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={handleReset}
-          title="Rerender Solution"
-        >
-          <RotateCcw className="size-4" />
-        </Button>
+        <div className="flex items-center">
+          <SolutionCodeDialog challenge={challenge} />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={handleReset}
+            title="Rerender Solution"
+          >
+            <RotateCcw className="size-4 shrink-0" />
+          </Button>
+        </div>
       </CardHeader>
-      <CardContent className="flex-cols flex items-center justify-center">
+      <CardContent className="flex-cols flex items-center justify-center pb-3">
         <challenge.SolutionComponent key={resetKey} />
       </CardContent>
-      <CardFooter className="mt-auto px-6">
-        <SolutionCodeDialog challenge={challenge} />
-      </CardFooter>
     </Card>
   )
 }
