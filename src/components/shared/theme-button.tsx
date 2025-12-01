@@ -1,6 +1,6 @@
 import { type LucideProps, Moon, Sun } from 'lucide-react'
+import { useTheme } from 'next-themes'
 
-import { useTheme } from '@/app/providers'
 import { Button, type ButtonProps } from '@/components/ui/button'
 
 interface ThemeButtonProps {

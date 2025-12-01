@@ -13,7 +13,7 @@
     <script>
       const root = document.documentElement
 
-      const storageKey = 'vite-ui-theme';
+      const storageKey = 'theme';
       const savedTheme = localStorage.getItem(storageKey);
       const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const hasNoSavedTheme = !savedTheme;

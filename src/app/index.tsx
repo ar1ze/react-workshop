@@ -1,9 +1,10 @@
-import { ThemeProvider } from './providers'
+import { ThemeProvider } from 'next-themes'
+
 import { AppRouter } from './router'
 
 export const App = () => {
   return (
-    <ThemeProvider>
+    <ThemeProvider attribute="class">
       <AppRouter />
     </ThemeProvider>
   )
