@@ -17,7 +17,7 @@ export const ManagingStateSectionNavigationConfigUI = [
     page('choosing-the-state-structure', ChoosingStateStructurePage),
     page('sharing-state-between-components', SharingStatePage),
     page('preserving-and-resetting-state', PreservingStatePage),
-    page('extracting-state-logic-page', ExtractingStateLogicPage),
+    page('extracting-state-logic-into-a-reducer', ExtractingStateLogicPage),
     page('passing-data-deeply-with-context', PassingDataDeeplyPage),
     page('scaling-up-with-reducer-and-context', ScalingUpPage),
   ]),
