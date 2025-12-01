@@ -1,5 +1,9 @@
+import { useTheme } from 'next-themes'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import {
+  oneLight,
+  vscDarkPlus,
+} from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 import { cn } from '@/lib/utils'
 
@@ -15,16 +19,14 @@ export const CodeBlock = ({
   language = 'typescript',
   className,
 }: CodeBlockProps) => {
+  const { theme } = useTheme()
+  const themeStyle = theme === 'dark' ? vscDarkPlus : oneLight
+
   return (
-    <div
-      className={cn(
-        'grid max-w-full overflow-auto rounded-md bg-[#1e1e1e]',
-        className
-      )}
-    >
+    <div className={cn('grid max-w-full overflow-auto rounded-md', className)}>
       <SyntaxHighlighter
         language={language}
-        style={vscDarkPlus}
+        style={themeStyle}
         wrapLongLines={true}
         customStyle={{
           margin: 0,
