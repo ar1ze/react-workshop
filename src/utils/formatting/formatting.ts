@@ -9,6 +9,7 @@ const STOP_WORDS = new Set([
   'and',
   'but',
   'or',
+  'into',
   'for',
   'nor',
   'on',
